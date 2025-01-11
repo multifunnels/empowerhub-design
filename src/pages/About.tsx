@@ -31,8 +31,14 @@ const About = () => {
       </nav>
 
       <div className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-8">אודות TSI</h1>
+        <h1 className="text-4xl font-bold text-center mb-8">TSI - Think Success Inspire</h1>
         <div className="max-w-3xl mx-auto space-y-8">
+          <section className="bg-white rounded-lg shadow-md p-8">
+            <p className="text-gray-700 leading-relaxed text-right">
+              צוות הדרכה מוביל בתחומו בהעברת סדנאות בהובלתה של שרון אייזן עם ניסיון צוותי של עשרות שנים כתחום עיסוק עיקרי המסור להון האנושי והצלחתו עם מקצועיות ברמות הגבוהות ביותר, הקשבה לצרכים והאתגרים מקסום הפוטנציאל האנושי כשליחות.
+            </p>
+          </section>
+
           <section className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-semibold mb-4">החזון שלנו</h2>
             <p className="text-gray-700 leading-relaxed">
