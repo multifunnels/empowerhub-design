@@ -29,7 +29,7 @@ const Index = () => {
       <nav className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-xl font-bold text-primary">OrgEmpower</div>
+            <div className="text-xl font-bold text-primary">tsionline</div>
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost">קורסים</Button>
               <Button variant="ghost">אודות</Button>
@@ -80,7 +80,7 @@ const Index = () => {
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
-              <h3 className="font-bold mb-4">OrgEmpower</h3>
+              <h3 className="font-bold mb-4">tsionline</h3>
               <p className="text-gray-400">מעצימים ארגונים דרך למידה אפקטיבית</p>
             </div>
             <div>
@@ -115,7 +115,7 @@ const Index = () => {
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>© 2024 OrgEmpower. כל הזכויות שמורות.</p>
+            <p>© 2024 tsionline. כל הזכויות שמורות.</p>
           </div>
         </div>
       </footer>
