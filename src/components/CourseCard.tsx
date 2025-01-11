@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowLeft } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -26,8 +26,8 @@ export const CourseCard = ({ title, description, icon }: CourseCardProps) => {
       </CardHeader>
       <CardContent>
         <Button variant="ghost" className="group">
-          Learn More{" "}
-          <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-2" />
+          למד עוד{" "}
+          <ArrowLeft className="mr-2 h-4 w-4 transition-transform group-hover:-translate-x-2" />
         </Button>
       </CardContent>
     </Card>
