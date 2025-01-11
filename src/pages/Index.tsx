@@ -29,7 +29,10 @@ const Index = () => {
       <nav className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <div className="text-xl font-bold text-primary">tsionline</div>
+            <div className="flex items-center gap-2">
+              <img src="/tsi-logo.png" alt="TSI Logo" className="h-8 w-auto" />
+              <span className="text-xl font-bold text-primary">tsionline</span>
+            </div>
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost">קורסים</Button>
               <Button variant="ghost">אודות</Button>
