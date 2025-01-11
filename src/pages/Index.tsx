@@ -48,7 +48,7 @@ const Index = () => {
               <Button variant="ghost">משאבים</Button>
               <Button variant="ghost">צור קשר</Button>
             </div>
-            <Button>הרשמה</Button>
+            <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>הרשמה</Button>
           </div>
         </div>
       </nav>
