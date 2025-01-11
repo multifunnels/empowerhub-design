@@ -9,18 +9,18 @@ const Index = () => {
   const courses = [
     {
       icon: <Users className="h-6 w-6 text-primary" />,
-      title: "Leadership Development",
-      description: "Master essential leadership skills for the modern workplace",
+      title: "פיתוח מנהיגות",
+      description: "שלוט במיומנויות מנהיגות חיוניות למקום העבודה המודרני",
     },
     {
       icon: <MessageSquare className="h-6 w-6 text-primary" />,
-      title: "Conflict Resolution",
-      description: "Learn effective strategies to manage workplace conflicts",
+      title: "פתרון קונפליקטים",
+      description: "למד אסטרטגיות יעילות לניהול קונפליקטים במקום העבודה",
     },
     {
       icon: <Target className="h-6 w-6 text-primary" />,
-      title: "Team Building",
-      description: "Build and maintain high-performing teams",
+      title: "בניית צוות",
+      description: "בנה ותחזק צוותים בעלי ביצועים גבוהים",
     },
   ];
 
@@ -31,13 +31,13 @@ const Index = () => {
           <div className="flex justify-between items-center">
             <div className="text-xl font-bold text-primary">OrgEmpower</div>
             <div className="hidden md:flex space-x-6">
-              <Button variant="ghost">Courses</Button>
-              <Button variant="ghost">About Us</Button>
-              <Button variant="ghost">Testimonials</Button>
-              <Button variant="ghost">Resources</Button>
-              <Button variant="ghost">Contact</Button>
+              <Button variant="ghost">קורסים</Button>
+              <Button variant="ghost">אודות</Button>
+              <Button variant="ghost">המלצות</Button>
+              <Button variant="ghost">משאבים</Button>
+              <Button variant="ghost">צור קשר</Button>
             </div>
-            <Button>Sign Up</Button>
+            <Button>הרשמה</Button>
           </div>
         </div>
       </nav>
@@ -45,7 +45,7 @@ const Index = () => {
       <Hero />
 
       <section className="py-16 container">
-        <h2 className="text-3xl font-bold text-center mb-12">Featured Courses</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">קורסים מובילים</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {courses.map((course, index) => (
             <CourseCard key={index} {...course} />
@@ -56,22 +56,22 @@ const Index = () => {
       <FeatureSection />
 
       <section className="py-16 container">
-        <h2 className="text-3xl font-bold text-center mb-12">What Our Clients Say</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">מה הלקוחות שלנו אומרים</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           <Testimonial
-            quote="The leadership course transformed how I manage my team. Highly recommended!"
-            author="Sarah Johnson"
-            role="HR Director"
+            quote="קורס המנהיגות שינה את האופן בו אני מנהל את הצוות שלי. מומלץ מאוד!"
+            author="שרה כהן"
+            role="מנהלת משאבי אנוש"
           />
           <Testimonial
-            quote="Practical, engaging, and immediately applicable to our organization."
-            author="Michael Chen"
-            role="Team Lead"
+            quote="מעשי, מעניין וניתן ליישום מיידי בארגון שלנו."
+            author="מיכאל לוי"
+            role="ראש צוות"
           />
           <Testimonial
-            quote="The best investment we've made in our team's development."
-            author="Emma Rodriguez"
-            role="Operations Manager"
+            quote="ההשקעה הטובה ביותר שעשינו בפיתוח הצוות שלנו."
+            author="אמה רודריגז"
+            role="מנהלת תפעול"
           />
         </div>
       </section>
@@ -81,41 +81,41 @@ const Index = () => {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div>
               <h3 className="font-bold mb-4">OrgEmpower</h3>
-              <p className="text-gray-400">Transforming organizations through effective learning</p>
+              <p className="text-gray-400">מעצימים ארגונים דרך למידה אפקטיבית</p>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Quick Links</h4>
+              <h4 className="font-semibold mb-4">קישורים מהירים</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>About Us</li>
-                <li>Courses</li>
-                <li>Resources</li>
-                <li>Contact</li>
+                <li>אודות</li>
+                <li>קורסים</li>
+                <li>משאבים</li>
+                <li>צור קשר</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Connect</h4>
+              <h4 className="font-semibold mb-4">התחבר</h4>
               <ul className="space-y-2 text-gray-400">
-                <li>LinkedIn</li>
-                <li>Twitter</li>
-                <li>Facebook</li>
-                <li>Instagram</li>
+                <li>לינקדאין</li>
+                <li>טוויטר</li>
+                <li>פייסבוק</li>
+                <li>אינסטגרם</li>
               </ul>
             </div>
             <div>
-              <h4 className="font-semibold mb-4">Newsletter</h4>
-              <p className="text-gray-400 mb-4">Stay updated with our latest courses and tips</p>
+              <h4 className="font-semibold mb-4">ניוזלטר</h4>
+              <p className="text-gray-400 mb-4">הישאר מעודכן עם הקורסים והטיפים האחרונים שלנו</p>
               <div className="flex gap-2">
                 <input
                   type="email"
-                  placeholder="Enter your email"
+                  placeholder="הכנס אימייל"
                   className="px-4 py-2 rounded bg-gray-800 text-white"
                 />
-                <Button>Subscribe</Button>
+                <Button>הרשמה</Button>
               </div>
             </div>
           </div>
           <div className="mt-8 pt-8 border-t border-gray-800 text-center text-gray-400">
-            <p>&copy; 2024 OrgEmpower. All rights reserved.</p>
+            <p>© 2024 OrgEmpower. כל הזכויות שמורות.</p>
           </div>
         </div>
       </footer>
