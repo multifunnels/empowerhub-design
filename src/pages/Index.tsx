@@ -4,6 +4,7 @@ import { CourseCard } from "@/components/CourseCard";
 import { Testimonial } from "@/components/Testimonial";
 import { FeatureSection } from "@/components/FeatureSection";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   const courses = [
@@ -42,7 +43,9 @@ const Index = () => {
             </div>
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost">קורסים</Button>
-              <Button variant="ghost">אודות</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/about">אודות</Link>
+              </Button>
               <Button variant="ghost">המלצות</Button>
               <Button variant="ghost">משאבים</Button>
               <Button variant="ghost">צור קשר</Button>
