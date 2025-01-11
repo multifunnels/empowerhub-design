@@ -29,17 +29,16 @@ const Index = () => {
       <nav className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
-            <div className="flex items-center gap-2">
+            <div className="flex items-center">
               <img 
                 src="/lovable-uploads/4c1deaf2-aeb2-4d36-b3cd-ead85754e3a9.png" 
                 alt="TSI Logo" 
-                className="h-8 w-auto object-contain"
+                className="h-12 w-auto object-contain"
                 onError={(e) => {
                   console.error('Error loading logo:', e);
                   e.currentTarget.style.display = 'none';
                 }}
               />
-              <span className="text-xl font-bold text-primary">tsionline</span>
             </div>
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost">קורסים</Button>
