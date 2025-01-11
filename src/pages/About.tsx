@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Users, Target, MessageSquare } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -8,15 +9,17 @@ const About = () => {
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
-              <img 
-                src="/lovable-uploads/4c1deaf2-aeb2-4d36-b3cd-ead85754e3a9.png" 
-                alt="TSI Logo" 
-                className="h-12 w-auto object-contain"
-                onError={(e) => {
-                  console.error('Error loading logo:', e);
-                  e.currentTarget.style.display = 'none';
-                }}
-              />
+              <Link to="/">
+                <img 
+                  src="/lovable-uploads/4c1deaf2-aeb2-4d36-b3cd-ead85754e3a9.png" 
+                  alt="TSI Logo" 
+                  className="h-12 w-auto object-contain"
+                  onError={(e) => {
+                    console.error('Error loading logo:', e);
+                    e.currentTarget.style.display = 'none';
+                  }}
+                />
+              </Link>
             </div>
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost">קורסים</Button>
@@ -40,9 +43,15 @@ const About = () => {
           </section>
 
           <section className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-semibold mb-4">החזון שלנו</h2>
-            <p className="text-gray-700 leading-relaxed">
-              TSI מחויבת להעצמת ארגונים וצוותים באמצעות הכשרה מקצועית ברמה הגבוהה ביותר. אנו מאמינים בפיתוח מנהיגות, יצירת תרבות ארגונית חיובית, ושיפור מתמיד של ביצועים.
+            <h2 className="text-2xl font-semibold mb-4 text-right">בידול</h2>
+            <p className="text-gray-700 leading-relaxed text-right">
+              שמנו לנו למטרה להוביל בשירות, חדשנות ואיכות ללא פשרות בדרך העברת מסרים המשלבת אינטראקציה ויצירת עניין תוך קשירת הנושאים בהתאמה אישית לקהל היעד וצרכי הארגון. לפני כל סדנה מתקיימת שיחת הכנה על מנת לתת מענה באופן מיטבי יותר מיקוד במנהיגות, מצוינות והובלה.
+            </p>
+            <p className="text-gray-700 leading-relaxed text-right mt-4">
+              הצוות שלנו מיומן ובעל ניסיון מצטבר של עשרות שנים כתחום פעילות עיקרי ונבחר בקפידה על סמך משובים והמלצות מהשטח.
+            </p>
+            <p className="text-gray-700 leading-relaxed text-right mt-4">
+              אנו רואים בסדנאות שליחות המועדה לשרת את הארגון וההון האנושי למתן מענה בפעילות היום יומית ברמות הגבוהות ביותר.
             </p>
           </section>
 
