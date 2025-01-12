@@ -13,7 +13,11 @@ export const Hero = () => {
           גלה קורסים מותאמים אישית המיועדים לשפר מנהיגות, תקשורת ופרודוקטיביות
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up">
-          <Button size="lg" className="bg-primary hover:bg-primary/90">
+          <Button 
+            size="lg" 
+            className="bg-primary hover:bg-primary/90"
+            onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}
+          >
             עיין בקורסים <ArrowLeft className="mr-2 h-4 w-4" />
           </Button>
           <Button size="lg" variant="outline">
