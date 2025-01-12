@@ -1,12 +1,16 @@
-import { Users, Target, MessageSquare } from "lucide-react";
+import { Users, Target, MessageSquare, Menu } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { CourseCard } from "@/components/CourseCard";
 import { Testimonial } from "@/components/Testimonial";
 import { FeatureSection } from "@/components/FeatureSection";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { useState } from "react";
 
 const Index = () => {
+  const [isOpen, setIsOpen] = useState(false);
+
   const courses = [
     {
       icon: <Users className="h-6 w-6 text-primary" />,
@@ -52,7 +56,39 @@ const Index = () => {
               <Button variant="ghost">משאבים</Button>
               <Button variant="ghost">צור קשר</Button>
             </div>
-            <Button onClick={() => window.location.href = 'https://academy.tsionline.org/start'}>הרשמה</Button>
+            <div className="flex items-center gap-4">
+              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/start'}>הרשמה</Button>
+              <Sheet open={isOpen} onOpenChange={setIsOpen}>
+                <SheetTrigger asChild className="md:hidden">
+                  <Button variant="ghost" size="icon">
+                    <Menu className="h-6 w-6" />
+                    <span className="sr-only">Toggle menu</span>
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                  <nav className="flex flex-col gap-4">
+                    <Button variant="ghost" onClick={() => {
+                      window.location.href = 'https://academy.tsionline.org/courses';
+                      setIsOpen(false);
+                    }}>
+                      קורסים
+                    </Button>
+                    <Button variant="ghost" asChild onClick={() => setIsOpen(false)}>
+                      <Link to="/about">אודות</Link>
+                    </Button>
+                    <Button variant="ghost" onClick={() => setIsOpen(false)}>המלצות</Button>
+                    <Button variant="ghost" onClick={() => setIsOpen(false)}>משאבים</Button>
+                    <Button variant="ghost" onClick={() => setIsOpen(false)}>צור קשר</Button>
+                    <Button onClick={() => {
+                      window.location.href = 'https://academy.tsionline.org/start';
+                      setIsOpen(false);
+                    }}>
+                      הרשמה
+                    </Button>
+                  </nav>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </nav>
