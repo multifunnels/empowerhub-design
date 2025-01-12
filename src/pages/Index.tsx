@@ -33,7 +33,7 @@ const Index = () => {
             <div className="flex items-center">
               <Link to="/">
                 <img 
-                  src="/lovable-uploads/4c1deaf2-aeb2-4d36-b3cd-ead85754e3a9.png" 
+                  src="/lovable-uploads/1a610ffa-c35b-4929-9459-6294e1153521.png" 
                   alt="TSI Logo" 
                   className="h-12 w-auto object-contain"
                   onError={(e) => {
