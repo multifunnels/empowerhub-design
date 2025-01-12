@@ -44,7 +44,7 @@ const Index = () => {
               </Link>
             </div>
             <div className="hidden md:flex space-x-6">
-              <Button variant="ghost">קורסים</Button>
+              <Button variant="ghost" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>קורסים</Button>
               <Button variant="ghost" asChild>
                 <Link to="/about">אודות</Link>
               </Button>
