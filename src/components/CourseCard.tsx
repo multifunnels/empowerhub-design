@@ -18,7 +18,7 @@ export const CourseCard = ({ title, description, icon }: CourseCardProps) => {
   return (
     <Card className="transition-all duration-300 hover:shadow-lg">
       <CardHeader>
-        <div className="w-12 h-12 bg-accent rounded-lg flex items-center justify-center mb-4">
+        <div className="w-16 h-16 bg-accent rounded-lg flex items-center justify-center mb-4">
           {icon}
         </div>
         <CardTitle>{title}</CardTitle>

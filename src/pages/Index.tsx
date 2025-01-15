@@ -13,17 +13,17 @@ const Index = () => {
 
   const courses = [
     {
-      icon: <Users className="h-6 w-6 text-primary" />,
+      icon: <Users className="h-8 w-8 text-primary" />,
       title: "פיתוח מנהיגות",
       description: "שלוט במיומנויות מנהיגות חיוניות למקום העבודה המודרני",
     },
     {
-      icon: <MessageSquare className="h-6 w-6 text-primary" />,
+      icon: <MessageSquare className="h-8 w-8 text-primary" />,
       title: "פתרון קונפליקטים",
       description: "למד אסטרטגיות יעילות לניהול קונפליקטים במקום העבודה",
     },
     {
-      icon: <Target className="h-6 w-6 text-primary" />,
+      icon: <Target className="h-8 w-8 text-primary" />,
       title: "בניית צוות",
       description: "בנה ותחזק צוותים בעלי ביצועים גבוהים",
     },
