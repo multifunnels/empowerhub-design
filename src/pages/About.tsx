@@ -24,11 +24,15 @@ const About = () => {
               </Link>
             </div>
             <div className="hidden md:flex space-x-6">
-              <Button variant="ghost">קורסים</Button>
-              <Button variant="ghost">אודות</Button>
+              <Button variant="ghost" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>קורסים</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/about">אודות</Link>
+              </Button>
               <Button variant="ghost">המלצות</Button>
               <Button variant="ghost">משאבים</Button>
-              <Button variant="ghost">צור קשר</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/contact">צור קשר</Link>
+              </Button>
             </div>
             <div className="flex items-center gap-4">
               <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>הרשמה</Button>
@@ -40,11 +44,15 @@ const About = () => {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                   <div className="flex flex-col gap-4 mt-8">
-                    <Button variant="ghost" className="justify-end">קורסים</Button>
-                    <Button variant="ghost" className="justify-end">אודות</Button>
+                    <Button variant="ghost" className="justify-end" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>קורסים</Button>
+                    <Button variant="ghost" className="justify-end" asChild>
+                      <Link to="/about">אודות</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end">המלצות</Button>
                     <Button variant="ghost" className="justify-end">משאבים</Button>
-                    <Button variant="ghost" className="justify-end">צור קשר</Button>
+                    <Button variant="ghost" className="justify-end" asChild>
+                      <Link to="/contact">צור קשר</Link>
+                    </Button>
                     <Button className="mt-4" onClick={() => window.location.href = 'https://academy.tsionline.org/'}>
                       הרשמה
                     </Button>

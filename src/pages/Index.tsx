@@ -54,10 +54,12 @@ const Index = () => {
               </Button>
               <Button variant="ghost">המלצות</Button>
               <Button variant="ghost">משאבים</Button>
-              <Button variant="ghost">צור קשר</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/contact">צור קשר</Link>
+              </Button>
             </div>
             <div className="flex items-center gap-4">
-              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/start'}>הרשמה</Button>
+              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>הרשמה</Button>
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild className="md:hidden">
                   <Button variant="ghost" size="icon">
@@ -66,26 +68,26 @@ const Index = () => {
                   </Button>
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px]">
-                  <nav className="flex flex-col gap-4">
-                    <Button variant="ghost" onClick={() => {
+                  <div className="flex flex-col gap-4 mt-8">
+                    <Button variant="ghost" className="justify-end" onClick={() => {
                       window.location.href = 'https://academy.tsionline.org/courses';
                       setIsOpen(false);
-                    }}>
-                      קורסים
-                    </Button>
-                    <Button variant="ghost" asChild onClick={() => setIsOpen(false)}>
+                    }}>קורסים</Button>
+                    <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
                       <Link to="/about">אודות</Link>
                     </Button>
-                    <Button variant="ghost" onClick={() => setIsOpen(false)}>המלצות</Button>
-                    <Button variant="ghost" onClick={() => setIsOpen(false)}>משאבים</Button>
-                    <Button variant="ghost" onClick={() => setIsOpen(false)}>צור קשר</Button>
-                    <Button onClick={() => {
-                      window.location.href = 'https://academy.tsionline.org/start';
+                    <Button variant="ghost" className="justify-end" onClick={() => setIsOpen(false)}>המלצות</Button>
+                    <Button variant="ghost" className="justify-end" onClick={() => setIsOpen(false)}>משאבים</Button>
+                    <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
+                      <Link to="/contact">צור קשר</Link>
+                    </Button>
+                    <Button className="mt-4" onClick={() => {
+                      window.location.href = 'https://academy.tsionline.org/';
                       setIsOpen(false);
                     }}>
                       הרשמה
                     </Button>
-                  </nav>
+                  </div>
                 </SheetContent>
               </Sheet>
             </div>
