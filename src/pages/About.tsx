@@ -77,74 +77,72 @@ const About = () => {
 
           <section className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-semibold mb-6 text-right">בין לקוחותינו</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="col-span-1">
+            <div className="flex flex-col gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-primary">משרדי ממשלה ורשויות</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>משרד ראש הממשלה</li>
+                    <li>לשכת העיתונות הממשלתית</li>
+                    <li>משרד הביטחון</li>
+                    <li>הכנסת</li>
+                    <li>משרד הרווחה</li>
+                    <li>משרד האוצר</li>
+                    <li>משרד הפנים</li>
+                    <li>משטרת ישראל</li>
+                    <li>כבאות והצלה</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-primary">מוסדות אקדמיים</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>אוניברסיטת תל אביב</li>
+                    <li>אוניברסיטת בר אילן</li>
+                    <li>אוניברסיטת אריאל</li>
+                    <li>האוניברסיטה העברית</li>
+                    <li>מכללת אתגר</li>
+                    <li>מכללת עתיד</li>
+                    <li>מכללת אחוה</li>
+                    <li>מכללת הישגים</li>
+                    <li>מכללת כספים</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-primary">חברות וארגונים</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>תעשיה אווירית</li>
+                    <li>אלתה</li>
+                    <li>סמיקום</li>
+                    <li>בית אקרשטיין</li>
+                    <li>סינמה סיטי</li>
+                    <li>קבוצת שקד</li>
+                    <li>THI</li>
+                    <li>UNET</li>
+                    <li>מייקרוסופט</li>
+                    <li>HP</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3 className="text-lg font-semibold mb-3 text-primary">בנקים ושירותי בריאות</h3>
+                  <ul className="space-y-2 text-gray-700">
+                    <li>בנק לאומי</li>
+                    <li>בנק יהב</li>
+                    <li>בנק מזרחי</li>
+                    <li>בנק פאגי</li>
+                    <li>קופ"ח לאומית</li>
+                    <li>קופ"ח כללית</li>
+                    <li>הפניקס</li>
+                    <li>מכון הלב – הדסה עין כרם</li>
+                    <li>בית לוינשטיין</li>
+                  </ul>
+                </div>
+              </div>
+              <div className="flex justify-center mt-8">
                 <img
                   src="/lovable-uploads/5588557e-2e37-46df-894d-88e5da633294.png"
                   alt="לוגואים של לקוחות"
-                  className="w-full rounded-lg shadow-md"
+                  className="w-3/4 rounded-lg shadow-md"
                 />
-              </div>
-              <div className="col-span-2">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
-                  <div>
-                    <h3 className="text-lg font-semibold mb-3 text-primary">משרדי ממשלה ורשויות</h3>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>משרד ראש הממשלה</li>
-                      <li>לשכת העיתונות הממשלתית</li>
-                      <li>משרד הביטחון</li>
-                      <li>הכנסת</li>
-                      <li>משרד הרווחה</li>
-                      <li>משרד האוצר</li>
-                      <li>משרד הפנים</li>
-                      <li>משטרת ישראל</li>
-                      <li>כבאות והצלה</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-3 text-primary">מוסדות אקדמיים</h3>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>אוניברסיטת תל אביב</li>
-                      <li>אוניברסיטת בר אילן</li>
-                      <li>אוניברסיטת אריאל</li>
-                      <li>האוניברסיטה העברית</li>
-                      <li>מכללת אתגר</li>
-                      <li>מכללת עתיד</li>
-                      <li>מכללת אחוה</li>
-                      <li>מכללת הישגים</li>
-                      <li>מכללת כספים</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-3 text-primary">חברות וארגונים</h3>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>תעשיה אווירית</li>
-                      <li>אלתה</li>
-                      <li>סמיקום</li>
-                      <li>בית אקרשטיין</li>
-                      <li>סינמה סיטי</li>
-                      <li>קבוצת שקד</li>
-                      <li>THI</li>
-                      <li>UNET</li>
-                      <li>מייקרוסופט</li>
-                      <li>HP</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h3 className="text-lg font-semibold mb-3 text-primary">בנקים ושירותי בריאות</h3>
-                    <ul className="space-y-2 text-gray-700">
-                      <li>בנק לאומי</li>
-                      <li>בנק יהב</li>
-                      <li>בנק מזרחי</li>
-                      <li>בנק פאגי</li>
-                      <li>קופ"ח לאומית</li>
-                      <li>קופ"ח כללית</li>
-                      <li>הפניקס</li>
-                      <li>מכון הלב – הדסה עין כרם</li>
-                      <li>בית לוינשטיין</li>
-                    </ul>
-                  </div>
-                </div>
               </div>
             </div>
           </section>
