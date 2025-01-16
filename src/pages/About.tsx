@@ -43,6 +43,22 @@ const About = () => {
           </section>
 
           <section className="bg-white rounded-lg shadow-md p-8">
+            <h2 className="text-2xl font-semibold mb-6 text-right">חזון</h2>
+            <div className="grid grid-cols-1 gap-8">
+              <div className="text-center">
+                <img
+                  src="/lovable-uploads/4f60cb93-a179-4299-919d-1b066c2d1022.png"
+                  alt="חזון TSI"
+                  className="mx-auto mb-6 max-w-md w-full"
+                />
+                <p className="text-gray-700 leading-relaxed text-right">
+                  להוביל את ההון האנושי למצוינות ע"י אסטרטגיות חשיבה ויישום מתקדם בשדרוג ארגז הכלים הניהולי והפיקודי המובילים להצלחה ויוצרים השראה בסביבת העבודה ומחוצה לה.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-semibold mb-4 text-right">בידול</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
               <div>
