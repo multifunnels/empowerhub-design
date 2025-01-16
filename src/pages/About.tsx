@@ -1,7 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Users, Target, MessageSquare } from "lucide-react";
+import { Users, Target, MessageSquare, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 
 const About = () => {
   return (
@@ -29,7 +30,28 @@ const About = () => {
               <Button variant="ghost">משאבים</Button>
               <Button variant="ghost">צור קשר</Button>
             </div>
-            <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>הרשמה</Button>
+            <div className="flex items-center gap-4">
+              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>הרשמה</Button>
+              <Sheet>
+                <SheetTrigger asChild className="md:hidden">
+                  <Button variant="ghost" size="icon">
+                    <Menu className="h-6 w-6" />
+                  </Button>
+                </SheetTrigger>
+                <SheetContent side="right" className="w-[300px] sm:w-[400px]">
+                  <div className="flex flex-col gap-4 mt-8">
+                    <Button variant="ghost" className="justify-end">קורסים</Button>
+                    <Button variant="ghost" className="justify-end">אודות</Button>
+                    <Button variant="ghost" className="justify-end">המלצות</Button>
+                    <Button variant="ghost" className="justify-end">משאבים</Button>
+                    <Button variant="ghost" className="justify-end">צור קשר</Button>
+                    <Button className="mt-4" onClick={() => window.location.href = 'https://academy.tsionline.org/'}>
+                      הרשמה
+                    </Button>
+                  </div>
+                </SheetContent>
+              </Sheet>
+            </div>
           </div>
         </div>
       </nav>
