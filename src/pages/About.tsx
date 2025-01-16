@@ -44,15 +44,26 @@ const About = () => {
 
           <section className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-semibold mb-4 text-right">בידול</h2>
-            <p className="text-gray-700 leading-relaxed text-right">
-              שמנו לנו למטרה להוביל בשירות, חדשנות ואיכות ללא פשרות בדרך העברת מסרים המשלבת אינטראקציה ויצירת עניין תוך קשירת הנושאים בהתאמה אישית לקהל היעד וצרכי הארגון. לפני כל סדנה מתקיימת שיחת הכנה על מנת לתת מענה באופן מיטבי יותר מיקוד במנהיגות, מצוינות והובלה.
-            </p>
-            <p className="text-gray-700 leading-relaxed text-right mt-4">
-              הצוות שלנו מיומן ובעל ניסיון מצטבר של עשרות שנים כתחום פעילות עיקרי ונבחר בקפידה על סמך משובים והמלצות מהשטח.
-            </p>
-            <p className="text-gray-700 leading-relaxed text-right mt-4">
-              אנו רואים בסדנאות שליחות המועדה לשרת את הארגון וההון האנושי למתן מענה בפעילות היום יומית ברמות הגבוהות ביותר.
-            </p>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+              <div>
+                <p className="text-gray-700 leading-relaxed text-right">
+                  שמנו לנו למטרה להוביל בשירות, חדשנות ואיכות ללא פשרות בדרך העברת מסרים המשלבת אינטראקציה ויצירת עניין תוך קשירת הנושאים בהתאמה אישית לקהל היעד וצרכי הארגון. לפני כל סדנה מתקיימת שיחת הכנה על מנת לתת מענה באופן מיטבי יותר מיקוד במנהיגות, מצוינות והובלה.
+                </p>
+                <p className="text-gray-700 leading-relaxed text-right mt-4">
+                  הצוות שלנו מיומן ובעל ניסיון מצטבר של עשרות שנים כתחום פעילות עיקרי ונבחר בקפידה על סמך משובים והמלצות מהשטח.
+                </p>
+                <p className="text-gray-700 leading-relaxed text-right mt-4">
+                  אנו רואים בסדנאות שליחות המועדה לשרת את הארגון וההון האנושי למתן מענה בפעילות היום יומית ברמות הגבוהות ביותר.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 gap-4">
+                <img
+                  src="/lovable-uploads/1c0823c4-1d90-40f7-8b7d-28cd1798d458.png"
+                  alt="TSI הרצאות וסדנאות"
+                  className="rounded-lg shadow-md w-full object-cover"
+                />
+              </div>
+            </div>
           </section>
 
           <section className="bg-white rounded-lg shadow-md p-8">
