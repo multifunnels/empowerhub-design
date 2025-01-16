@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Users, Target, MessageSquare } from "lucide-react";
 import { Link } from "react-router-dom";
+import { Separator } from "@/components/ui/separator";
 
 const About = () => {
   return (
@@ -45,10 +46,13 @@ const About = () => {
           <section className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-semibold mb-6 text-right">חזון</h2>
             <div className="flex flex-col items-center gap-8">
-              <div className="flex justify-center gap-8 text-primary text-2xl font-bold">
-                <span>חשיבה</span>
-                <span>הצלחה</span>
-                <span>השראה</span>
+              <div className="flex flex-col items-center gap-4 w-full">
+                <div className="flex justify-center gap-8 text-primary text-2xl font-bold">
+                  <span>חשיבה</span>
+                  <span>הצלחה</span>
+                  <span>השראה</span>
+                </div>
+                <Separator className="w-1/2 bg-[#9b87f5] h-0.5" />
               </div>
               <p className="text-gray-700 leading-relaxed text-right max-w-2xl">
                 להוביל את ההון האנושי למצוינות ע"י אסטרטגיות חשיבה ויישום מתקדם בשדרוג ארגז הכלים הניהולי והפיקודי המובילים להצלחה ויוצרים השראה בסביבת העבודה ומחוצה לה.
