@@ -54,7 +54,9 @@ const Index = () => {
               </Button>
               <Button variant="ghost">המלצות</Button>
               <Button variant="ghost">משאבים</Button>
-              <Button variant="ghost">צור קשר</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/contact">צור קשר</Link>
+              </Button>
             </div>
             <div className="flex items-center gap-4">
               <Button onClick={() => window.location.href = 'https://academy.tsionline.org/start'}>הרשמה</Button>
@@ -78,7 +80,9 @@ const Index = () => {
                     </Button>
                     <Button variant="ghost" onClick={() => setIsOpen(false)}>המלצות</Button>
                     <Button variant="ghost" onClick={() => setIsOpen(false)}>משאבים</Button>
-                    <Button variant="ghost" onClick={() => setIsOpen(false)}>צור קשר</Button>
+                    <Button variant="ghost" asChild onClick={() => setIsOpen(false)}>
+                      <Link to="/contact">צור קשר</Link>
+                    </Button>
                     <Button onClick={() => {
                       window.location.href = 'https://academy.tsionline.org/start';
                       setIsOpen(false);

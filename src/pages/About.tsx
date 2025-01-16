@@ -28,7 +28,9 @@ const About = () => {
               <Button variant="ghost">אודות</Button>
               <Button variant="ghost">המלצות</Button>
               <Button variant="ghost">משאבים</Button>
-              <Button variant="ghost">צור קשר</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/contact">צור קשר</Link>
+              </Button>
             </div>
             <div className="flex items-center gap-4">
               <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>הרשמה</Button>
@@ -44,7 +46,9 @@ const About = () => {
                     <Button variant="ghost" className="justify-end">אודות</Button>
                     <Button variant="ghost" className="justify-end">המלצות</Button>
                     <Button variant="ghost" className="justify-end">משאבים</Button>
-                    <Button variant="ghost" className="justify-end">צור קשר</Button>
+                    <Button variant="ghost" className="justify-end" asChild>
+                      <Link to="/contact">צור קשר</Link>
+                    </Button>
                     <Button className="mt-4" onClick={() => window.location.href = 'https://academy.tsionline.org/'}>
                       הרשמה
                     </Button>
