@@ -7,7 +7,7 @@ export const AccessibilityWidget = () => {
     script.src = 'https://cdn.userway.org/widget.js';
     script.async = true;
     script.setAttribute('data-account', 'YOUR_ACCOUNT'); // Replace with actual account when user signs up
-    script.setAttribute('data-position', 'right');
+    script.setAttribute('data-position', 'bottom');
     script.setAttribute('data-language', 'he');
     document.body.appendChild(script);
 
