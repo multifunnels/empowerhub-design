@@ -9,6 +9,7 @@ export const AccessibilityWidget = () => {
     script.setAttribute('data-account', 'YOUR_ACCOUNT'); // Replace with actual account when user signs up
     script.setAttribute('data-position', 'bottom');
     script.setAttribute('data-language', 'he');
+    script.setAttribute('data-bottom', '0'); // Add explicit bottom positioning
     document.body.appendChild(script);
 
     // Cleanup on unmount
