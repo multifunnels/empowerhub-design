@@ -1,5 +1,4 @@
-
-import { Users, Target, MessageSquare, Menu, Home, Award, Brain, Briefcase, Users2 } from "lucide-react";
+import { Users, Target, MessageSquare, Menu, Home } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { CourseCard } from "@/components/CourseCard";
 import { Testimonial } from "@/components/Testimonial";
@@ -10,28 +9,19 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const courses = [
-    {
-      icon: <Award className="h-8 w-8 text-primary" />,
-      title: "יוצרים תוצאות",
-      description: "איך ליצור תוצאות ב-4 צעדים פשוטים!"
-    },
-    {
-      icon: <Brain className="h-8 w-8 text-primary" />,
-      title: "חשיבה תוצאתית",
-      description: "אסטרטגיית החשיבה שמשנה את חוקי המשחק"
-    },
-    {
-      icon: <MessageSquare className="h-8 w-8 text-primary" />,
-      title: "העברת מסרים ורתימה",
-      description: "שיטות מובילות לשדרוג כל מסר מול כל קהל והנעה לפעולה"
-    },
-    {
-      icon: <Briefcase className="h-8 w-8 text-primary" />,
-      title: "ניהול פרויקטים",
-      description: "שיטות, אסטרטגיות בניהול פרויקטים בעולם החדש"
-    }
-  ];
+  const courses = [{
+    icon: <Users className="h-8 w-8 text-primary" />,
+    title: "פיתוח מנהיגות",
+    description: "שלוט במיומנויות מנהיגות חיוניות למקום העבודה המודרני"
+  }, {
+    icon: <MessageSquare className="h-8 w-8 text-primary" />,
+    title: "פתרון קונפליקטים",
+    description: "למד אסטרטגיות יעילות לניהול קונפליקטים במקום העבודה"
+  }, {
+    icon: <Target className="h-8 w-8 text-primary" />,
+    title: "בניית צוות",
+    description: "בנה ותחזק צוותים בעלי ביצועים גבוהים"
+  }];
   return <div className="min-h-screen">
       <nav className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
@@ -100,15 +90,8 @@ const Index = () => {
 
       <section className="py-16 container">
         <h2 className="text-3xl font-bold text-center mb-12">סדנאות/ קורסים/ הרצאות מותאמות אישית לארגון מובילים:  </h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {courses.map((course, index) => <CourseCard key={index} {...course} />)}
-        </div>
-        <div className="mt-10 text-center">
-          <CourseCard 
-            icon={<Users2 className="h-8 w-8 text-primary" />}
-            title="ארבעת סוכני השינוי"
-            description="כיצד להוביל שינוי בארגון ולרתום את הצוותים הלכה למעשה"
-          />
         </div>
       </section>
 
