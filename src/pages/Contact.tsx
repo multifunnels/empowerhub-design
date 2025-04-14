@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu } from "lucide-react";
+import { Menu, Phone, Mail, Facebook, Twitter, Youtube, Instagram } from "lucide-react";
 
 const Contact = () => {
   const { toast } = useToast();
@@ -86,45 +87,93 @@ const Contact = () => {
       </nav>
 
       <div className="container mx-auto px-4 py-16">
-        <div className="max-w-2xl mx-auto">
+        <div className="max-w-5xl mx-auto">
           <h1 className="text-4xl font-bold text-center mb-8">צור קשר</h1>
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              <Label htmlFor="name">שם מלא</Label>
-              <Input
-                id="name"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                required
-                className="text-right"
-                dir="rtl"
-              />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+            <div className="bg-white p-8 rounded-lg shadow-md">
+              <h2 className="text-2xl font-semibold mb-6 text-right">פרטי קשר</h2>
+              
+              <div className="space-y-6 text-right">
+                <div className="flex flex-row-reverse items-center gap-3">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Phone className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-gray-500">ניתן להתקשר בימים א'-ה' 9:00 עד 18:00</p>
+                    <p className="font-medium">054-6688430</p>
+                  </div>
+                </div>
+                
+                <div className="flex flex-row-reverse items-center gap-3">
+                  <div className="bg-primary/10 p-3 rounded-full">
+                    <Mail className="h-5 w-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="font-medium">sharoni@tsinspire.com</p>
+                  </div>
+                </div>
+                
+                <div>
+                  <p className="mb-3 text-gray-600 text-right">מוזמנים להתחיל את השינוי</p>
+                  <div className="flex justify-end gap-3">
+                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
+                      <Instagram className="h-5 w-5 text-gray-700" />
+                    </a>
+                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
+                      <Youtube className="h-5 w-5 text-gray-700" />
+                    </a>
+                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
+                      <Twitter className="h-5 w-5 text-gray-700" />
+                    </a>
+                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
+                      <Facebook className="h-5 w-5 text-gray-700" />
+                    </a>
+                  </div>
+                </div>
+              </div>
             </div>
+            
             <div>
-              <Label htmlFor="email">אימייל</Label>
-              <Input
-                id="email"
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-                className="text-right"
-                dir="rtl"
-              />
+              <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
+                <div>
+                  <Label htmlFor="name">שם מלא</Label>
+                  <Input
+                    id="name"
+                    value={name}
+                    onChange={(e) => setName(e.target.value)}
+                    required
+                    className="text-right"
+                    dir="rtl"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="email">אימייל</Label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    className="text-right"
+                    dir="rtl"
+                  />
+                </div>
+                <div>
+                  <Label htmlFor="message">הודעה</Label>
+                  <Textarea
+                    id="message"
+                    value={message}
+                    onChange={(e) => setMessage(e.target.value)}
+                    required
+                    className="min-h-[150px] text-right"
+                    dir="rtl"
+                  />
+                </div>
+                <Button type="submit" className="w-full">שלח הודעה</Button>
+              </form>
             </div>
-            <div>
-              <Label htmlFor="message">הודעה</Label>
-              <Textarea
-                id="message"
-                value={message}
-                onChange={(e) => setMessage(e.target.value)}
-                required
-                className="min-h-[150px] text-right"
-                dir="rtl"
-              />
-            </div>
-            <Button type="submit" className="w-full">שלח הודעה</Button>
-          </form>
+          </div>
         </div>
       </div>
     </div>
