@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Users, Target, MessageSquare, Menu, Building, Building2, Briefcase, Banknote, GraduationCap, Hospital, Bot, Landmark } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -86,7 +87,7 @@ const About = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen" dir="rtl">
       <nav className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
@@ -143,7 +144,7 @@ const About = () => {
         <h1 className="text-4xl font-bold text-center mb-8">TSI - Think Success Inspire</h1>
         <div className="max-w-3xl mx-auto space-y-8">
           <section className="bg-white rounded-lg shadow-md p-8">
-            <p className="text-gray-700 leading-relaxed text-right">צוות הדרכה מוביל בתחומו בהעברת סדנאות בהובלתה של שרון אייזן עם ניסיון עשיר של עשרות שנים כתחום עיסוק עיקרי המסור להון האנושי והצלחתו עם מקצועיות ברמות הגבוהות ביותר, הקשבה לצרכים והאתגרים בשטח, התאמה מלאה ככפפה ליד למתן מענה אופטימלי.  
+            <p className="text-gray-700 leading-relaxed text-right">צוות הדרכה מוביל בתחומו בהובלתה של שרון אייזן עם ניסיון עשיר של עשרות שנים כתחום עיסוק עיקרי המסור להון האנושי והצלחתו עם מקצועיות ברמות הגבוהות ביותר, הקשבה לצרכים והאתגרים בשטח, התאמה מלאה ככפפה ליד למתן מענה אופטימלי.  
 
 מקסום הפוטנציאל האנושי כשליחות ויצירת תוצאות הלכה למעשה באופן התואם לתרבות הארגונית ויישור קו עם החזון, הערכים, והיעדים של הארגון בהתאמה מלאה לצרכי הלקוח. 
 
@@ -262,7 +263,7 @@ TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון
             <h2 className="text-2xl font-semibold mb-6 text-right">בין לקוחותינו</h2>
             
             <div className="mb-8">
-              <div className="flex flex-wrap justify-center gap-3 mb-6">
+              <div className="flex flex-wrap justify-start gap-3 mb-6">
                 <Button 
                   variant={activeCategory === "all" ? "default" : "outline"}
                   onClick={() => setActiveCategory("all")}
@@ -305,11 +306,11 @@ TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון
                   <CardContent className="pt-4">
                     <ul className="space-y-2 text-gray-700 text-right">
                       {category.clients.map((client, index) => (
-                        <li key={index} className="flex items-center gap-2 justify-end">
-                          <span>{client}</span>
-                          <div className="bg-primary/5 p-1 rounded-full">
+                        <li key={index} className="flex items-center gap-2">
+                          <div className="bg-primary/5 p-1 rounded-full ml-2">
                             <div className="w-2 h-2 bg-primary rounded-full" />
                           </div>
+                          <span>{client}</span>
                         </li>
                       ))}
                     </ul>
