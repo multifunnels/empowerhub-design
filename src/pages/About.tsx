@@ -64,7 +64,7 @@ const About = () => {
                 <Link to="/about">אודות</Link>
               </Button>
               <Button variant="ghost">המלצות</Button>
-              <Button variant="ghost">משאבים</Button>
+              <Button variant="ghost">הרצאות</Button>
               <Button variant="ghost" asChild>
                 <Link to="/contact">צור קשר</Link>
               </Button>
