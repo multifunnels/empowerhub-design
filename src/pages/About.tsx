@@ -1,5 +1,4 @@
-
-import React from 'react';
+import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Users, Target, MessageSquare, Menu, Building, Building2, Briefcase, Banknote, GraduationCap, Hospital, Bot, Landmark } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -9,7 +8,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHeader, TableHead, TableRow } from "@/components/ui/table";
 
 const About = () => {
-  const [activeCategory, setActiveCategory] = React.useState("all");
+  const [activeCategory, setActiveCategory] = useState("all");
   
   const clientCategories = [
     { id: "government", name: "משרדי ממשלה ורשויות", icon: <Building className="h-5 w-5" /> },
@@ -100,7 +99,9 @@ const About = () => {
               </Link>
             </div>
             <div className="hidden md:flex space-x-6">
-              <Button variant="ghost" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>קורסים</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/courses">קורסים</Link>
+              </Button>
               <Button variant="ghost" asChild>
                 <Link to="/about">אודות</Link>
               </Button>
@@ -111,7 +112,9 @@ const About = () => {
               </Button>
             </div>
             <div className="flex items-center gap-4">
-              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>הרשמה</Button>
+              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>
+                הרשמה
+              </Button>
               <Sheet>
                 <SheetTrigger asChild className="md:hidden">
                   <Button variant="ghost" size="icon">
@@ -148,7 +151,7 @@ const About = () => {
 
 מקסום הפוטנציאל האנושי כשליחות ויצירת תוצאות הלכה למעשה באופן התואם לתרבות הארגונית ויישור קו עם החזון, הערכים, והיעדים של הארגון בהתאמה מלאה לצרכי הלקוח. 
 
-TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון עשיר בשטח ומשובים מעולים בהובלתה של שרון אייזן. ב TSI  אנו מקפידים על איכות ללא פשרות בכל הארץ (מתן מענה מותאם בהתאם לצרכי הלקוח) בצפון, מרכז ודרום הארץ. 
+TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון עשיר בשט�� ומשובים מעולים בהובלתה של שרון אייזן. ב TSI  אנו מקפידים על איכות ללא פשרות בכל הארץ (מתן מענה מותאם בהתאם לצרכי הלקוח) בצפון, מרכז ודרום הארץ. 
 
 ב TSI תוכלו למצוא מגוון עשיר של סדנאות, קורסים, הרצאות וימי עיון בהתאם לצרכים שלכם ברמות הגבוהות ביותר, מתן כלים וערך, והתאמה אישית לצרכים שלכם בכל תחום שתבחרו.  </p>
           </section>
@@ -187,7 +190,7 @@ TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון
                 </div>
                 
                 <p className="bg-[#FDE1D3] p-4 rounded-lg">
-                  תחושת המחוברות קשורה גם להנאה מהעשיה, מקסום וחיבור לנקודות החוזקה של כל מנהל, של כל עובד. חלק בלתי נפרד ממצוינות היא לשמר כוח אדם שאוהב ומחובר לעשייתו ולארגון בו הוא נמצא תוך שהוא מרגיש חלק בלתי נפרד ממנו.
+                  תחושת המחוברות קשורה גם להנאה מהעשיה, מקסום וחיבור לנקודות החוזקה ש�� כל מנהל, של כל עובד. חלק בלתי נפרד ממצוינות היא לשמר כוח אדם שאוהב ומחובר לעשייתו ולארגון בו הוא נמצא תוך שהוא מרגיש חלק בלתי נפרד ממנו.
                 </p>
                 
                 <div className="bg-gradient-to-r from-white to-purple-50 p-4 rounded-lg border-r-4 border-secondary">
