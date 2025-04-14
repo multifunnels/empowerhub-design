@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Send, MessageSquare } from "lucide-react";
+import { Menu, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Send, MessageSquare, Home } from "lucide-react";
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
@@ -92,6 +93,9 @@ const Contact = () => {
             </div>
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost" asChild>
+                <Link to="/"><Home className="h-4 w-4 mr-2" /> עמוד הבית</Link>
+              </Button>
+              <Button variant="ghost" asChild>
                 <Link to="/courses">קורסים</Link>
               </Button>
               <Button variant="ghost" asChild>
@@ -112,6 +116,9 @@ const Contact = () => {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                   <div className="flex flex-col gap-4 mt-8">
+                    <Button variant="ghost" className="justify-end" asChild>
+                      <Link to="/"><Home className="h-4 w-4 ml-2" /> עמוד הבית</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild>
                       <Link to="/courses">קורסים</Link>
                     </Button>

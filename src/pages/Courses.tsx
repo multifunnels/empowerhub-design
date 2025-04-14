@@ -1,6 +1,7 @@
+
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Book, GraduationCap, Target, MessageSquare, Menu } from "lucide-react";
+import { Book, GraduationCap, Target, MessageSquare, Menu, Home } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
@@ -51,6 +52,9 @@ const Courses = () => {
             </div>
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost" asChild>
+                <Link to="/"><Home className="h-4 w-4 mr-2" /> עמוד הבית</Link>
+              </Button>
+              <Button variant="ghost" asChild>
                 <Link to="/courses">קורסים</Link>
               </Button>
               <Button variant="ghost" asChild>
@@ -72,6 +76,9 @@ const Courses = () => {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                   <div className="flex flex-col gap-4 mt-8">
+                    <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
+                      <Link to="/"><Home className="h-4 w-4 ml-2" /> עמוד הבית</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
                       <Link to="/courses">קורסים</Link>
                     </Button>

@@ -1,4 +1,5 @@
-import { Users, Target, MessageSquare, Menu } from "lucide-react";
+
+import { Users, Target, MessageSquare, Menu, Home } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { CourseCard } from "@/components/CourseCard";
 import { Testimonial } from "@/components/Testimonial";
@@ -49,6 +50,9 @@ const Index = () => {
             </div>
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost" asChild>
+                <Link to="/"><Home className="h-4 w-4 mr-2" /> עמוד הבית</Link>
+              </Button>
+              <Button variant="ghost" asChild>
                 <Link to="/courses">קורסים</Link>
               </Button>
               <Button variant="ghost" asChild>
@@ -70,6 +74,9 @@ const Index = () => {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                   <div className="flex flex-col gap-4 mt-8">
+                    <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
+                      <Link to="/"><Home className="h-4 w-4 ml-2" /> עמוד הבית</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
                       <Link to="/courses">קורסים</Link>
                     </Button>
