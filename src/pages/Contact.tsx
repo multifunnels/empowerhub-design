@@ -14,17 +14,41 @@ const Contact = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    console.log("Form submitted:", { name, email, message });
-    toast({
-      title: "ההודעה נשלחה בהצלחה",
-      description: "נחזור אליך בהקדם האפשרי",
-    });
-    setName("");
-    setEmail("");
-    setMessage("");
+    setIsSubmitting(true);
+    
+    try {
+      // Create mailto link with form data
+      const subject = `הודעה חדשה מ-${name}`;
+      const body = `שם: ${name}\nאימייל: ${email}\n\nהודעה:\n${message}`;
+      const mailtoLink = `mailto:sharoni@tsinspire.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      
+      // Open default mail client
+      window.open(mailtoLink, '_blank');
+      
+      // Show success message
+      toast({
+        title: "ההודעה נשלחה בהצלחה",
+        description: "נחזור אליך בהקדם האפשרי",
+      });
+      
+      // Reset form
+      setName("");
+      setEmail("");
+      setMessage("");
+    } catch (error) {
+      console.error('Error sending email:', error);
+      toast({
+        title: "שגיאה בשליחת ההודעה",
+        description: "אנא נסה שוב או צור קשר ישירות בטלפון",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -170,7 +194,16 @@ const Contact = () => {
                     dir="rtl"
                   />
                 </div>
-                <Button type="submit" className="w-full">שלח הודעה</Button>
+                <Button 
+                  type="submit" 
+                  className="w-full"
+                  disabled={isSubmitting}
+                >
+                  {isSubmitting ? "שולח..." : "שלח הודעה"}
+                </Button>
+                <p className="text-xs text-gray-500 text-center">
+                  *הטופס יפתח את תוכנת הדואר האלקטרוני שלך
+                </p>
               </form>
             </div>
           </div>
