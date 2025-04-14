@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Users, Target, MessageSquare, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -81,9 +82,56 @@ TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון
                 </div>
                 <Separator className="w-1/2 bg-[#9b87f5] h-0.5" />
               </div>
-              <p className="text-gray-700 leading-relaxed text-right max-w-2xl">
-                להוביל את ההון האנושי למצוינות ע"י אסטרטגיות חשיבה ויישום מתקדם בשדרוג ארגז הכלים הניהולי והפיקודי המובילים להצלחה ויוצרים השראה בסביבת העבודה ומחוצה לה.
-              </p>
+              
+              <div className="text-gray-700 leading-relaxed text-right max-w-2xl space-y-6">
+                <p className="bg-gradient-to-r from-purple-50 to-white p-4 rounded-lg border-r-4 border-primary">
+                  <strong className="text-primary">להוביל את ההון האנושי למצוינות</strong> ע"י אסטרטגיות חשיבה ויישום מתקדם בשדרוג ארגז הכלים הניהולי והפיקודי המובילים להצלחה ויוצרים השראה בסביבת העבודה ומחוצה לה.
+                </p>
+                
+                <p className="bg-purple-50 p-4 rounded-lg">
+                  ב-<strong className="text-primary">TSI</strong> אנו מתנהלים עפ"י חשיבה תוצאתית המותאמת לעולם החדש תוך חיסכון בזמן, משאבים וכסף בהתנהלות השוטפת. הן בעבודת ההון האנושי, הטמעה בשטח משכבות הניהול הבכירות ועד לרצפת הייצור. אנו עושים זאת ע"י הטמעת כלים מתקדמים בשילוב הבינה המלאכותית המותאמים לעולם החדש ומתכתבים עם צרכי הארגון הלכה למעשה.
+                </p>
+                
+                <div className="grid md:grid-cols-2 gap-6">
+                  <div className="bg-[#E5DEFF] p-4 rounded-lg">
+                    <h3 className="font-semibold text-primary mb-2 text-right">המטרה שלנו</h3>
+                    <p>ליצור תוצאות בארגון הלכה למעשה בדרך שתתכתב עם המצב המצוי בשטח ויצירת מפה התואמת לצרכים הלכה למעשה בדרך פרקטית, יעילה וישימה.</p>
+                  </div>
+                  
+                  <div className="bg-[#D3E4FD] p-4 rounded-lg">
+                    <h3 className="font-semibold text-primary mb-2 text-right">ההצלחה נמדדת</h3>
+                    <p>לא רק בהשגת התוצאות הלכה למעשה אלא גם ביכולות הרתימה, המחוברות הארגונית והצוותית.</p>
+                  </div>
+                </div>
+                
+                <p className="bg-[#FDE1D3] p-4 rounded-lg">
+                  תחושת המחוברות קשורה גם להנאה מהעשיה, מקסום וחיבור לנקודות החוזקה של כל מנהל, של כל עובד. חלק בלתי נפרד ממצוינות היא לשמר כוח אדם שאוהב ומחובר לעשייתו ולארגון בו הוא נמצא תוך שהוא מרגיש חלק בלתי נפרד ממנו.
+                </p>
+                
+                <div className="bg-gradient-to-r from-white to-purple-50 p-4 rounded-lg border-r-4 border-secondary">
+                  <h3 className="font-semibold text-primary mb-2 text-right">המשימה שלנו - השראה</h3>
+                  <p>להפוך את ההצלחה והעשיה להשראה הלכה למעשה. על מנת ליצוק משמעות, ערך, וחיבור בין החזון האישי/מקצועי לחזון הארגוני.</p>
+                  <p className="mt-2 italic text-purple-700">"בחר/י לך עבודה את/ה אוהב/ת ולא תצטרך/י לעבוד אפילו יום אחד בחייך" - קונפוציוס</p>
+                </div>
+                
+                <div className="bg-[#F1F0FB] p-4 rounded-lg mt-6">
+                  <h3 className="font-semibold text-center text-primary mb-4">בכך נרוויח 3 פעמים:</h3>
+                  <ul className="space-y-2">
+                    <li className="flex items-center gap-2">
+                      <span className="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center">1</span>
+                      <span>עבור עצמנו בהגשמה האישית והמקצועית שלנו</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center">2</span>
+                      <span>ניהיה נכס צאן וברזל לארגון בו אנו נמצאים (לרוב לא יוותרו עלינו)</span>
+                    </li>
+                    <li className="flex items-center gap-2">
+                      <span className="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center">3</span>
+                      <span>נהווה השראה עבור אנשים אחרים שרוצים למקסם את היכולות שלהם</span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
             </div>
           </section>
 
