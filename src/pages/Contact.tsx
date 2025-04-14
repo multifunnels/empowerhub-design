@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -24,7 +23,6 @@ const Contact = () => {
     
     try {
       if (contactMethod === "email") {
-        // Use EmailJS to send email
         emailjs.init("YOUR_USER_ID");
         
         const templateParams = {
@@ -45,16 +43,12 @@ const Contact = () => {
           description: "נחזור אליך בהקדם האפשרי",
         });
       } else {
-        // Format phone number (remove any non-digit characters)
-        const phoneNumber = "972546688430"; // Israeli format for 054-6688430
+        const phoneNumber = "972546688430";
         
-        // Prepare WhatsApp message with form data
         const whatsappText = `שם: ${name}%0Aאימייל: ${email}%0A%0Aהודעה:%0A${message}`;
         
-        // Create WhatsApp link
         const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappText}`;
         
-        // Open WhatsApp in new tab
         window.open(whatsappLink, '_blank');
         
         toast({
@@ -63,7 +57,6 @@ const Contact = () => {
         });
       }
       
-      // Reset form
       setName("");
       setEmail("");
       setMessage("");
@@ -169,16 +162,16 @@ const Contact = () => {
                 <div>
                   <p className="mb-3 text-gray-600 text-right">מוזמנים להתחיל את השינוי</p>
                   <div className="flex justify-end gap-3">
-                    <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
+                    <a href="https://www.instagram.com/aizensharon/" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
                       <Instagram className="h-5 w-5 text-gray-700" />
                     </a>
-                    <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
+                    <a href="https://www.youtube.com/channel/UCkfE8yY9UY5-xXjZdlpRZpw" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
                       <Youtube className="h-5 w-5 text-gray-700" />
                     </a>
-                    <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
+                    <a href="https://twitter.com/sharonaizen" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
                       <Twitter className="h-5 w-5 text-gray-700" />
                     </a>
-                    <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
+                    <a href="https://www.facebook.com/TSI.Think.Success.Inspire" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
                       <Facebook className="h-5 w-5 text-gray-700" />
                     </a>
                   </div>
