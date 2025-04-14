@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
-import { Users, Target, MessageSquare, Menu, Building, Building2, Briefcase, Banknote, GraduationCap, Hospital, Bot, Landmark } from "lucide-react";
+import { Users, Target, MessageSquare, Menu, Building, Building2, Briefcase, Banknote, GraduationCap, Hospital, Bot, Landmark, Home } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHeader, TableHead, TableRow } from "@/components/ui/table";
+
 const About = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const clientCategories = [{
@@ -55,6 +56,9 @@ const About = () => {
             </div>
             <div className="hidden md:flex space-x-6">
               <Button variant="ghost" asChild>
+                <Link to="/"><Home className="h-4 w-4 mr-2" /> עמוד הבית</Link>
+              </Button>
+              <Button variant="ghost" asChild>
                 <Link to="/courses">קורסים</Link>
               </Button>
               <Button variant="ghost" asChild>
@@ -67,7 +71,6 @@ const About = () => {
               </Button>
             </div>
             <div className="flex items-center gap-4">
-              
               <Sheet>
                 <SheetTrigger asChild className="md:hidden">
                   <Button variant="ghost" size="icon">
@@ -76,6 +79,9 @@ const About = () => {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                   <div className="flex flex-col gap-4 mt-8">
+                    <Button variant="ghost" className="justify-end" asChild>
+                      <Link to="/"><Home className="h-4 w-4 ml-2" /> עמוד הבית</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>קורסים</Button>
                     <Button variant="ghost" className="justify-end" asChild>
                       <Link to="/about">אודות</Link>
@@ -84,9 +90,6 @@ const About = () => {
                     <Button variant="ghost" className="justify-end">משאבים</Button>
                     <Button variant="ghost" className="justify-end" asChild>
                       <Link to="/contact">צור קשר</Link>
-                    </Button>
-                    <Button className="mt-4" onClick={() => window.location.href = 'https://academy.tsionline.org/'}>
-                      הרשמה
                     </Button>
                   </div>
                 </SheetContent>
@@ -274,4 +277,5 @@ TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון
       </div>
     </div>;
 };
+
 export default About;
