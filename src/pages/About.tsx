@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Users, Target, MessageSquare, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -6,7 +7,8 @@ import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Card, CardContent } from "@/components/ui/card";
 
 const About = () => {
-  return <div className="min-h-screen">
+  return (
+    <div className="min-h-screen">
       <nav className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
@@ -245,6 +247,10 @@ TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון
               </div>
             </div>
           </section>
+        </div>
+      </div>
+    </div>
+  );
+};
 
-          <section className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-semibold mb-4">ה
+export default About;
