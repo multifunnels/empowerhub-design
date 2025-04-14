@@ -104,9 +104,6 @@ const Contact = () => {
               </Button>
             </div>
             <div className="flex items-center gap-4">
-              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>
-                הרשמה
-              </Button>
               <Sheet>
                 <SheetTrigger asChild className="md:hidden">
                   <Button variant="ghost" size="icon">
@@ -115,7 +112,9 @@ const Contact = () => {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                   <div className="flex flex-col gap-4 mt-8">
-                    <Button variant="ghost" className="justify-end" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>קורסים</Button>
+                    <Button variant="ghost" className="justify-end" asChild>
+                      <Link to="/courses">קורסים</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild>
                       <Link to="/about">אודות</Link>
                     </Button>
@@ -123,9 +122,6 @@ const Contact = () => {
                     <Button variant="ghost" className="justify-end">משאבים</Button>
                     <Button variant="ghost" className="justify-end" asChild>
                       <Link to="/contact">צור קשר</Link>
-                    </Button>
-                    <Button className="mt-4" onClick={() => window.location.href = 'https://academy.tsionline.org/'}>
-                      הרשמה
                     </Button>
                   </div>
                 </SheetContent>
@@ -164,7 +160,7 @@ const Contact = () => {
                 </div>
                 
                 <div>
-                  <p className="mb-3 text-gray-600 text-right">מוזמנים להתחיל את השינוי</p>
+                  <p className="mb-3 text-gray-600 text-right">מו��מנים להתחיל את השינוי</p>
                   <div className="flex justify-end gap-3">
                     <a href="https://www.instagram.com/aizensharon/" target="_blank" rel="noopener noreferrer" className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors">
                       <Instagram className="h-5 w-5 text-gray-700" />

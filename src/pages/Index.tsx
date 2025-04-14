@@ -61,7 +61,6 @@ const Index = () => {
               </Button>
             </div>
             <div className="flex items-center gap-4">
-              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/start'}>הרשמה</Button>
               <Sheet open={isOpen} onOpenChange={setIsOpen}>
                 <SheetTrigger asChild className="md:hidden">
                   <Button variant="ghost" size="icon">
@@ -81,12 +80,6 @@ const Index = () => {
                     <Button variant="ghost" className="justify-end" onClick={() => setIsOpen(false)}>משאבים</Button>
                     <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
                       <Link to="/contact">צור קשר</Link>
-                    </Button>
-                    <Button className="mt-4" onClick={() => {
-                      window.location.href = 'https://academy.tsionline.org/start';
-                      setIsOpen(false);
-                    }}>
-                      הרשמה
                     </Button>
                   </div>
                 </SheetContent>
