@@ -1,4 +1,3 @@
-
 import { Users, Target, MessageSquare, Menu, Home } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { CourseCard } from "@/components/CourseCard";
@@ -90,7 +89,7 @@ const Index = () => {
       <Hero />
 
       <section className="py-16 container">
-        <h2 className="text-3xl font-bold text-center mb-12">קורסים מובילים</h2>
+        <h2 className="text-3xl font-bold text-center mb-12">סדנאות/ קורסים/ הרצאות מותאמות אישית לארגון </h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {courses.map((course, index) => <CourseCard key={index} {...course} />)}
         </div>
