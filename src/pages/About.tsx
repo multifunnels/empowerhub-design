@@ -1,9 +1,10 @@
-
 import { Button } from "@/components/ui/button";
 import { Users, Target, MessageSquare, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { Card, CardContent } from "@/components/ui/card";
+
 const About = () => {
   return <div className="min-h-screen">
       <nav className="bg-white shadow-sm">
@@ -136,17 +137,44 @@ TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון
           </section>
 
           <section className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-semibold mb-4 text-right">בידול</h2>
-            <div>
-              <p className="text-gray-700 leading-relaxed text-right">
-                שמנו לנו למטרה להוביל בשירות, חדשנות ואיכות ללא פשרות בדרך העברת מסרים המשלבת אינטראקציה ויצירת עניין תוך קשירת הנושאים בהתאמה אישית לקהל היעד וצרכי הארגון. לפני כל סדנה מתקיימת שיחת הכנה על מנת לתת מענה באופן מיטבי יותר מיקוד במנהיגות, מצוינות והובלה.
-              </p>
-              <p className="text-gray-700 leading-relaxed text-right mt-4">
-                הצוות שלנו מיומן ובעל ניסיון מצטבר של עשרות שנים כתחום פעילות עיקרי ונבחר בקפידה על סמך משובים והמלצות מהשטח.
-              </p>
-              <p className="text-gray-700 leading-relaxed text-right mt-4">
-                אנו רואים בסדנאות שליחות המועדה לשרת את הארגון וההון האנושי למתן מענה בפעילות היום יומית ברמות הגבוהות ביותר.
-              </p>
+            <h2 className="text-2xl font-semibold mb-6 text-right">בידול</h2>
+            <div className="space-y-6 text-gray-700 text-right">
+              <div className="bg-gradient-to-r from-purple-50 to-white p-5 rounded-lg border-r-4 border-primary">
+                <p className="leading-relaxed">
+                  <span className="font-semibold text-primary">שמנו לנו למטרה להוביל ביצירת תוצאות בארגון!</span> אנו עושים זאת ע"י מתן מענה מותאם אישית ללקוח בראיית הצרכים, האתגרים ומתן מענה תואם ככפפה ליד בראיה כוללת בהיבט מענה המתמקד בפיתוח מנהלים, פיתוח עובדים בארגון בהתאמה לתרבות ולשפה הארגונית.
+                </p>
+              </div>
+              
+              <Card className="border-primary/20">
+                <CardContent className="p-5">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-2 h-10 bg-primary rounded-full"></div>
+                    <h3 className="text-xl font-medium text-primary">שירות, חדשנות ואיכות ללא פשרות</h3>
+                  </div>
+                  <p className="leading-relaxed">
+                    בדרך העברת מסרים המשלבת אינטראקציה ויצירת עניין תוך קשירת הנושאים בהתאמה אישית לקהל היעד וצרכי הארגון. לפני כל סדנה/ קורס/ הרצאה/ יום עיון מתקיימת הכנה בהיקף הנדרש אל מול הארגון על מנת לתת מענה באופן מיטבי במיקוד במוצרי תוכן מובילים (פרונטליים/ אונליין - לבחירתכם) המותאמים לעולם החדש במגוון נושאים מתוך הקשבה לשטח ולצרכים העולים בזמן אמת.
+                  </p>
+                </CardContent>
+              </Card>
+              
+              <div className="flex gap-6 flex-col md:flex-row">
+                <div className="bg-[#E5DEFF] p-5 rounded-lg flex-1">
+                  <p className="leading-relaxed">
+                    הצוות שלנו מיומן ובעל ניסיון מצטבר של עשרות שנים כתחום פעילות עיקרי ונבחר בקפידה על סמך משובים והמלצות מהשטח.
+                  </p>
+                </div>
+                <div className="bg-[#D3E4FD] p-5 rounded-lg flex-1">
+                  <p className="leading-relaxed">
+                    אנו רואים בסדנאות שליחות שנועדה לשרת את הארגון וההון האנושי למתן מענה בפעילות היום יומית ברמות הגבוהות ביותר. ליהנות מהדרך, ולהגדיל את המחוברות הארגונית הלכה למעשה.
+                  </p>
+                </div>
+              </div>
+              
+              <div className="bg-[#FDE1D3] p-5 rounded-lg">
+                <p className="leading-relaxed">
+                  אנו נדע לייעץ ולהתאים לכם את התכנים המתאימים ביותר בהתאם לצרכים והיעדים שלכם. תוכלו לבחור את מה שמתאים לכם, להיעזר בנו בכל אחד מהשלבים בדרך על מנת לדייק את הדרך שלכם לעבר יצירת התוצאות ועמידה ביעדים בדרך מהנה, יצירתית ששמה את ההון האנושי במרכז ביצירת חוויה וערך בשילוב הלימה מלאה לצרכי הארגון.
+                </p>
+              </div>
             </div>
           </section>
 
@@ -219,27 +247,4 @@ TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון
           </section>
 
           <section className="bg-white rounded-lg shadow-md p-8">
-            <h2 className="text-2xl font-semibold mb-4">המומחיות שלנו</h2>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="flex flex-col items-center text-center">
-                <Users className="h-12 w-12 text-primary mb-4" />
-                <h3 className="text-xl font-medium mb-2">פיתוח מנהיגות</h3>
-                <p className="text-gray-600">תוכניות מותאמות אישית לפיתוח מנהיגים</p>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <Target className="h-12 w-12 text-primary mb-4" />
-                <h3 className="text-xl font-medium mb-2">אימון צוותים</h3>
-                <p className="text-gray-600">בניית צוותים חזקים ואפקטיביים</p>
-              </div>
-              <div className="flex flex-col items-center text-center">
-                <MessageSquare className="h-12 w-12 text-primary mb-4" />
-                <h3 className="text-xl font-medium mb-2">תקשורת ארגונית</h3>
-                <p className="text-gray-600">שיפור התקשורת והיעילות בארגון</p>
-              </div>
-            </div>
-          </section>
-        </div>
-      </div>
-    </div>;
-};
-export default About;
+            <h2 className="text-2xl font-semibold mb-4">ה
