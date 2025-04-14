@@ -20,8 +20,14 @@ export const Hero = () => {
               עיין בקורסים <ArrowLeft className="mr-2 h-4 w-4" />
             </Link>
           </Button>
-          <Button size="lg" variant="outline">
-            בקש ייעוץ
+          <Button 
+            size="lg" 
+            variant="outline" 
+            asChild
+          >
+            <Link to="/contact">
+              בקש ייעוץ
+            </Link>
           </Button>
         </div>
       </div>
