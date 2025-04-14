@@ -1,4 +1,3 @@
-
 import { Users, Target, MessageSquare, Menu, Home, Lightbulb, Brain, Briefcase, UserRound, Headphones } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { CourseCard } from "@/components/CourseCard";
@@ -8,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { useState } from "react";
+
 const Index = () => {
   const [isOpen, setIsOpen] = useState(false);
   const courses = [
@@ -64,7 +64,9 @@ const Index = () => {
               <Button variant="ghost" asChild>
                 <Link to="/about">אודות</Link>
               </Button>
-              <Button variant="ghost">המלצות</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/recommendations">המלצות</Link>
+              </Button>
               <Button variant="ghost" asChild>
                 <Link to="/lectures">הרצאות</Link>
               </Button>
@@ -91,7 +93,9 @@ const Index = () => {
                     <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
                       <Link to="/about">אודות</Link>
                     </Button>
-                    <Button variant="ghost" className="justify-end" onClick={() => setIsOpen(false)}>המלצות</Button>
+                    <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
+                      <Link to="/recommendations">המלצות</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
                       <Link to="/lectures">הרצאות</Link>
                     </Button>

@@ -9,7 +9,8 @@ import Index from "./pages/Index";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Courses from "./pages/Courses";
-import Lectures from "./pages/Lectures";  // Add this import
+import Lectures from "./pages/Lectures";
+import Recommendations from "./pages/Recommendations";  // Add this import
 
 const queryClient = new QueryClient();
 
@@ -25,7 +26,8 @@ const App = () => (
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/courses" element={<Courses />} />
-          <Route path="/lectures" element={<Lectures />} />  {/* Add this route */}
+          <Route path="/lectures" element={<Lectures />} />
+          <Route path="/recommendations" element={<Recommendations />} />  {/* Add this route */}
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
