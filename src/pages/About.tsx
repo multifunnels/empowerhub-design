@@ -3,24 +3,17 @@ import { Users, Target, MessageSquare, Menu } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
 const About = () => {
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <nav className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <Link to="/">
-                <img 
-                  src="/lovable-uploads/4c1deaf2-aeb2-4d36-b3cd-ead85754e3a9.png" 
-                  alt="TSI Logo" 
-                  className="h-12 w-auto object-contain"
-                  onError={(e) => {
-                    console.error('Error loading logo:', e);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
+                <img src="/lovable-uploads/4c1deaf2-aeb2-4d36-b3cd-ead85754e3a9.png" alt="TSI Logo" className="h-12 w-auto object-contain" onError={e => {
+                console.error('Error loading logo:', e);
+                e.currentTarget.style.display = 'none';
+              }} />
               </Link>
             </div>
             <div className="hidden md:flex space-x-6">
@@ -68,9 +61,13 @@ const About = () => {
         <h1 className="text-4xl font-bold text-center mb-8">TSI - Think Success Inspire</h1>
         <div className="max-w-3xl mx-auto space-y-8">
           <section className="bg-white rounded-lg shadow-md p-8">
-            <p className="text-gray-700 leading-relaxed text-right">
-              צוות הדרכה מוביל בתחומו בהעברת סדנאות בהובלתה של שרון אייזן עם ניסיון צוותי של עשרות שנים כתחום עיסוק עיקרי המסור להון האנושי והצלחתו עם מקצועיות ברמות הגבוהות ביותר, הקשבה לצרכים והאתגרים מקסום הפוטנציאל האנושי כשליחות.
-            </p>
+            <p className="text-gray-700 leading-relaxed text-right">צוות הדרכה מוביל בתחומו בהעברת סדנאות בהובלתה של שרון אייזן עם ניסיון עשיר של עשרות שנים כתחום עיסוק עיקרי המסור להון האנושי והצלחתו עם מקצועיות ברמות הגבוהות ביותר, הקשבה לצרכים והאתגרים בשטח, התאמה מלאה ככפפה ליד למתן מענה אופטימלי.  
+
+מקסום הפוטנציאל האנושי כשליחות ויצירת תוצאות הלכה למעשה באופן התואם לתרבות הארגונית ויישור קו עם החזון, הערכים, והיעדים של הארגון בהתאמה מלאה לצרכי הלקוח. 
+
+TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון עשיר בשטח ומשובים מעולים בהובלתה של שרון אייזן. ב TSI  אנו מקפידים על איכות ללא פשרות בכל הארץ (מתן מענה מותאם בהתאם לצרכי הלקוח) בצפון, מרכז ודרום הארץ. 
+
+ב TSI תוכלו למצוא מגוון עשיר של סדנאות, קורסים, הרצאות וימי עיון בהתאם לצרכים שלכם ברמות הגבוהות ביותר, מתן כלים וערך, והתאמה אישית לצרכים שלכם בכל תחום שתבחרו.  </p>
           </section>
 
           <section className="bg-white rounded-lg shadow-md p-8">
@@ -168,11 +165,7 @@ const About = () => {
                 </div>
               </div>
               <div className="flex justify-center mt-8">
-                <img
-                  src="/lovable-uploads/5588557e-2e37-46df-894d-88e5da633294.png"
-                  alt="לוגואים של לקוחות"
-                  className="w-3/4 rounded-lg shadow-md"
-                />
+                <img src="/lovable-uploads/5588557e-2e37-46df-894d-88e5da633294.png" alt="לוגואים של לקוחות" className="w-3/4 rounded-lg shadow-md" />
               </div>
             </div>
           </section>
@@ -199,8 +192,6 @@ const About = () => {
           </section>
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default About;
