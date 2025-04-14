@@ -6,6 +6,7 @@ import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Card, CardContent } from "@/components/ui/card";
 import { Table, TableBody, TableCell, TableHeader, TableHead, TableRow } from "@/components/ui/table";
+
 const About = () => {
   const [activeCategory, setActiveCategory] = useState("all");
   const clientCategories = [{
@@ -64,7 +65,9 @@ const About = () => {
                 <Link to="/about">אודות</Link>
               </Button>
               <Button variant="ghost">המלצות</Button>
-              <Button variant="ghost">הרצאות</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/lectures">הרצאות</Link>
+              </Button>
               <Button variant="ghost" asChild>
                 <Link to="/contact">צור קשר</Link>
               </Button>
@@ -81,12 +84,16 @@ const About = () => {
                     <Button variant="ghost" className="justify-end" asChild>
                       <Link to="/"><Home className="h-4 w-4 ml-2" /> עמוד הבית</Link>
                     </Button>
-                    <Button variant="ghost" className="justify-end" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>קורסים</Button>
+                    <Button variant="ghost" className="justify-end" asChild>
+                      <Link to="/courses">קורסים</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild>
                       <Link to="/about">אודות</Link>
                     </Button>
                     <Button variant="ghost" className="justify-end">המלצות</Button>
-                    <Button variant="ghost" className="justify-end">משאבים</Button>
+                    <Button variant="ghost" className="justify-end" asChild>
+                      <Link to="/lectures">הרצאות</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild>
                       <Link to="/contact">צור קשר</Link>
                     </Button>
