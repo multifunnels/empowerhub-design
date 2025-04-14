@@ -48,7 +48,9 @@ const Index = () => {
               </Link>
             </div>
             <div className="hidden md:flex space-x-6">
-              <Button variant="ghost" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>קורסים</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/courses">קורסים</Link>
+              </Button>
               <Button variant="ghost" asChild>
                 <Link to="/about">אודות</Link>
               </Button>
@@ -69,10 +71,9 @@ const Index = () => {
                 </SheetTrigger>
                 <SheetContent side="right" className="w-[300px] sm:w-[400px]">
                   <div className="flex flex-col gap-4 mt-8">
-                    <Button variant="ghost" className="justify-end" onClick={() => {
-                      window.location.href = 'https://academy.tsionline.org/courses';
-                      setIsOpen(false);
-                    }}>קורסים</Button>
+                    <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
+                      <Link to="/courses">קורסים</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
                       <Link to="/about">אודות</Link>
                     </Button>
