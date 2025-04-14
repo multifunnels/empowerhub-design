@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -6,7 +7,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Send } from "lucide-react";
+import { Menu, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Send, MessageSquare } from "lucide-react";
 import emailjs from 'emailjs-com';
 
 const Contact = () => {
@@ -15,37 +16,59 @@ const Contact = () => {
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [contactMethod, setContactMethod] = useState<"whatsapp" | "email">("whatsapp");
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     try {
-      emailjs.init("YOUR_USER_ID");
+      if (contactMethod === "email") {
+        // Use EmailJS to send email
+        emailjs.init("YOUR_USER_ID");
+        
+        const templateParams = {
+          from_name: name,
+          from_email: email,
+          message: message,
+          to_email: "sharoni@tsinspire.com",
+        };
+        
+        await emailjs.send(
+          'YOUR_SERVICE_ID', 
+          'YOUR_TEMPLATE_ID', 
+          templateParams
+        );
+        
+        toast({
+          title: "ההודעה נשלחה בהצלחה",
+          description: "נחזור אליך בהקדם האפשרי",
+        });
+      } else {
+        // Format phone number (remove any non-digit characters)
+        const phoneNumber = "972546688430"; // Israeli format for 054-6688430
+        
+        // Prepare WhatsApp message with form data
+        const whatsappText = `שם: ${name}%0Aאימייל: ${email}%0A%0Aהודעה:%0A${message}`;
+        
+        // Create WhatsApp link
+        const whatsappLink = `https://wa.me/${phoneNumber}?text=${whatsappText}`;
+        
+        // Open WhatsApp in new tab
+        window.open(whatsappLink, '_blank');
+        
+        toast({
+          title: "הועברת לווטסאפ",
+          description: "ניתן לשלוח את ההודעה ישירות בווטסאפ",
+        });
+      }
       
-      const templateParams = {
-        from_name: name,
-        from_email: email,
-        message: message,
-        to_email: "sharoni@tsinspire.com",
-      };
-      
-      await emailjs.send(
-        'YOUR_SERVICE_ID', 
-        'YOUR_TEMPLATE_ID', 
-        templateParams
-      );
-      
-      toast({
-        title: "ההודעה נשלחה בהצלחה",
-        description: "נחזור אליך בהקדם האפשרי",
-      });
-      
+      // Reset form
       setName("");
       setEmail("");
       setMessage("");
     } catch (error) {
-      console.error('Error sending email:', error);
+      console.error('Error submitting form:', error);
       toast({
         title: "שגיאה בשליחת ההודעה",
         description: "אנא נסה שוב או צור קשר ישירות בטלפון",
@@ -165,6 +188,23 @@ const Contact = () => {
             
             <div>
               <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-lg shadow-md">
+                <div className="flex justify-center space-x-4 mb-2">
+                  <div 
+                    className={`p-3 rounded-full cursor-pointer transition-colors flex items-center gap-2 ${contactMethod === "whatsapp" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-500 hover:bg-gray-200"}`}
+                    onClick={() => setContactMethod("whatsapp")}
+                  >
+                    <MessageSquare className="h-5 w-5" />
+                    <span>שליחה בווטסאפ</span>
+                  </div>
+                  <div 
+                    className={`p-3 rounded-full cursor-pointer transition-colors flex items-center gap-2 ${contactMethod === "email" ? "bg-primary/10 text-primary" : "bg-gray-100 text-gray-500 hover:bg-gray-200"}`}
+                    onClick={() => setContactMethod("email")}
+                  >
+                    <Mail className="h-5 w-5" />
+                    <span>שליחה באימייל</span>
+                  </div>
+                </div>
+                
                 <div>
                   <Label htmlFor="name">שם מלא</Label>
                   <Input
@@ -201,14 +241,20 @@ const Contact = () => {
                 </div>
                 <Button 
                   type="submit" 
-                  className="w-full"
+                  className={`w-full ${contactMethod === "whatsapp" ? "bg-green-600 hover:bg-green-700" : ""}`}
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "שולח..." : "שלח הודעה"} 
-                  <Send className="mr-2 h-4 w-4" />
+                  {isSubmitting ? "שולח..." : contactMethod === "whatsapp" ? "פתיחת ווטסאפ" : "שלח הודעה"} 
+                  {contactMethod === "whatsapp" ? 
+                    <MessageSquare className="mr-2 h-4 w-4" /> : 
+                    <Send className="mr-2 h-4 w-4" />
+                  }
                 </Button>
                 <p className="text-xs text-gray-500 text-center">
-                  *הטופס יפתח את תוכנת הדואר האלקטרוני שלך
+                  {contactMethod === "whatsapp" ? 
+                    "*לחיצה על הכפתור תפתח את יישומון הווטסאפ" : 
+                    "*הטופס יפתח את תוכנת הדואר האלקטרוני שלך"
+                  }
                 </p>
               </form>
             </div>
