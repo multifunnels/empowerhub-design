@@ -1,53 +1,38 @@
-
 import React, { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Book, GraduationCap, Target, MessageSquare, Menu, Home } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-
-const coursesData = [
-  {
-    icon: <GraduationCap className="h-8 w-8 text-primary" />,
-    title: "פיתוח מנהיגות",
-    description: "שלוט במיומנויות מנהיגות חיוניות למקום העבודה המודרני",
-  },
-  {
-    icon: <MessageSquare className="h-8 w-8 text-primary" />,
-    title: "פתרון קונפליקטים",
-    description: "למד אסטרטגיות יעילות לניהול קונפליקטים במקום העבודה",
-  },
-  {
-    icon: <Target className="h-8 w-8 text-primary" />,
-    title: "בניית צוות",
-    description: "בנה ותחזק צוותים בעלי ביצועים גבוהים",
-  },
-  {
-    icon: <Book className="h-8 w-8 text-primary" />,
-    title: "כישורי תקשורת",
-    description: "שפר את מיומנויות התקשורת האישית והבינישית",
-  }
-];
-
+const coursesData = [{
+  icon: <GraduationCap className="h-8 w-8 text-primary" />,
+  title: "פיתוח מנהיגות",
+  description: "שלוט במיומנויות מנהיגות חיוניות למקום העבודה המודרני"
+}, {
+  icon: <MessageSquare className="h-8 w-8 text-primary" />,
+  title: "פתרון קונפליקטים",
+  description: "למד אסטרטגיות יעילות לניהול קונפליקטים במקום העבודה"
+}, {
+  icon: <Target className="h-8 w-8 text-primary" />,
+  title: "בניית צוות",
+  description: "בנה ותחזק צוותים בעלי ביצועים גבוהים"
+}, {
+  icon: <Book className="h-8 w-8 text-primary" />,
+  title: "כישורי תקשורת",
+  description: "שפר את מיומנויות התקשורת האישית והבינישית"
+}];
 const Courses = () => {
   const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className="min-h-screen bg-gray-50" dir="rtl">
+  return <div className="min-h-screen bg-gray-50" dir="rtl">
       <nav className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <Link to="/">
-                <img 
-                  src="/lovable-uploads/1a610ffa-c35b-4929-9459-6294e1153521.png" 
-                  alt="TSI Logo" 
-                  className="h-12 w-auto object-contain"
-                  onError={(e) => {
-                    console.error('Error loading logo:', e);
-                    e.currentTarget.style.display = 'none';
-                  }}
-                />
+                <img src="/lovable-uploads/1a610ffa-c35b-4929-9459-6294e1153521.png" alt="TSI Logo" className="h-12 w-auto object-contain" onError={e => {
+                console.error('Error loading logo:', e);
+                e.currentTarget.style.display = 'none';
+              }} />
               </Link>
             </div>
             <div className="hidden md:flex space-x-6">
@@ -61,7 +46,7 @@ const Courses = () => {
                 <Link to="/about">אודות</Link>
               </Button>
               <Button variant="ghost">המלצות</Button>
-              <Button variant="ghost">משאבים</Button>
+              <Button variant="ghost">הרצאות</Button>
               <Button variant="ghost" asChild>
                 <Link to="/contact">צור קשר</Link>
               </Button>
@@ -102,8 +87,7 @@ const Courses = () => {
         <h1 className="text-4xl font-bold text-center mb-12">הקורסים שלנו</h1>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {coursesData.map((course, index) => (
-            <Card key={index} className="hover:shadow-lg transition-shadow">
+          {coursesData.map((course, index) => <Card key={index} className="hover:shadow-lg transition-shadow">
               <CardHeader>
                 <div className="w-16 h-16 bg-accent rounded-lg flex items-center justify-center mb-4">
                   {course.icon}
@@ -116,12 +100,9 @@ const Courses = () => {
                   למד עוד
                 </Button>
               </CardContent>
-            </Card>
-          ))}
+            </Card>)}
         </div>
       </div>
-    </div>
-  );
+    </div>;
 };
-
 export default Courses;
