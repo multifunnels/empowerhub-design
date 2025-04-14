@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import { Button } from "@/components/ui/button";
 import { Book, GraduationCap, Target, MessageSquare, Menu, Home } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+
 const coursesData = [{
   icon: <GraduationCap className="h-8 w-8 text-primary" />,
   title: "פיתוח מנהיגות",
@@ -21,6 +22,7 @@ const coursesData = [{
   title: "כישורי תקשורת",
   description: "שפר את מיומנויות התקשורת האישית והבינישית"
 }];
+
 const Courses = () => {
   const [isOpen, setIsOpen] = useState(false);
   return <div className="min-h-screen bg-gray-50" dir="rtl">
@@ -46,7 +48,9 @@ const Courses = () => {
                 <Link to="/about">אודות</Link>
               </Button>
               <Button variant="ghost">המלצות</Button>
-              <Button variant="ghost">הרצאות</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/lectures">הרצאות</Link>
+              </Button>
               <Button variant="ghost" asChild>
                 <Link to="/contact">צור קשר</Link>
               </Button>
@@ -71,7 +75,9 @@ const Courses = () => {
                       <Link to="/about">אודות</Link>
                     </Button>
                     <Button variant="ghost" className="justify-end" onClick={() => setIsOpen(false)}>המלצות</Button>
-                    <Button variant="ghost" className="justify-end" onClick={() => setIsOpen(false)}>משאבים</Button>
+                    <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
+                      <Link to="/lectures">הרצאות</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
                       <Link to="/contact">צור קשר</Link>
                     </Button>
