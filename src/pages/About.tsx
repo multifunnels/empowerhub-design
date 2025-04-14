@@ -1,12 +1,90 @@
-
 import { Button } from "@/components/ui/button";
-import { Users, Target, MessageSquare, Menu } from "lucide-react";
+import { Users, Target, MessageSquare, Menu, Building, Building2, Briefcase, Banknote, GraduationCap, Hospital, Bot, Landmark } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Separator } from "@/components/ui/separator";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Card, CardContent } from "@/components/ui/card";
+import { Table, TableBody, TableCell, TableHeader, TableHead, TableRow } from "@/components/ui/table";
+import { useState } from "react";
 
 const About = () => {
+  const [activeCategory, setActiveCategory] = useState("all");
+  
+  const clientCategories = [
+    { id: "government", name: "משרדי ממשלה ורשויות", icon: <Building className="h-5 w-5" /> },
+    { id: "academic", name: "מוסדות אקדמיים", icon: <GraduationCap className="h-5 w-5" /> },
+    { id: "companies", name: "חברות וארגונים", icon: <Briefcase className="h-5 w-5" /> },
+    { id: "banks", name: "בנקים", icon: <Landmark className="h-5 w-5" /> },
+    { id: "health", name: "שירותי בריאות", icon: <Hospital className="h-5 w-5" /> },
+    { id: "municipalities", name: "עיריות", icon: <Building2 className="h-5 w-5" /> },
+  ];
+
+  const clients = {
+    government: [
+      "משרד ראש הממשלה",
+      "לשכת העיתונות הממשלתית",
+      "משרד הביטחון",
+      "נציבות המדינה",
+      "הכנסת",
+      "משרד הרווחה",
+      "משרד האוצר",
+      "משרד הפנים",
+      "משרד העבודה",
+      "משרד הכלכלה",
+      "משרד החינוך",
+      "המשרד לביטחון פנים",
+      "כבאות והצלה",
+    ],
+    academic: [
+      "אוניברסיטת תל אביב",
+      "אוניברסיטת בר אילן",
+      "אוניברסיטת אריאל",
+      "האוניברסיטה העברית",
+      "מכללת אתגר",
+      "מכללת עתיד",
+      "מכללת אחוה",
+      "מכללת הישגים",
+      "מכללת כספים",
+      "מכון מגיד",
+    ],
+    companies: [
+      "תעשיה אווירית",
+      "אלתה",
+      "סמיקום",
+      "בית אקרשטיין",
+      "סינמה סיטי",
+      "קבוצת שקד",
+      "THI",
+      "UNET",
+      "מייקרוסופט",
+      "HP",
+      "הפניקס",
+    ],
+    banks: [
+      "בנק לאומי",
+      "בנק יהב",
+      "בנק מזרחי",
+      "בנק פאגי",
+    ],
+    health: [
+      "קופ\"ח לאומית",
+      "קופ\"ח כללית",
+      "קופ\"ח מכבי",
+      "מכון הלב – הדסה עין כרם",
+      "בית לוינשטיין",
+      "המרכז הרפואי שמיר",
+      "שערי צדק",
+    ],
+    municipalities: [
+      "עיריית ת\"א",
+      "עיריית ראשון לציון",
+      "עיריית ירושלים",
+      "עיריית גבעתיים",
+      "עיריית רמת גן",
+      "עיריית מודיעין",
+    ],
+  };
+
   return (
     <div className="min-h-screen">
       <nav className="bg-white shadow-sm">
@@ -182,69 +260,81 @@ TSI מונה עשרות מנחים מובילים בתחומם עם ניסיון
 
           <section className="bg-white rounded-lg shadow-md p-8">
             <h2 className="text-2xl font-semibold mb-6 text-right">בין לקוחותינו</h2>
-            <div className="flex flex-col gap-8">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6 text-right">
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 text-primary">משרדי ממשלה ורשויות</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>משרד ראש הממשלה</li>
-                    <li>לשכת העיתונות הממשלתית</li>
-                    <li>משרד הביטחון</li>
-                    <li>הכנסת</li>
-                    <li>משרד הרווחה</li>
-                    <li>משרד האוצר</li>
-                    <li>משרד הפנים</li>
-                    <li>משטרת ישראל</li>
-                    <li>כבאות והצלה</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 text-primary">מוסדות אקדמיים</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>אוניברסיטת תל אביב</li>
-                    <li>אוניברסיטת בר אילן</li>
-                    <li>אוניברסיטת אריאל</li>
-                    <li>האוניברסיטה העברית</li>
-                    <li>מכללת אתגר</li>
-                    <li>מכללת עתיד</li>
-                    <li>מכללת אחוה</li>
-                    <li>מכללת הישגים</li>
-                    <li>מכללת כספים</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 text-primary">חברות וארגונים</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>תעשיה אווירית</li>
-                    <li>אלתה</li>
-                    <li>סמיקום</li>
-                    <li>בית אקרשטיין</li>
-                    <li>סינמה סיטי</li>
-                    <li>קבוצת שקד</li>
-                    <li>THI</li>
-                    <li>UNET</li>
-                    <li>מייקרוסופט</li>
-                    <li>HP</li>
-                  </ul>
-                </div>
-                <div>
-                  <h3 className="text-lg font-semibold mb-3 text-primary">בנקים ושירותי בריאות</h3>
-                  <ul className="space-y-2 text-gray-700">
-                    <li>בנק לאומי</li>
-                    <li>בנק יהב</li>
-                    <li>בנק מזרחי</li>
-                    <li>בנק פאגי</li>
-                    <li>קופ"ח לאומית</li>
-                    <li>קופ"ח כללית</li>
-                    <li>הפניקס</li>
-                    <li>מכון הלב – הדסה עין כרם</li>
-                    <li>בית לוינשטיין</li>
-                  </ul>
-                </div>
+            
+            <div className="mb-8">
+              <div className="flex flex-wrap justify-center gap-3 mb-6">
+                <Button 
+                  variant={activeCategory === "all" ? "default" : "outline"}
+                  onClick={() => setActiveCategory("all")}
+                  className="rounded-full"
+                >
+                  הכל
+                </Button>
+                {clientCategories.map(category => (
+                  <Button 
+                    key={category.id}
+                    variant={activeCategory === category.id ? "default" : "outline"}
+                    onClick={() => setActiveCategory(category.id)}
+                    className="rounded-full flex gap-2 items-center"
+                  >
+                    {category.icon}
+                    {category.name}
+                  </Button>
+                ))}
               </div>
-              <div className="flex justify-center mt-8">
-                <img src="/lovable-uploads/5588557e-2e37-46df-894d-88e5da633294.png" alt="לוגואים של לקוחות" className="w-3/4 rounded-lg shadow-md" />
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {(activeCategory === "all" ? 
+                [...clientCategories].map(category => ({
+                  ...category,
+                  clients: clients[category.id]
+                })) : 
+                [...clientCategories].filter(c => c.id === activeCategory).map(category => ({
+                  ...category,
+                  clients: clients[category.id]
+                }))
+              ).map(category => (
+                <Card key={category.id} className="overflow-hidden border-primary/10 hover:shadow-md transition-shadow">
+                  <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-4 flex items-center gap-3">
+                    <div className="bg-white p-2 rounded-full">
+                      {category.icon}
+                    </div>
+                    <h3 className="text-lg font-semibold text-primary text-right">{category.name}</h3>
+                  </div>
+                  <CardContent className="pt-4">
+                    <ul className="space-y-2 text-gray-700 text-right">
+                      {category.clients.map((client, index) => (
+                        <li key={index} className="flex items-center gap-2 justify-end">
+                          <span>{client}</span>
+                          <div className="bg-primary/5 p-1 rounded-full">
+                            <div className="w-2 h-2 bg-primary rounded-full" />
+                          </div>
+                        </li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+            
+            <div className="mt-12 bg-gray-50 rounded-lg p-6 shadow-inner">
+              <h3 className="text-lg font-semibold text-center mb-6 text-primary">מתוך מגוון לקוחותינו</h3>
+              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+                {[...Array(10)].map((_, i) => (
+                  <div key={i} className="bg-white rounded-lg shadow-sm p-4 aspect-square flex items-center justify-center">
+                    <div className="text-primary/60 flex flex-col items-center justify-center p-4 opacity-70 hover:opacity-100 transition-opacity">
+                      {i % 5 === 0 ? <Building className="w-12 h-12" /> : 
+                       i % 5 === 1 ? <Briefcase className="w-12 h-12" /> :
+                       i % 5 === 2 ? <Landmark className="w-12 h-12" /> :
+                       i % 5 === 3 ? <GraduationCap className="w-12 h-12" /> :
+                       <Hospital className="w-12 h-12" />}
+                      <span className="text-xs mt-2 text-gray-500">לוגו לקוח</span>
+                    </div>
+                  </div>
+                ))}
               </div>
+              <p className="text-center text-sm text-gray-500 mt-4">* הלוגואים מוצגים כדוגמה בלבד. יש להחליפם בלוגואים אמיתיים.</p>
             </div>
           </section>
         </div>
