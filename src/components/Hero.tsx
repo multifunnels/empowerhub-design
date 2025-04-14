@@ -5,7 +5,7 @@ export const Hero = () => {
       <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1605810230434-7631ac76ec81')] bg-cover bg-center opacity-10" />
       <div className="container relative z-10 px-4 py-16 text-center">
         <h1 className="text-4xl md:text-6xl font-bold mb-6 animate-fade-up">יוצרים תוצאות בארגון</h1>
-        <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-up">גלו את מיטב הסדנאות,קורסים,הרצאות וימי עיון
+        <p className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto animate-fade-up">גלו את מיטב הסדנאות,קורסים,הרצאות וימי עיון 
 המותאמים אישית לצרכי הארגון שלכם בעולם החדש </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-up">
           <Button size="lg" className="bg-primary hover:bg-primary/90" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>
