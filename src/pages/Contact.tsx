@@ -91,7 +91,9 @@ const Contact = () => {
               </Link>
             </div>
             <div className="hidden md:flex space-x-6">
-              <Button variant="ghost" onClick={() => window.location.href = 'https://academy.tsionline.org/courses'}>קורסים</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/courses">קורסים</Link>
+              </Button>
               <Button variant="ghost" asChild>
                 <Link to="/about">אודות</Link>
               </Button>
@@ -102,7 +104,9 @@ const Contact = () => {
               </Button>
             </div>
             <div className="flex items-center gap-4">
-              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>הרשמה</Button>
+              <Button onClick={() => window.location.href = 'https://academy.tsionline.org/'}>
+                הרשמה
+              </Button>
               <Sheet>
                 <SheetTrigger asChild className="md:hidden">
                   <Button variant="ghost" size="icon">
