@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Send, MessageSquare, Home } from "lucide-react";
 import emailjs from 'emailjs-com';
+
 const Contact = () => {
   const {
     toast
@@ -17,6 +18,7 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [contactMethod, setContactMethod] = useState<"whatsapp" | "email">("whatsapp");
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
@@ -58,16 +60,22 @@ const Contact = () => {
       setIsSubmitting(false);
     }
   };
+
   return <div className="min-h-screen">
       <nav className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
           <div className="flex justify-between items-center">
             <div className="flex items-center">
               <Link to="/">
-                <img src="/lovable-uploads/4c1deaf2-aeb2-4d36-b3cd-ead85754e3a9.png" alt="TSI Logo" className="h-12 w-auto object-contain" onError={e => {
-                console.error('Error loading logo:', e);
-                e.currentTarget.style.display = 'none';
-              }} />
+                <img 
+                  src="/lovable-uploads/4c1deaf2-aeb2-4d36-b3cd-ead85754e3a9.png" 
+                  alt="TSI Logo" 
+                  className="h-12 w-auto object-contain" 
+                  onError={e => {
+                    console.error('Error loading logo:', e);
+                    e.currentTarget.style.display = 'none';
+                  }} 
+                />
               </Link>
             </div>
             <div className="hidden md:flex space-x-6">
@@ -81,7 +89,9 @@ const Contact = () => {
                 <Link to="/about">אודות</Link>
               </Button>
               <Button variant="ghost">המלצות</Button>
-              <Button variant="ghost">הרצאות</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/lectures">הרצאות</Link>
+              </Button>
               <Button variant="ghost" asChild>
                 <Link to="/contact">צור קשר</Link>
               </Button>
@@ -105,7 +115,9 @@ const Contact = () => {
                       <Link to="/about">אודות</Link>
                     </Button>
                     <Button variant="ghost" className="justify-end">המלצות</Button>
-                    <Button variant="ghost" className="justify-end">משאבים</Button>
+                    <Button variant="ghost" className="justify-end" asChild>
+                      <Link to="/lectures">הרצאות</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild>
                       <Link to="/contact">צור קשר</Link>
                     </Button>
@@ -204,4 +216,5 @@ const Contact = () => {
       </div>
     </div>;
 };
+
 export default Contact;
