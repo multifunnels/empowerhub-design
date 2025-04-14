@@ -1,3 +1,4 @@
+
 import { Users, Target, MessageSquare, Menu, Home } from "lucide-react";
 import { Hero } from "@/components/Hero";
 import { CourseCard } from "@/components/CourseCard";
@@ -45,7 +46,9 @@ const Index = () => {
                 <Link to="/about">אודות</Link>
               </Button>
               <Button variant="ghost">המלצות</Button>
-              <Button variant="ghost">הרצאות</Button>
+              <Button variant="ghost" asChild>
+                <Link to="/lectures">הרצאות</Link>
+              </Button>
               <Button variant="ghost" asChild>
                 <Link to="/contact">צור קשר</Link>
               </Button>
@@ -70,7 +73,9 @@ const Index = () => {
                       <Link to="/about">אודות</Link>
                     </Button>
                     <Button variant="ghost" className="justify-end" onClick={() => setIsOpen(false)}>המלצות</Button>
-                    <Button variant="ghost" className="justify-end" onClick={() => setIsOpen(false)}>משאבים</Button>
+                    <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
+                      <Link to="/lectures">הרצאות</Link>
+                    </Button>
                     <Button variant="ghost" className="justify-end" asChild onClick={() => setIsOpen(false)}>
                       <Link to="/contact">צור קשר</Link>
                     </Button>
