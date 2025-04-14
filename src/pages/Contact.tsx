@@ -1,4 +1,3 @@
-
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -7,7 +6,8 @@ import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, Phone, Mail, Facebook, Twitter, Youtube, Instagram } from "lucide-react";
+import { Menu, Phone, Mail, Facebook, Twitter, Youtube, Instagram, Send } from "lucide-react";
+import emailjs from 'emailjs-com';
 
 const Contact = () => {
   const { toast } = useToast();
@@ -16,26 +16,31 @@ const Contact = () => {
   const [message, setMessage] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     
     try {
-      // Create mailto link with form data
-      const subject = `הודעה חדשה מ-${name}`;
-      const body = `שם: ${name}\nאימייל: ${email}\n\nהודעה:\n${message}`;
-      const mailtoLink = `mailto:sharoni@tsinspire.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      emailjs.init("YOUR_USER_ID");
       
-      // Open default mail client
-      window.open(mailtoLink, '_blank');
+      const templateParams = {
+        from_name: name,
+        from_email: email,
+        message: message,
+        to_email: "sharoni@tsinspire.com",
+      };
       
-      // Show success message
+      await emailjs.send(
+        'YOUR_SERVICE_ID', 
+        'YOUR_TEMPLATE_ID', 
+        templateParams
+      );
+      
       toast({
         title: "ההודעה נשלחה בהצלחה",
         description: "נחזור אליך בהקדם האפשרי",
       });
       
-      // Reset form
       setName("");
       setEmail("");
       setMessage("");
@@ -199,7 +204,8 @@ const Contact = () => {
                   className="w-full"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "שולח..." : "שלח הודעה"}
+                  {isSubmitting ? "שולח..." : "שלח הודעה"} 
+                  <Send className="mr-2 h-4 w-4" />
                 </Button>
                 <p className="text-xs text-gray-500 text-center">
                   *הטופס יפתח את תוכנת הדואר האלקטרוני שלך
