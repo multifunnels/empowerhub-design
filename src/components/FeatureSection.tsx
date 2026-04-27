@@ -17,7 +17,7 @@ export const FeatureSection = () => {
       <div className="container px-6">
         <div className={`mb-20 ${isRtl ? "text-right" : "text-left"}`}>
           <div className="eyebrow">
-            <span>Why Us</span>
+            <span>{t("eyebrows.whyUs")}</span>
             <span className="jp">理由</span>
           </div>
           <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
