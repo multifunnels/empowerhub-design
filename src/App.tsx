@@ -12,6 +12,7 @@ import Courses from "./pages/Courses";
 import Lectures from "./pages/Lectures";
 import Recommendations from "./pages/Recommendations";
 import Sharon from "./pages/Sharon";
+import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
@@ -30,6 +31,7 @@ const App = () => (
           <Route path="/lectures" element={<Lectures />} />
           <Route path="/recommendations" element={<Recommendations />} />
           <Route path="/sharon-aizen" element={<Sharon />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>

@@ -21,7 +21,7 @@ const NotFound = () => {
           className="absolute select-none pointer-events-none text-foreground/[0.04]"
           style={{
             fontFamily: '"Noto Serif JP", serif',
-            fontSize: "clamp(280px, 50vw, 640px)',",
+            fontSize: "clamp(280px, 50vw, 640px)",
             lineHeight: 1,
             top: "50%",
             left: "50%",
