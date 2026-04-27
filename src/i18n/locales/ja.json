@@ -175,6 +175,8 @@
     "newsletterText": "最新のコースとヒントをお届けします。",
     "emailPlaceholder": "メールアドレスを入力",
     "subscribe": "登録する",
+    "newsletterSuccess": "ご登録ありがとうございます。",
+    "newsletterInvalid": "有効なメールアドレスをご入力ください。",
     "rights": "© 2024 tsionline. All rights reserved.",
     "linkedin": "LinkedIn",
     "twitter": "Twitter",
