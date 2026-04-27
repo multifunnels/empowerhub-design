@@ -138,8 +138,16 @@
   }
 
   :focus-visible {
-    outline: 1px solid hsl(var(--primary));
-    outline-offset: 2px;
+    outline: 2px solid hsl(var(--primary));
+    outline-offset: 3px;
+  }
+
+  /* RTL/Hebrew: tracking & uppercase don't fit Hebrew letterforms */
+  html[lang="he"] .uppercase,
+  html[lang="he"] [class*="tracking-["],
+  html[lang="he"] [class*="uppercase"] {
+    text-transform: none;
+    letter-spacing: 0.04em;
   }
 }
 
@@ -147,6 +155,11 @@
   /* eyebrow: tiny uppercase Latin + kanji separated by ｜ */
   .eyebrow {
     @apply inline-flex items-center text-[11px] uppercase tracking-[0.28em] text-muted-foreground font-medium;
+  }
+  html[lang="he"] .eyebrow {
+    text-transform: none;
+    letter-spacing: 0.06em;
+    font-size: 12px;
   }
   .eyebrow .jp {
     font-family: 'Noto Serif JP', serif;
