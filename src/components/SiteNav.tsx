@@ -42,7 +42,7 @@ export const SiteNav = () => {
 
   const linkClasses = (active: boolean) =>
     `relative inline-flex items-center px-3 py-2 text-[11px] uppercase tracking-[0.28em] font-medium transition-colors duration-500 ${
-      active ? "text-primary" : "text-foreground/75 hover:text-foreground"
+      active ? "text-primary" : "text-foreground/85 hover:text-foreground"
     }`;
 
   const underline = (active: boolean) =>

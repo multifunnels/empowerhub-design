@@ -76,7 +76,7 @@ const About = () => {
         <div className="max-w-3xl mx-auto space-y-24">
           {/* Intro */}
           <section className={align}>
-            <p className="text-base md:text-lg leading-[2] text-foreground/85">
+            <p className="text-base md:text-lg leading-[2] text-foreground/90">
               {t("about.intro")}
             </p>
           </section>
@@ -101,7 +101,7 @@ const About = () => {
               ))}
             </div>
 
-            <div className="space-y-10 text-base leading-[2] text-foreground/85">
+            <div className="space-y-10 text-base leading-[2] text-foreground/90">
               <div className="border-s-2 border-primary ps-6">
                 <p>
                   <strong className="text-primary font-medium">
@@ -174,7 +174,7 @@ const About = () => {
               {t("about.differentiationTitle")}
             </h2>
 
-            <div className="space-y-10 text-base leading-[2] text-foreground/85">
+            <div className="space-y-10 text-base leading-[2] text-foreground/90">
               <div className="border-s-2 border-primary ps-6">
                 <p>
                   <span className="text-primary font-medium">
