@@ -2,8 +2,8 @@ import { ArrowLeft, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Enso } from "@/components/JIcon";
-import heroMountains from "@/assets/jp/hero-mountains.jpg";
-import inkStroke from "@/assets/jp/ink-stroke.png";
+import heroMountains from "@/assets/jp/hero-mountains.webp";
+import inkStroke from "@/assets/jp/ink-stroke.webp";
 
 export const Hero = () => {
   const { t, i18n } = useTranslation();

@@ -3,7 +3,7 @@ import App from './App.tsx'
 import './index.css'
 import './i18n'
 import { detectLanguageFromGeo } from './i18n'
-import washiPaper from './assets/jp/washi-paper.jpg'
+import washiPaper from './assets/jp/washi-paper.webp'
 
 // Run geo-based language detection once (no-op if a language is already stored).
 detectLanguageFromGeo();
