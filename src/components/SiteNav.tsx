@@ -38,14 +38,22 @@ export const SiteNav = () => {
             </Link>
           </div>
           <div className="hidden md:flex items-center gap-1">
-            {LINKS.map((link) => (
-              <Button key={link.to} variant="ghost" asChild>
-                <Link to={link.to}>
-                  {link.home && <Home className={`h-4 w-4 ${isRtl ? "ml-2" : "mr-2"}`} />}
-                  {t(link.key)}
-                </Link>
-              </Button>
-            ))}
+            {LINKS.map((link) => {
+              const isSharon = link.key === "nav.sharon";
+              return (
+                <Button
+                  key={link.to}
+                  variant={isSharon ? "default" : "ghost"}
+                  asChild
+                  className={isSharon ? "bg-primary text-primary-foreground hover:bg-primary/90" : ""}
+                >
+                  <Link to={link.to}>
+                    {link.home && <Home className={`h-4 w-4 ${isRtl ? "ml-2" : "mr-2"}`} />}
+                    {t(link.key)}
+                  </Link>
+                </Button>
+              );
+            })}
             <LanguageSwitcher />
           </div>
           <div className="flex items-center gap-2 md:hidden">
