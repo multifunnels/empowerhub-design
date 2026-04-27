@@ -11,6 +11,8 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { JIcon, Enso, KanjiBullet } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
+import tatamiEngawa from "@/assets/jp/tatami-engawa.jpg";
+import kanjiMark from "@/assets/jp/kanji-mark.png";
 
 type CatId = "government" | "academic" | "companies" | "banks" | "health" | "municipalities";
 
