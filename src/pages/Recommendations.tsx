@@ -1,11 +1,12 @@
 import { Testimonial } from "@/components/Testimonial";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JIcon, Enso } from "@/components/JIcon";
 import { Building, Briefcase, Landmark, GraduationCap, Hospital } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import zenGarden from "@/assets/jp/zen-garden.jpg";
-import kanjiMark from "@/assets/jp/kanji-mark.png";
+import zenGarden from "@/assets/jp/zen-garden.webp";
+import kanjiMark from "@/assets/jp/kanji-mark.webp";
 
 const LOGO_ICONS = [Building, Briefcase, Landmark, GraduationCap, Hospital];
 
@@ -23,6 +24,7 @@ const Recommendations = () => {
   return (
     <div className="min-h-screen">
       <SiteNav />
+      <Breadcrumbs />
 
       {/* Hero strip */}
       <section className="relative border-b border-border overflow-hidden">

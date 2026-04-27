@@ -9,9 +9,10 @@ import {
 } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JIcon, KanjiBullet } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
-import tatamiEngawa from "@/assets/jp/tatami-engawa.jpg";
+import tatamiEngawa from "@/assets/jp/tatami-engawa.webp";
 
 type CatId = "government" | "academic" | "companies" | "banks" | "health" | "municipalities";
 
@@ -52,6 +53,7 @@ const About = () => {
   return (
     <div className="min-h-screen">
       <SiteNav />
+      <Breadcrumbs />
 
       {/* Hero with tatami-engawa photograph */}
       <section

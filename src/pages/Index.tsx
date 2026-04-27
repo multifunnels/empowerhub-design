@@ -7,7 +7,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { JIcon } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
-import zenGarden from "@/assets/jp/zen-garden.jpg";
+import zenGarden from "@/assets/jp/zen-garden.webp";
 
 const ICONS = [Lightbulb, Brain, MessageSquare, Briefcase, UserRound, Headphones];
 
@@ -79,12 +79,16 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Voices — single subtle photo strip above */}
-      <div
-        className="photo-strip"
-        style={{ backgroundImage: `url(${zenGarden})`, height: "120px" }}
-        aria-hidden="true"
-      />
+      {/* Voices — single subtle photo strip above (lazy) */}
+      <div className="photo-strip relative" style={{ height: "120px" }} aria-hidden="true">
+        <img
+          src={zenGarden}
+          alt=""
+          loading="lazy"
+          decoding="async"
+          className="absolute inset-0 w-full h-full object-cover -z-10"
+        />
+      </div>
       <section className="py-24 lg:py-32 container px-6">
         <div className={`mb-20 ${align}`}>
           <div className="eyebrow">

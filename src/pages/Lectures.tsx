@@ -9,10 +9,11 @@ import {
 } from "@/components/ui/pagination";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
+import { Breadcrumbs } from "@/components/Breadcrumbs";
 import { JIcon } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
-import inkStroke from "@/assets/jp/ink-stroke.png";
-import tatamiEngawa from "@/assets/jp/tatami-engawa.jpg";
+import inkStroke from "@/assets/jp/ink-stroke.webp";
+import tatamiEngawa from "@/assets/jp/tatami-engawa.webp";
 
 const Lectures = () => {
   const { t, i18n } = useTranslation();
@@ -31,6 +32,7 @@ const Lectures = () => {
   return (
     <div className="min-h-screen">
       <SiteNav />
+      <Breadcrumbs />
 
       <div className="container mx-auto px-6 py-24 lg:py-32">
         <header className={`mb-20 ${align}`}>

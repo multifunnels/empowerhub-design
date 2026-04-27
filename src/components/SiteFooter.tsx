@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { toast } from "sonner";
 import { z } from "zod";
-import kanjiMark from "@/assets/jp/kanji-mark.png";
+import kanjiMark from "@/assets/jp/kanji-mark.webp";
 
 const emailSchema = z
   .string()
