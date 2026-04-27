@@ -175,6 +175,8 @@
     "newsletterText": "Stay updated with our latest courses and tips.",
     "emailPlaceholder": "Enter your email",
     "subscribe": "Subscribe",
+    "newsletterSuccess": "Thanks — we'll be in touch.",
+    "newsletterInvalid": "Please enter a valid email address.",
     "rights": "© 2024 tsionline. All rights reserved.",
     "linkedin": "LinkedIn",
     "twitter": "Twitter",
