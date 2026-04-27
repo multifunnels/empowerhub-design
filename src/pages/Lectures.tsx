@@ -11,6 +11,8 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { JIcon } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
+import inkStroke from "@/assets/jp/ink-stroke.png";
+import tatamiEngawa from "@/assets/jp/tatami-engawa.jpg";
 
 const Lectures = () => {
   const { t, i18n } = useTranslation();

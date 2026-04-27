@@ -4,6 +4,8 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { JIcon, Enso } from "@/components/JIcon";
 import { Building, Briefcase, Landmark, GraduationCap, Hospital } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import zenGarden from "@/assets/jp/zen-garden.jpg";
+import kanjiMark from "@/assets/jp/kanji-mark.png";
 
 const LOGO_ICONS = [Building, Briefcase, Landmark, GraduationCap, Hospital];
 
