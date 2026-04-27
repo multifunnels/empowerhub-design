@@ -110,6 +110,14 @@
       "banks": "Banks",
       "health": "Healthcare Services",
       "municipalities": "Municipalities"
+    },
+    "clientLists": {
+      "government": ["Prime Minister's Office", "Government Press Office", "Ministry of Defense", "Civil Service Commission", "The Knesset", "Ministry of Welfare", "Ministry of Finance", "Ministry of the Interior", "Ministry of Labor", "Ministry of Economy", "Ministry of Education", "Ministry of Public Security", "Fire & Rescue Services"],
+      "academic": ["Tel Aviv University", "Bar-Ilan University", "Ariel University", "Hebrew University", "Etgar College", "Atid College", "Achva College", "Hesegim College", "Kaspim College", "Magid Institute"],
+      "companies": ["Israel Aerospace Industries", "Elta", "Semicom", "Ackerstein House", "Cinema City", "Shaked Group", "THI", "UNET", "Microsoft", "HP", "The Phoenix"],
+      "banks": ["Bank Leumi", "Bank Yahav", "Mizrahi Bank", "Bank Pagi"],
+      "health": ["Leumit HMO", "Clalit HMO", "Maccabi HMO", "Heart Institute – Hadassah Ein Kerem", "Loewenstein Hospital", "Shamir Medical Center", "Shaare Zedek"],
+      "municipalities": ["Tel Aviv Municipality", "Rishon LeZion Municipality", "Jerusalem Municipality", "Givatayim Municipality", "Ramat Gan Municipality", "Modi'in Municipality"]
     }
   },
   "contact": {
