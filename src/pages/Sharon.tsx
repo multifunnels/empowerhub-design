@@ -179,40 +179,45 @@ const Sharon = () => {
             </div>
 
             {/* Right: photo + "as seen on" card */}
-            <div className="relative min-h-[420px] lg:min-h-[600px]">
-              {/* feathered photo */}
-              <img
-                src={sharonImg}
-                alt={t("sharon.name")}
-                className="absolute inset-0 w-full h-full object-cover"
-                style={{
-                  objectPosition: isRtl ? "left center" : "right center",
-                  WebkitMaskImage: isRtl
-                    ? "linear-gradient(90deg, transparent 0%, #000 30%, #000 100%)"
-                    : "linear-gradient(270deg, transparent 0%, #000 30%, #000 100%)",
-                  maskImage: isRtl
-                    ? "linear-gradient(90deg, transparent 0%, #000 30%, #000 100%)"
-                    : "linear-gradient(270deg, transparent 0%, #000 30%, #000 100%)",
-                }}
-              />
-              {/* navy bottom blend so photo melts into the card */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0"
-                style={{
-                  background: `linear-gradient(180deg, transparent 60%, ${NAVY} 100%)`,
-                }}
-              />
+            <div className="relative lg:min-h-[600px]">
+              {/* photo wrapper — owns its own height on mobile so the card can flow below */}
+              <div className="relative h-[60vh] min-h-[360px] lg:absolute lg:inset-0 lg:h-auto lg:min-h-0">
+                {/* feathered photo */}
+                <img
+                  src={sharonImg}
+                  alt={t("sharon.name")}
+                  className="absolute inset-0 w-full h-full object-cover"
+                  style={{
+                    objectPosition: isRtl ? "left center" : "right center",
+                    WebkitMaskImage: isRtl
+                      ? "linear-gradient(90deg, transparent 0%, #000 30%, #000 100%)"
+                      : "linear-gradient(270deg, transparent 0%, #000 30%, #000 100%)",
+                    maskImage: isRtl
+                      ? "linear-gradient(90deg, transparent 0%, #000 30%, #000 100%)"
+                      : "linear-gradient(270deg, transparent 0%, #000 30%, #000 100%)",
+                  }}
+                />
+                {/* navy bottom blend so photo melts into the card */}
+                <div
+                  aria-hidden
+                  className="pointer-events-none absolute inset-0"
+                  style={{
+                    background: `linear-gradient(180deg, transparent 60%, ${NAVY} 100%)`,
+                  }}
+                />
+              </div>
 
-              {/* As seen & heard on */}
+              {/* As seen & heard on — flows below photo on mobile, absolute on lg+ */}
               <div
-                className={`absolute top-6 ${isRtl ? "left-6" : "right-6"} z-10 rounded-lg backdrop-blur-sm`}
+                className={`relative mt-6 mx-6 lg:mt-0 lg:mx-0 lg:absolute lg:top-6 ${isRtl ? "lg:left-6" : "lg:right-6"} z-10 rounded-lg backdrop-blur-sm`}
                 style={{
                   border: `1px solid ${GOLD}55`,
                   background: "rgba(4,10,31,0.55)",
                   boxShadow: `0 0 0 1px ${GOLD}22 inset`,
                   padding: "14px 18px",
-                  width: "min(280px, 85vw)",
+                  width: "auto",
+                  maxWidth: "min(280px, 100%)",
+                  marginInline: "auto",
                 }}
               >
                 <div
