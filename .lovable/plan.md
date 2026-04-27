@@ -1,66 +1,43 @@
 ## Goal
 
-Make the entire site available in three languages — Hebrew (current), English, and Japanese — and automatically pick the right language based on the visitor's country, while keeping a manual switcher so anyone can override the choice.
+Use the newly uploaded photo of Sharon on the `/sharon-aizen` page and redesign the hero so the image is showcased properly (the current layout was built for a tall/portrait crop and would cut off her face).
 
-## What the user will experience
+## Changes
 
-- A visitor from **Israel** → site loads in Hebrew (RTL), exactly as today.
-- A visitor from **Japan** → site loads in Japanese.
-- A visitor from **any other country** (US, UK, Germany, etc.) → site loads in English.
-- A small **language switcher** (🌐 HE / EN / 日本語) appears in the top navigation on every page. Picking a language overrides the auto-detection and is remembered for next visits (stored in localStorage).
-- Direction (RTL/LTR) flips automatically: Hebrew = RTL, English & Japanese = LTR.
-- All visible text translates: navigation, hero, course cards, "Why choose us", testimonials, footer, contact form labels/messages, About page (vision/differentiation/clients), Recommendations page, Lectures page, Courses page, toasts, and button labels.
+### 1. Replace the image asset
+- Copy `user-uploads://hf_20260427_121439_b9a3085c-ae19-4de4-94cd-17e8c422fd7e.png` → `src/assets/sharon-aizen.png` (overwrite existing).
 
-## How it works (technical)
+### 2. Rework the hero in `src/pages/Sharon.tsx`
 
-**1. i18n library**
-- Add `react-i18next` + `i18next` + `i18next-browser-languagedetector`.
-- Create `src/i18n/index.ts` to initialize i18next with three resource bundles.
-- Create translation JSON files:
-  - `src/i18n/locales/he.json`
-  - `src/i18n/locales/en.json`
-  - `src/i18n/locales/ja.json`
-- All strings currently hardcoded in components get keys (e.g. `nav.home`, `hero.title`, `hero.subtitle`, `courses.items.results.title`, `features.flexibleSchedule.description`, `contact.form.name`, etc.). Arrays (course list, feature list, testimonials, lecture list, client categories) live in the JSON as arrays so the component just maps over `t('courses.items', { returnObjects: true })`.
+Switch from a 2-column hero (image left, text right) to a **stacked hero** that better fits a landscape photo:
 
-**2. Geo detection**
-- On first visit (no stored preference), call a free IP geolocation endpoint such as `https://ipapi.co/json/` (no key required, HTTPS, returns `country_code`).
-- Mapping rule:
-  - `IL` → `he`
-  - `JP` → `ja`
-  - everything else (and on fetch failure) → `en`
-- Save the detected language in `localStorage` under `tsi-lang` so subsequent visits skip the lookup.
-- If the user manually picks a language from the switcher, that choice is written to `localStorage` and always wins over geo detection.
+```text
+┌────────────────────────────────────────────────┐
+│                                                │
+│           [ Wide cinematic photo ]             │  ← full-width banner
+│              gradient overlay                  │     ~420px tall
+│                                                │
+│   SHARON AIZEN              (name overlay,     │
+│   Speaker • Mentor • CEO     bottom-left,      │
+│                              gold accent)      │
+└────────────────────────────────────────────────┘
+│  3 badge cards (Mic / Radio / Tv)              │
+│  Keynote red ribbon                            │
+└────────────────────────────────────────────────┘
+```
 
-**3. Direction & font handling**
-- A `LanguageProvider` wrapper (or a `useEffect` in `App.tsx`) sets `document.documentElement.lang` and `document.documentElement.dir` (`rtl` for `he`, `ltr` for `en`/`ja`) whenever language changes.
-- Existing components that hardcode `dir="rtl"` get switched to read direction from i18n (`i18n.dir()`) so the layout flips correctly.
-- For Japanese, add the Noto Sans JP Google Font in `index.html` and apply it conditionally so Japanese text renders nicely.
+Specifics:
+- Photo rendered as a full-width banner inside the navy card, height `h-[380px] lg:h-[460px]`, `object-cover object-center` so her face stays visible at every breakpoint.
+- Dark gradient overlay (`from-[#070d22]/90 via-[#070d22]/40 to-transparent`) on the bottom-left so the name text is readable on top of the photo.
+- Name + tagline overlaid bottom-left (or bottom-right in RTL) with the existing gold (`#c9a64e`) treatment.
+- Move the 3 badge cards (Mic / Radio / Tv) and the red "Keynote" ribbon to a row **below** the photo banner, full width — no longer competing with the image.
+- Keep the gold vertical accent line, but as a thin top border under the banner.
 
-**4. Language switcher component**
-- New `src/components/LanguageSwitcher.tsx`: a small dropdown (using existing shadcn `DropdownMenu`) showing 🌐 + current language; options HE / EN / 日本語.
-- Placed in the desktop nav bar and inside the mobile `Sheet` menu on every page (`Index`, `About`, `Courses`, `Contact`, `Lectures`, `Recommendations`).
+### 3. Keep everything else unchanged
+- All other sections (intro, quote, takeaways, problem/solution, framework, audience, contact) stay exactly as they are.
+- All translations (he/en/ja) and routing untouched.
+- RTL mirroring preserved (overlay aligns to right in Hebrew, left in English/Japanese).
 
-**5. Files that change**
-- `package.json` – add 3 deps.
-- `src/main.tsx` – import `./i18n`.
-- `src/i18n/index.ts` (new) + 3 locale JSON files (new).
-- `src/components/LanguageSwitcher.tsx` (new).
-- `src/components/Hero.tsx`, `FeatureSection.tsx`, `CourseCard.tsx`, `Testimonial.tsx` – replace hardcoded strings with `t(...)`.
-- `src/pages/Index.tsx`, `About.tsx`, `Courses.tsx`, `Contact.tsx`, `Lectures.tsx`, `Recommendations.tsx` – translate strings, drop the hardcoded `dir="rtl"`, add the `LanguageSwitcher` to navs.
-- `index.html` – add Japanese font + remove the static `lang="he"`/`dir="rtl"` (now set dynamically).
-
-## Translation scope & quality
-
-- Hebrew bundle = exact current copy (no rewording).
-- English & Japanese bundles = professional, natural translations of every visible string, including the long About-page paragraphs, the vision section, client category names, the 6 course titles/descriptions, the 4 "why choose us" cards, the 6 lecture entries, contact form, footer, and toast messages.
-- Names of real organizations on the About page (ministries, banks, hospitals, universities) get standard English/Japanese renderings; brand names like TSI, Microsoft, HP stay as-is.
-
-## Out of scope
-
-- No translation of the logo image itself.
-- No SEO/hreflang `<link>` tags or per-language URLs (e.g. `/en/about`) — language is selected client-side. (Can be added later if you want each language indexed separately by Google.)
-- No translation admin UI — translations live in JSON files in the codebase.
-
-## Open question
-
-The auto-detection uses `ipapi.co` (free tier ~1,000 requests/day per IP, no API key). If you expect heavy traffic and want a more robust provider, say the word and I'll swap it for a paid one or move detection server-side.
+## Files touched
+- `src/assets/sharon-aizen.png` (replaced)
+- `src/pages/Sharon.tsx` (hero section only)
