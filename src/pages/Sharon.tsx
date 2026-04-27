@@ -76,60 +76,78 @@ const Sharon = () => {
           style={{ background: `linear-gradient(135deg, ${navyDeep} 0%, ${navy} 100%)`, color: "#fff" }}
           dir={isRtl ? "rtl" : "ltr"}
         >
-          {/* Hero */}
-          <div className="grid grid-cols-1 lg:grid-cols-[340px_1fr] gap-0">
-            <div className="relative bg-black/20 min-h-[380px] lg:min-h-[420px]">
-              <img
-                src={sharonImg}
-                alt={t("sharon.name")}
-                className="w-full h-full object-cover object-top"
-              />
-              <div
-                className="hidden lg:block absolute top-0 bottom-0 w-1"
-                style={{ background: gold, [isRtl ? "left" : "right"]: 0 } as React.CSSProperties}
-              />
-            </div>
+          {/* Hero — full-width cinematic banner */}
+          <div className="relative w-full h-[380px] lg:h-[460px] overflow-hidden">
+            <img
+              src={sharonImg}
+              alt={t("sharon.name")}
+              className="absolute inset-0 w-full h-full object-cover object-center"
+            />
+            {/* Gradient overlay for legibility — anchored to the side where the name sits */}
+            <div
+              className="absolute inset-0"
+              style={{
+                background: isRtl
+                  ? `linear-gradient(270deg, ${navyDeep}f0 0%, ${navyDeep}80 35%, transparent 70%)`
+                  : `linear-gradient(90deg, ${navyDeep}f0 0%, ${navyDeep}80 35%, transparent 70%)`,
+              }}
+            />
+            {/* Bottom fade into the card body */}
+            <div
+              className="absolute inset-x-0 bottom-0 h-24"
+              style={{ background: `linear-gradient(180deg, transparent 0%, ${navy} 100%)` }}
+            />
 
-            <div className="p-8 lg:p-10">
+            {/* Name + tagline overlay */}
+            <div
+              className={`absolute bottom-8 ${isRtl ? "right-8 lg:right-12" : "left-8 lg:left-12"} max-w-[90%]`}
+            >
+              <div
+                className="h-1 w-16 mb-4"
+                style={{ background: gold }}
+              />
               <h1
-                className="text-4xl lg:text-6xl font-extrabold tracking-tight"
+                className="text-4xl lg:text-6xl font-extrabold tracking-tight drop-shadow-lg"
                 style={{ color: gold, letterSpacing: "0.02em" }}
               >
                 {t("sharon.name")}
               </h1>
-              <p className="mt-2 text-sm lg:text-base uppercase tracking-widest text-white/80">
+              <p className="mt-2 text-sm lg:text-base uppercase tracking-widest text-white/90">
                 {t("sharon.tagline")}
               </p>
+            </div>
+          </div>
 
-              <div className="mt-6 grid grid-cols-1 md:grid-cols-3 gap-3">
-                {badges.map((b, i) => (
+          {/* Badges + Keynote ribbon — full width below banner */}
+          <div className="px-8 lg:px-10 pt-6 pb-2">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+              {badges.map((b, i) => (
+                <div
+                  key={i}
+                  className="flex items-center gap-3 rounded-lg border px-4 py-3"
+                  style={{ borderColor: `${gold}55`, background: "rgba(255,255,255,0.03)" }}
+                >
                   <div
-                    key={i}
-                    className="flex items-center gap-3 rounded-lg border px-4 py-3"
-                    style={{ borderColor: `${gold}55`, background: "rgba(255,255,255,0.03)" }}
+                    className="shrink-0 h-10 w-10 rounded-full flex items-center justify-center"
+                    style={{ background: gold, color: navyDeep }}
                   >
-                    <div
-                      className="shrink-0 h-10 w-10 rounded-full flex items-center justify-center"
-                      style={{ background: gold, color: navyDeep }}
-                    >
-                      {badgeIcons[i]}
-                    </div>
-                    <div className={`text-xs leading-tight ${align}`}>
-                      <div className="font-semibold uppercase tracking-wide" style={{ color: goldLight }}>
-                        {b.title}
-                      </div>
-                      <div className="text-white/80">{b.subtitle}</div>
-                    </div>
+                    {badgeIcons[i]}
                   </div>
-                ))}
-              </div>
+                  <div className={`text-xs leading-tight ${align}`}>
+                    <div className="font-semibold uppercase tracking-wide" style={{ color: goldLight }}>
+                      {b.title}
+                    </div>
+                    <div className="text-white/80">{b.subtitle}</div>
+                  </div>
+                </div>
+              ))}
+            </div>
 
-              <div
-                className="mt-6 px-5 py-2 inline-block text-sm uppercase tracking-widest font-semibold rounded"
-                style={{ background: accentRed, color: "#fff" }}
-              >
-                {t("sharon.keynoteLabel")}: {t("sharon.keynoteTitle")}
-              </div>
+            <div
+              className="mt-6 px-5 py-2 inline-block text-sm uppercase tracking-widest font-semibold rounded"
+              style={{ background: accentRed, color: "#fff" }}
+            >
+              {t("sharon.keynoteLabel")}: {t("sharon.keynoteTitle")}
             </div>
           </div>
 
