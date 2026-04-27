@@ -1,121 +1,86 @@
-# Japan-Inspired Redesign — keeping TSI logo blue
+# Add depth & atmospheric imagery — staying Japanese
 
-## Design philosophy
+## Problem
+The current redesign reads too pale: a flat washi paper from edge to edge with only a tiny ensō and a faint mountain wash. There is no real **rhythm of dark/light**, no photographic anchor, no sense of place. Japanese minimalism is not "empty" — it is **calibrated contrast** between Ma (silence) and dense textured moments (a ceramic, a stone garden, a temple roof, a sumi brush).
 
-A redesign of the marketing site in the spirit of **Japanese work culture and design tradition** — Ma (間, intentional emptiness), Kanso (簡素, simplicity), Shibui (渋い, restrained beauty), Wabi-Sabi (侘寂, beauty in imperfection) — while keeping TSI's brand identity (the **logo cyan ~#00B6E6** and **slate-grey text ~#666**).
+## Direction
+Keep the washi palette, hairline borders, thin Noto Serif JP type and TSI cyan as accent. Add four new layers:
+1. **Generated photographic backgrounds** (Nano banana), used as wide cinematic strips behind sections — desaturated, sepia-warm, never decorative on every section.
+2. **A dark "sumi" panel** — at least one near-black section per page so the eye can rest and the cyan can sing.
+3. **Painted SVG ornaments** — kanji watermarks, ensō evolutions, sumi brushstrokes with real ink-bleed texture.
+4. **A subtle washi paper texture image** behind the whole site (replacing the current dot-noise) so every surface feels like real paper.
 
-The result should feel like a refined Japanese corporate site (Muji, Issey Miyake, Toyota corporate, JR rail) — generous whitespace, hairline borders, ultra-thin typography, restrained interactions, deliberate silence between elements. **No shadows, no gradients, no pastel washes, no rounded oversized cards.** The TSI cyan becomes a precise accent, not a flood color.
+Sharon Aizen page stays untouched.
 
-## Visual system changes
+## What we will generate
 
-### 1. Color tokens — `src/index.css`
-```text
---background        FAFAF8   off-white "washi" paper
---foreground        1A1A1A   sumi ink black
---muted             F2F1ED   light stone
---muted-foreground  6B6B6B   mid grey (matches logo text)
---border            E5E3DD   hairline beige-grey
---primary           00B6E6   TSI logo cyan (kept exactly)
---primary-foreground FFFFFF
---accent            E8F7FB   palest cyan tint
---ring              00B6E6
---radius            0.125rem (2px)
-```
-All tokens stay in HSL form per design rules.
+Using the Lovable AI Gateway image model. All assets saved to `src/assets/jp/` and imported as ES modules so Vite hashes them.
 
-### 2. Typography
-- Add **Noto Serif JP** (display) + **Noto Sans JP** (body) + **Inter** (Latin body).
-- `font-display` → Noto Serif JP, `font-sans` → Inter / Noto Sans JP fallback.
-- Headings thin (300), wide letter-spacing for eyebrows, `tracking-tight` for large display.
-- Body 15–16px, line-height 1.8 (Japanese reading rhythm).
-- Eyebrow labels: tiny uppercase Latin + Japanese kanji separated by `｜`.
+| File | Subject | Treatment |
+|---|---|---|
+| `washi-paper.jpg` | Real handmade washi paper close-up | Warm-grey, fibers visible, neutral, tile-able. Used at 30% opacity as full-site background. |
+| `hero-mountains.jpg` | Distant Japanese mountain ridges fading into mist (sumi-e mood) | Desaturated 80%, warm-grey, soft top-to-bottom fade to washi. Backs the Hero section. |
+| `kyoto-alley.jpg` | A quiet narrow Kyoto street at dusk, lanterns, tall verticals | Sepia, low contrast, used as wide strip behind the Programs section. |
+| `tatami-engawa.jpg` | Empty engawa veranda with shoji light falling on tatami | Very desaturated, used behind the About / Vision section. |
+| `zen-garden.jpg` | Karesansui raked-stone garden top-down | Mono, used behind Voices / testimonials. |
+| `ink-stroke-large.png` | A single horizontal sumi brushstroke with real ink bleed and dry-brush edge | Transparent PNG; placed behind major headlines. |
+| `kanji-watermark.png` | Single hand-painted kanji 想 (thought) or 成 (achieve) — calligraphy style | Transparent PNG; floats huge behind footers / About hero at ~6% opacity. |
 
-### 3. Layout & spacing — Ma (間)
-- Sections `py-24 lg:py-32`.
-- Paragraphs `max-w-2xl` for breath.
-- Replace shadow cards with **hairline-bordered tiles**.
-- Hero is a near-empty stage: thin horizontal rule, eyebrow, giant quiet headline, generous gap, ghost CTAs.
+All photographic images are generated at 1600×900 (or 1600×600 for strips) and overlaid with:
+- A washi-color veil (`background-color: hsl(48 22% 97% / 0.55)` on top) so they sit in the palette.
+- A bottom-to-top fade into the page background so they never have a hard edge.
 
-### 4. UX & interaction — Japanese restraint
-- **Motion**: replace bouncy/scale hover effects with tiny, slow shifts (1–2px translate, 400ms ease-out). No springy bounces. Buttons reveal a thin underline rather than bg color flips.
-- **Cursor & focus**: thin 1px focus ring in cyan, no glow.
-- **Buttons**: ghost-style by default — text + thin arrow `→` + 1px border. Primary CTA = solid cyan but flat (no shadow, square corners). Secondary = text-only with hairline underline on hover.
-- **Forms**: input = bottom hairline only (no box), label as eyebrow above, helper text in muted grey, error in a low-saturation red. The Contact page becomes a vertical sequence of single-line fields with wide spacing — like a tea-ceremony order form.
-- **Loading**: replace spinners with a thin growing horizontal cyan line (kakejiku style).
-- **Hover-states on cards**: only the index number deepens to cyan + a hairline grows from left to right under the title. No card lift, no shadow.
-- **Section transitions**: very gentle fade-up on scroll with `prefers-reduced-motion` respected; no parallax, no zoom-in.
-- **Density**: information is broken into shorter passages with more vertical silence between them rather than denser cards.
+## Composition changes
 
-### 5. Components touched
+### `src/components/Hero.tsx`
+- Replace the empty stage with a **full-bleed mountain photograph** (desaturated, warm-tinted) covering the full hero, faded heavily into washi at top and bottom.
+- Headline gains a giant translucent kanji `創` (create) painted behind it, vertical-rl, near the side.
+- Eyebrow + hairline + headline stay; CTAs gain a small white-on-glass treatment so they read on the photo.
+- Bottom hairline kept.
 
-| File | Change |
-|---|---|
-| `src/index.css` | Palette + base styles: hairline rules, `.eyebrow` helper, ensō CSS, vertical-text helper, kakejiku loading bar. |
-| `tailwind.config.ts` | fontFamily `display`, `jp`. Re-bind `primary` to logo HSL. Smaller radius. |
-| `index.html` | Load Noto Serif JP + Noto Sans JP + Inter. |
-| `src/components/Hero.tsx` | Rewrite minimal; **the Unsplash tech-pattern background image is removed** and replaced with whitespace + ensō ornament + a generated washi-paper texture (very subtle). |
-| `src/components/CourseCard.tsx` | Hairline tile; index `01–06` cyan, thin title, hairline divider, `詳しく → / Learn more` link. |
-| `src/components/FeatureSection.tsx` | 4-col hairline grid, no card backgrounds; index numbers + thin titles. |
-| `src/components/Testimonial.tsx` | Large open-quote in cyan, italic body, hairline rule, author small caps. |
-| `src/components/SiteNav.tsx` | Thinner font, wider spacing, hairline bottom border. Active = thin cyan underline. |
-| `src/components/SiteFooter.tsx` | Washi-tone footer, 4 thin columns, hairline top rule, kanji/Latin eyebrows. |
-| `src/pages/Index.tsx` | Section eyebrows, more rhythm, left-aligned thin display headlines. |
-| `src/pages/About.tsx`, `Contact.tsx`, `Courses.tsx`, `Lectures.tsx`, `Recommendations.tsx` | Apply the eyebrow + hairline-tile + thin-headline + hairline-form pattern. |
+### `src/pages/Index.tsx`
+- Programs section gets a thin Kyoto-alley strip across the top (60–80px tall) as a transition, then reverts to washi for the tile grid below.
+- Insert a **new dark sumi panel** between FeatureSection and Voices: full-width, near-black `bg-foreground`, washi-paper texture at low opacity, a single short pull-quote from the founder in cyan + serif italic, big kanji watermark, lots of breathing room. Acts as the rest-point of the page.
+- Voices section gets a faint zen-garden image at the very top fading out before the testimonial tiles.
 
-`src/pages/Sharon.tsx` stays as it is — poster page.
+### `src/pages/About.tsx`
+- About hero gains the tatami-engawa photograph as background, washi veil on top.
+- A vertical kanji `會社案内` runs down the right (or left in RTL) margin of the Vision section as a watermark.
+- The dark sumi panel pattern is reused to set off the "Mission" / Confucius quote — making it feel like a tea-room interior.
 
-### 6. Imagery — backgrounds, photos and motifs
+### `src/pages/Recommendations.tsx`
+- Hero strip gets the zen-garden photograph.
+- Trusted-by section gets the dark sumi panel treatment so the client logos read like kamon (family crest) marks on a black banner.
 
-The site is text-heavy with very few images today; future additions need clear rules so they read Japanese in mood, not just the typography around them.
+### `src/pages/Lectures.tsx` and `src/pages/Courses.tsx`
+- Each page hero gets a different photographic strip (Kyoto alley for Courses, calligraphy desk for Lectures) and a kanji watermark.
+- Tile grids stay washi.
 
-- **Removed:** the generic Unsplash "tech pattern" hero background in `Hero.tsx` — opposite of Kanso.
-- **Generated background assets** (using the Lovable AI Gateway image model — Nano banana — saved into `src/assets/`):
-  - `washi-texture.png` — very subtle off-white paper grain, used at ~6% opacity site-wide as `body::before`.
-  - `enso.svg` — hand-drawn cyan ensō circle ornament, 1px stroke, broken at top-left, used once per page.
-  - `sumi-stroke.png` — a single horizontal sumi-ink brushstroke behind major section headings (low opacity).
-  - `kakejiku-divider.svg` — a vertical thin scroll-style divider used between sections at large breakpoints.
-  - `hero-mountain.png` — extremely faint, desaturated ink-wash silhouette of distant mountains (sumi-e style) anchored bottom-right of the hero, max 8% opacity.
-  - Optional `about-courtyard.png` for the About page header — empty Japanese courtyard / shoji light, desaturated, vertical aspect.
-  All generated images go through a desaturation + warm-grey tint pass so they never compete with the cyan accent.
-- **Photographic style guide** for any future photos:
-  - Subjects: Japanese workplaces, tatami / shoji / engawa interiors, Kyoto streetscapes, calm hands-on craft (chadō, calligraphy, ikebana), or Ando-style architecture.
-  - Composition: lots of negative space, off-center subject, never centered.
-  - Color: desaturated ~70%, warm-grey/sepia tint. Cyan stays a UI accent only.
-  - Treatment: 1–3% paper-grain overlay, faint vignette.
-  - Aspect: tall verticals (kakejiku) or extreme widescreens, never square stock.
-  - Forbidden: glossy western stock, suits-in-glass-offices, abstract circuit-board visuals, saturated gradients, on-camera smiles.
+### `src/pages/Contact.tsx`
+- Add a tatami-engawa strip behind the title.
+- The form and info column stay washi for legibility.
 
-### 7. Icons — stroke iconography in the kanji spirit
+### `src/components/SiteFooter.tsx`
+- Convert the footer to the **dark sumi panel** as the page's final closure: near-black background, hairline cyan top rule, kanji watermark already there enlarged, columns become pale text on dark. This single strong dark zone gives the whole site weight.
 
-The site currently uses Lucide (filled stroke, rounded line-caps). To match a Japanese hand:
-- Site-wide override on Lucide via a wrapper `Icon` component: `strokeWidth={1}`, `strokeLinecap="square"`, `strokeLinejoin="miter"` — so every icon reads like a thin brush mark with kanji-like square terminals.
-- Color: `currentColor` defaulting to `text-foreground/70`; cyan reserved for active/hover states only.
-- Size: standard `16` and `20` only — no oversized hero icons.
-- Replace certain Lucide icons with **custom inline SVGs** for cultural fit:
-  - menu / hamburger → three thin horizontal strokes of unequal length (kanji 三 feel).
-  - close → two thin diagonal strokes meeting precisely.
-  - external link → a thin arrow `↗` glyph, no box.
-  - language switch → small kanji `文 / A` toggle.
-  - bullet markers → a thin diamond `◇` or square `▢` instead of round dots.
-- Social-icon row in the footer redrawn as 1px monoline glyphs in muted grey, becoming cyan only on hover with a hairline underline.
-- `lucide-react` is still used as the source library (no new dep); the wrapper applies the stroke + cap rules so every existing usage gets the Japanese treatment automatically.
+### `src/index.css`
+- Replace the dot-noise body texture with the generated `washi-paper.jpg` at low opacity, fixed background-attachment so it stays under all sections.
+- Add `.sumi-panel` utility (near-black bg, washi texture overlay, cyan accent).
+- Add `.photo-strip` utility for thin photographic dividers.
+- Add `.kanji-watermark` helper for huge translucent kanji glyphs (CSS, no image needed).
 
-### 8. New translation keys (he/en/ja)
-Add an `eyebrow` block per page (e.g. `home.eyebrow = "Workshops｜研修"`, `about.eyebrow = "About｜会社案内"`, `courses.eyebrow = "Programs｜講座"`, `recommendations.eyebrow = "Voices｜お客様の声"`, `lectures.eyebrow = "Lectures｜講演"`, `contact.eyebrow = "Contact｜お問い合わせ"`). Across all 3 languages the kanji is preserved; only the Latin half is translated.
-
-### 9. Ornament — the ensō
-Inline SVG, single thin cyan stroke, broken at top-left. Used once per page as a quiet brand mark.
-
-A short style note will also be saved to `mem://style/visual-identity` so future imagery and icon work stays on-brand.
+## Technical details
+- Image generation goes through the AI gateway model `google/gemini-2.5-flash-image` (Nano banana). Each image is generated, saved to `src/assets/jp/{name}.jpg` (or `.png` for transparent ornaments), then imported into the component that uses it. Generated on the dev server, not at runtime.
+- Backgrounds use `bg-cover bg-center` with a dark overlay (`hsl(0 0% 10% / 0.55)`) for sumi panels or a washi overlay (`hsl(48 22% 97% / 0.55)`) for light panels — so text always reads.
+- Sharon Aizen page is excluded from every change.
+- `prefers-reduced-motion` still respected (no parallax, no zoom).
 
 ## What stays the same
-- All routes, navigation structure, i18n setup, RTL/LTR behavior.
-- Existing copy and translations (only adds eyebrow keys).
-- Sharon Aizen page.
-- Logo asset.
-- `lucide-react` dependency (only its default style is overridden).
+- Color tokens, typography system, hairline tiles, kanji eyebrows, JIcon wrapper.
+- All routes, navigation, i18n, RTL/LTR.
+- The Sharon Aizen poster.
 
 ## Out of scope
-- New photographic assets beyond the few generated motifs above.
-- New pages or features.
-- Backend / Cloud changes.
+- Carousels, parallax scroll, lottie/video.
+- Replacing the logo or icon set.
+- New pages or copy.
