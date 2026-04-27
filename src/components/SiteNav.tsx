@@ -1,16 +1,32 @@
 import { useState } from "react";
-import { Menu, Home } from "lucide-react";
+import { Menu, Home, ChevronDown } from "lucide-react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
 
-const LINKS: Array<{ to: string; key: string; home?: boolean }> = [
+type NavLink = {
+  to: string;
+  key: string;
+  home?: boolean;
+  children?: Array<{ to: string; key: string }>;
+};
+
+const LINKS: NavLink[] = [
   { to: "/", key: "nav.home", home: true },
   { to: "/courses", key: "nav.courses" },
-  { to: "/about", key: "nav.about" },
-  { to: "/sharon-aizen", key: "nav.sharon" },
+  {
+    to: "/about",
+    key: "nav.about",
+    children: [{ to: "/sharon-aizen", key: "nav.sharon" }],
+  },
   { to: "/recommendations", key: "nav.recommendations" },
   { to: "/lectures", key: "nav.lectures" },
   { to: "/contact", key: "nav.contact" },
@@ -39,16 +55,45 @@ export const SiteNav = () => {
           </div>
           <div className="hidden md:flex items-center gap-1">
             {LINKS.map((link) => {
-              const isSharon = link.key === "nav.sharon";
+              if (link.children && link.children.length > 0) {
+                return (
+                  <div key={link.to} className="flex items-center">
+                    <Button variant="ghost" asChild className="pr-1">
+                      <Link to={link.to}>{t(link.key)}</Link>
+                    </Button>
+                    <DropdownMenu>
+                      <DropdownMenuTrigger asChild>
+                        <Button
+                          variant="ghost"
+                          size="icon"
+                          className="h-8 w-8 -ml-1"
+                          aria-label={`${t(link.key)} submenu`}
+                        >
+                          <ChevronDown className="h-4 w-4" />
+                        </Button>
+                      </DropdownMenuTrigger>
+                      <DropdownMenuContent
+                        align={isRtl ? "end" : "start"}
+                        className="bg-white"
+                      >
+                        {link.children.map((child) => (
+                          <DropdownMenuItem key={child.to} asChild>
+                            <Link to={child.to} className="cursor-pointer">
+                              {t(child.key)}
+                            </Link>
+                          </DropdownMenuItem>
+                        ))}
+                      </DropdownMenuContent>
+                    </DropdownMenu>
+                  </div>
+                );
+              }
               return (
-                <Button
-                  key={link.to}
-                  variant={isSharon ? "default" : "ghost"}
-                  asChild
-                  className={isSharon ? "bg-primary text-primary-foreground hover:bg-primary/90" : ""}
-                >
+                <Button key={link.to} variant="ghost" asChild>
                   <Link to={link.to}>
-                    {link.home && <Home className={`h-4 w-4 ${isRtl ? "ml-2" : "mr-2"}`} />}
+                    {link.home && (
+                      <Home className={`h-4 w-4 ${isRtl ? "ml-2" : "mr-2"}`} />
+                    )}
                     {t(link.key)}
                   </Link>
                 </Button>
@@ -66,22 +111,37 @@ export const SiteNav = () => {
                 </Button>
               </SheetTrigger>
               <SheetContent side={isRtl ? "right" : "left"} className="w-[300px] sm:w-[400px]">
-                <div className="flex flex-col gap-4 mt-8">
+                <div className="flex flex-col gap-2 mt-8">
                   {LINKS.map((link) => (
-                    <Button
-                      key={link.to}
-                      variant="ghost"
-                      className={isRtl ? "justify-end" : "justify-start"}
-                      asChild
-                      onClick={() => setIsOpen(false)}
-                    >
-                      <Link to={link.to}>
-                        {link.home && (
-                          <Home className={`h-4 w-4 ${isRtl ? "ml-2" : "mr-2"}`} />
-                        )}
-                        {t(link.key)}
-                      </Link>
-                    </Button>
+                    <div key={link.to} className="flex flex-col">
+                      <Button
+                        variant="ghost"
+                        className={isRtl ? "justify-end" : "justify-start"}
+                        asChild
+                        onClick={() => setIsOpen(false)}
+                      >
+                        <Link to={link.to}>
+                          {link.home && (
+                            <Home className={`h-4 w-4 ${isRtl ? "ml-2" : "mr-2"}`} />
+                          )}
+                          {t(link.key)}
+                        </Link>
+                      </Button>
+                      {link.children?.map((child) => (
+                        <Button
+                          key={child.to}
+                          variant="ghost"
+                          size="sm"
+                          className={`${
+                            isRtl ? "justify-end pr-8" : "justify-start pl-8"
+                          } text-muted-foreground`}
+                          asChild
+                          onClick={() => setIsOpen(false)}
+                        >
+                          <Link to={child.to}>{t(child.key)}</Link>
+                        </Button>
+                      ))}
+                    </div>
                   ))}
                 </div>
               </SheetContent>
