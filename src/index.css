@@ -98,4 +98,10 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  html.font-jp,
+  html.font-jp body {
+    font-family: "Noto Sans JP", ui-sans-serif, system-ui, -apple-system,
+      BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  }
 }
