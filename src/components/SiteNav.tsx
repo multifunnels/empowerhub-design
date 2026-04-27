@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 import { useTranslation } from "react-i18next";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { KanjiMenu, KanjiClose } from "@/components/JIcon";
+import { KanjiMenu } from "@/components/JIcon";
 
 type NavLink = {
   to: string;
