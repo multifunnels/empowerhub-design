@@ -27,7 +27,7 @@
     --secondary-foreground: 0 0% 18%;
 
     --muted: 45 14% 93%;               /* #F2F1ED light stone */
-    --muted-foreground: 0 0% 42%;      /* mid grey */
+    --muted-foreground: 0 0% 30%;      /* mid grey — WCAG AA on washi */
 
     --accent: 192 75% 95%;             /* palest cyan tint */
     --accent-foreground: 192 100% 30%;
