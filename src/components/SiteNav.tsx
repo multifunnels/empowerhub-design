@@ -124,7 +124,7 @@ export const SiteNav = () => {
                 <button
                   type="button"
                   className="p-2 text-foreground/80 hover:text-primary transition-colors"
-                  aria-label="Menu"
+                  aria-label={t("eyebrows.menu")}
                 >
                   <KanjiMenu size={22} />
                 </button>
