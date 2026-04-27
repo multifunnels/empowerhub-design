@@ -1,12 +1,8 @@
 import { Users2, Calendar, Award, BookOpen } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { JIcon } from "@/components/JIcon";
 
-const ICONS = [
-  <Users2 className="h-8 w-8" />,
-  <Calendar className="h-8 w-8" />,
-  <Award className="h-8 w-8" />,
-  <BookOpen className="h-8 w-8" />,
-];
+const ICONS = [Users2, Calendar, Award, BookOpen];
 
 export const FeatureSection = () => {
   const { t, i18n } = useTranslation();
@@ -17,28 +13,42 @@ export const FeatureSection = () => {
   }>;
 
   return (
-    <div className="py-16 bg-secondary">
-      <div className="container">
-        <h2 className="text-3xl font-bold text-center mb-12">{t("features.title")}</h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {items.map((feature, index) => (
-            <div
-              key={index}
-              className="p-6 bg-white rounded-lg shadow-sm hover:shadow-md transition-shadow"
-            >
-              <div className="flex flex-col md:flex-row gap-4 items-start">
-                <div className="w-12 h-12 bg-accent rounded-full flex items-center justify-center text-primary shrink-0 mx-auto md:mx-0">
-                  {ICONS[index] ?? ICONS[0]}
+    <section className="relative py-24 lg:py-32 bg-muted/40 border-y border-border">
+      <div className="container px-6">
+        <div className={`mb-20 ${isRtl ? "text-right" : "text-left"}`}>
+          <div className="eyebrow">
+            <span>Why Us</span>
+            <span className="jp">理由</span>
+          </div>
+          <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
+          <h2 className="display-jp text-3xl md:text-5xl max-w-3xl">
+            {t("features.title")}
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-px bg-border border border-border">
+          {items.map((feature, index) => {
+            const Icon = ICONS[index] ?? ICONS[0];
+            return (
+              <div
+                key={index}
+                className="group bg-background p-8 lg:p-10 transition-colors duration-500 hover:bg-muted/30"
+              >
+                <div className="flex items-start justify-between mb-8">
+                  <span className="idx text-2xl">{String(index + 1).padStart(2, "0")}</span>
+                  <JIcon icon={Icon} size={20} className="group-hover:text-primary transition-colors duration-500" />
                 </div>
-                <div className={`flex-1 text-center ${isRtl ? "md:text-right" : "md:text-left"}`}>
-                  <h3 className="font-semibold text-lg mb-2">{feature.title}</h3>
-                  <p className="text-gray-600 text-sm">{feature.description}</p>
-                </div>
+                <h3 className="display-jp text-lg mb-4 leading-snug">
+                  {feature.title}
+                </h3>
+                <p className="text-sm leading-[1.9] text-muted-foreground">
+                  {feature.description}
+                </p>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
