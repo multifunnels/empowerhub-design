@@ -167,6 +167,12 @@
       "errorDesc": "Please try again or contact us directly by phone."
     }
   },
+  "notFound": {
+    "title": "Page not found",
+    "subtitle": "The page you were looking for is no longer available, or the link is broken. Let us guide you back.",
+    "backHome": "Back to home",
+    "contact": "Contact us"
+  },
   "footer": {
     "tagline": "Empowering organizations through effective learning.",
     "quickLinks": "Quick Links",
