@@ -1,0 +1,159 @@
+{
+  "nav": {
+    "home": "Home",
+    "courses": "Courses",
+    "about": "About",
+    "recommendations": "Testimonials",
+    "lectures": "Lectures",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Creating Results in Your Organization",
+    "subtitle": "Discover the best workshops, courses, lectures and seminars — fully tailored to your organization's needs in the new world.",
+    "browseCourses": "Browse Courses",
+    "requestConsultation": "Request a Consultation"
+  },
+  "home": {
+    "coursesTitle": "Workshops, Courses & Lectures Tailored for Leading Organizations:",
+    "testimonialsTitle": "What Our Clients Say"
+  },
+  "courses": {
+    "learnMore": "Learn more",
+    "items": [
+      { "title": "Creating Results", "description": "How to create real results in 4 simple steps!" },
+      { "title": "Results-Driven Thinking", "description": "The thinking strategy that changes the rules of the game." },
+      { "title": "Messaging & Buy-In", "description": "Leading methods to upgrade any message for any audience and drive action." },
+      { "title": "Project Management", "description": "Methods and strategies for managing projects in the new world." },
+      { "title": "The Four Change Agents", "description": "How to lead change in an organization and engage teams in practice." },
+      { "title": "Storytelling", "description": "How to make people listen — the secret button to driving action." }
+    ]
+  },
+  "coursesPage": {
+    "title": "Our Courses"
+  },
+  "features": {
+    "title": "Why Choose Us",
+    "items": [
+      { "title": "Expert Workshop Facilitators", "description": "Learn from certified professionals with rich real-world experience." },
+      { "title": "Flexible Schedule", "description": "Access content anytime, anywhere, at your own pace. We tailor the best program to fit your schedule and needs — in person or online, your choice. Hybrid tracks are also available." },
+      { "title": "Professional Development Recognition", "description": "Recognized professional-development courses, certified courses and enrichment programs — a range of options matched to your needs, with official certificates." },
+      { "title": "Custom-Tailored Content", "description": "Workshops, courses, lectures, seminars and conferences customized to your organization's needs, with a focused learning process and embedment strategy." }
+    ]
+  },
+  "testimonials": [
+    { "quote": "The leadership course transformed the way I manage my team. Highly recommended!", "author": "Sarah Cohen", "role": "Head of HR" },
+    { "quote": "Practical, engaging, and immediately applicable in our organization.", "author": "Michael Levi", "role": "Team Lead" },
+    { "quote": "The best investment we've made in developing our team.", "author": "Emma Rodriguez", "role": "Director of Operations" },
+    { "quote": "What we learned in the Creating Results course was amazing and useful.", "author": "David Israeli", "role": "VP of Technology" },
+    { "quote": "The Results-Driven Thinking course changed the way our entire team approaches problems and solutions.", "author": "Rachel Goldman", "role": "Head of Business Development" },
+    { "quote": "The instructor was professional, captivating, and delivered the material in an excellent and practical way.", "author": "Yossi Avraham", "role": "Project Manager" }
+  ],
+  "recommendations": {
+    "title": "Testimonials",
+    "subtitle": "These are some of the testimonials we receive from our many clients. We are proud to work with leading companies and organizations that benefit from our professional content.",
+    "trustedBy": "Organizations That Trust Us",
+    "trustedBySubtitle": "We work with a wide range of organizations, companies and government bodies to empower their managers and employees.",
+    "companyLogo": "Company logo"
+  },
+  "lectures": {
+    "title": "Professional Lectures",
+    "subtitle": "Rotating lectures on leadership, communication and team development.",
+    "readMore": "Read more",
+    "items": [
+      { "title": "Developing Leadership Skills in Distributed Teams", "excerpt": "How to lead remote teams and build a culture of accountability and trust.", "author": "Dr. Aviv Israeli", "date": "03/15/2025", "category": "Leadership" },
+      { "title": "Effective Communication Under Pressure", "excerpt": "Strategies for maintaining clear and empathetic communication in dynamic work environments.", "author": "Michal Cohen", "date": "04/22/2025", "category": "Communication" },
+      { "title": "Building Multicultural Teams", "excerpt": "How to leverage the advantages of diverse teams and bridge cultural gaps.", "author": "Yaakov Levi", "date": "05/10/2025", "category": "Diversity & Inclusion" },
+      { "title": "Innovation and Design Thinking in Organizations", "excerpt": "Practical tools for embedding innovation processes and creative problem solving.", "author": "Noa Shapira", "date": "06/03/2025", "category": "Innovation" },
+      { "title": "Conflict Management in Work Teams", "excerpt": "Effective techniques for identifying and managing conflicts in the workplace.", "author": "Roi Cohen", "date": "07/17/2025", "category": "Team Management" },
+      { "title": "Emotional Intelligence in the Workplace", "excerpt": "Developing self-awareness and emotional skills for professional success.", "author": "Sara Aharoni", "date": "08/29/2025", "category": "Personal Development" }
+    ]
+  },
+  "about": {
+    "title": "TSI — Think · Success · Inspire",
+    "intro": "A leading training team led by Sharon Aizen, with decades of experience as a primary field of practice — dedicated to human capital and its success at the highest professional levels. We listen carefully to needs and challenges in the field and tailor a perfect-fit response. Maximizing human potential is our mission, creating real, practical results aligned with the organizational culture, vision, values and goals. TSI brings together dozens of leading facilitators with rich field experience and excellent feedback, under Sharon Aizen's leadership. We are committed to uncompromising quality across the country (with a tailored response to client needs). At TSI you will find a rich variety of workshops, courses, lectures and seminars, at the highest levels — providing tools, value and personal adaptation in any field you choose.",
+    "visionTitle": "Vision",
+    "visionWords": ["Think", "Success", "Inspire"],
+    "visionLead": "To lead human capital toward excellence through advanced thinking and implementation strategies that upgrade the managerial and command toolkit, drive success and inspire — both inside and outside the workplace.",
+    "visionLeadHighlight": "To lead human capital toward excellence",
+    "visionParagraph": "At TSI we operate with results-driven thinking adapted to the new world, saving time, resources and money in day-to-day operations — both in human-capital work and in field implementation, from senior management down to the shop floor. We do this by embedding advanced tools combined with AI, tailored to the new world and aligned with the organization's actual needs.",
+    "ourGoalTitle": "Our Goal",
+    "ourGoalText": "To create real organizational results in a way that fits the situation on the ground, building a map matched to actual needs in a practical, efficient and applicable way.",
+    "successMeasuredTitle": "Success Is Measured",
+    "successMeasuredText": "Not only by results achieved in practice, but also by engagement, organizational connection and team cohesion.",
+    "connectionText": "A sense of connection is also tied to enjoyment of the work and to maximizing each manager's and employee's strengths. Excellence includes retaining people who love and feel connected to their work and to the organization they are part of.",
+    "missionTitle": "Our Mission — Inspiration",
+    "missionText": "To turn success and action into real inspiration — to inject meaning, value and a connection between personal/professional vision and organizational vision.",
+    "confuciusQuote": "\"Choose a job you love, and you will never have to work a day in your life.\" — Confucius",
+    "winThreeTimesTitle": "We Win Three Times Over:",
+    "winThreeTimes": [
+      "For ourselves, in personal and professional fulfillment.",
+      "We become a key asset to the organization (rarely will they let us go).",
+      "We inspire others who want to maximize their own abilities."
+    ],
+    "differentiationTitle": "What Sets Us Apart",
+    "differentiationLeadHighlight": "We've made it our goal to lead in creating real organizational results!",
+    "differentiationLead": "We do this by providing a personalized response to the client — seeing the needs and challenges and offering a perfect fit, with a holistic view focused on developing managers and employees, in line with the organization's culture and language.",
+    "serviceCardTitle": "Service, Innovation and Uncompromising Quality",
+    "serviceCardText": "Through a delivery style that combines interaction and engagement, connecting topics in personal alignment with the audience and the organization's needs. Before every workshop / course / lecture / seminar we prepare in depth with the organization, focusing on leading content products (in person or online — your choice) tailored to the new world, across many topics, while listening to real-time field needs.",
+    "experienceText": "Our team is highly skilled with decades of cumulative experience as a primary practice, carefully selected based on field feedback and recommendations.",
+    "missionText2": "We see workshops as a mission to serve the organization and its human capital — to support day-to-day activity at the highest levels, enjoy the journey, and grow real organizational connection.",
+    "advisingText": "We will advise and match the most suitable content for your needs and goals. You can pick what's right for you and lean on us at every step to fine-tune your path toward results and goals — in an enjoyable, creative way that puts human capital at the center, creating experience and value while fully aligning with the organization's needs.",
+    "clientsTitle": "Among Our Clients",
+    "all": "All",
+    "clientsSampleTitle": "From Our Diverse Client Base",
+    "clientsLogoLabel": "Client logo",
+    "clientsLogoNote": "* Logos shown as examples only. They should be replaced with real logos.",
+    "categories": {
+      "government": "Government Ministries & Authorities",
+      "academic": "Academic Institutions",
+      "companies": "Companies & Organizations",
+      "banks": "Banks",
+      "health": "Healthcare Services",
+      "municipalities": "Municipalities"
+    }
+  },
+  "contact": {
+    "title": "Contact Us",
+    "infoTitle": "Contact Details",
+    "phoneHours": "Available Sun–Thu, 9:00 AM to 6:00 PM",
+    "readyToStart": "Ready to start the change",
+    "form": {
+      "whatsapp": "Send via WhatsApp",
+      "email": "Send via Email",
+      "name": "Full Name",
+      "emailLabel": "Email",
+      "message": "Message",
+      "sending": "Sending...",
+      "openWhatsapp": "Open WhatsApp",
+      "send": "Send Message",
+      "whatsappHint": "*Clicking the button will open WhatsApp.",
+      "emailHint": "*The form will open your email client.",
+      "whatsappPrefixName": "Name",
+      "whatsappPrefixEmail": "Email",
+      "whatsappPrefixMessage": "Message"
+    },
+    "toast": {
+      "successTitle": "Message sent successfully",
+      "successDesc": "We'll get back to you as soon as possible.",
+      "whatsappTitle": "Redirected to WhatsApp",
+      "whatsappDesc": "You can send the message directly on WhatsApp.",
+      "errorTitle": "Failed to send message",
+      "errorDesc": "Please try again or contact us directly by phone."
+    }
+  },
+  "footer": {
+    "tagline": "Empowering organizations through effective learning.",
+    "quickLinks": "Quick Links",
+    "connect": "Connect",
+    "newsletter": "Newsletter",
+    "newsletterText": "Stay updated with our latest courses and tips.",
+    "emailPlaceholder": "Enter your email",
+    "subscribe": "Subscribe",
+    "rights": "© 2024 tsionline. All rights reserved.",
+    "linkedin": "LinkedIn",
+    "twitter": "Twitter",
+    "facebook": "Facebook",
+    "instagram": "Instagram",
+    "resources": "Resources"
+  }
+}
