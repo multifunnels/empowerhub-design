@@ -9,10 +9,27 @@
     "contact": "お問い合わせ"
   },
   "hero": {
+    "tagline": "先進的な組織のためのワークショップ・コース・講演",
     "title": "組織で成果を生み出す",
     "subtitle": "新時代の組織のニーズに合わせてカスタマイズされた、最高のワークショップ・コース・講演・セミナーをご紹介します。",
     "browseCourses": "コースを見る",
     "requestConsultation": "ご相談はこちら"
+  },
+  "eyebrows": {
+    "workshops": "研修",
+    "programs": "講座",
+    "philosophy": "哲学",
+    "voices": "お客様の声",
+    "whyUs": "選ばれる理由",
+    "about": "会社案内",
+    "vision": "理念",
+    "difference": "違い",
+    "clients": "取引先",
+    "menu": "目次",
+    "company": "会社",
+    "quickLinks": "案内",
+    "connect": "繋がる",
+    "newsletter": "通信"
   },
   "home": {
     "coursesTitle": "先進的な組織向けにカスタマイズされたワークショップ・コース・講演",
@@ -158,6 +175,8 @@
     "newsletterText": "最新のコースとヒントをお届けします。",
     "emailPlaceholder": "メールアドレスを入力",
     "subscribe": "登録する",
+    "newsletterSuccess": "ご登録ありがとうございます。",
+    "newsletterInvalid": "有効なメールアドレスをご入力ください。",
     "rights": "© 2024 tsionline. All rights reserved.",
     "linkedin": "LinkedIn",
     "twitter": "Twitter",

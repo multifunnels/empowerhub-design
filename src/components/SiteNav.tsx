@@ -42,7 +42,7 @@ export const SiteNav = () => {
 
   const linkClasses = (active: boolean) =>
     `relative inline-flex items-center px-3 py-2 text-[11px] uppercase tracking-[0.28em] font-medium transition-colors duration-500 ${
-      active ? "text-primary" : "text-foreground/75 hover:text-foreground"
+      active ? "text-primary" : "text-foreground/85 hover:text-foreground"
     }`;
 
   const underline = (active: boolean) =>
@@ -124,7 +124,7 @@ export const SiteNav = () => {
                 <button
                   type="button"
                   className="p-2 text-foreground/80 hover:text-primary transition-colors"
-                  aria-label="Menu"
+                  aria-label={t("eyebrows.menu")}
                 >
                   <KanjiMenu size={22} />
                 </button>
@@ -135,7 +135,7 @@ export const SiteNav = () => {
               >
                 <div className="flex flex-col gap-1 mt-12 px-8">
                   <div className="eyebrow mb-10">
-                    <span>Menu</span>
+                    <span>{t("eyebrows.menu")}</span>
                     <span className="jp">目次</span>
                   </div>
                   {LINKS.map((link) => (

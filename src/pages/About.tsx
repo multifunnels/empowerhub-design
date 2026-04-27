@@ -9,10 +9,9 @@ import {
 } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { JIcon, Enso, KanjiBullet } from "@/components/JIcon";
+import { JIcon, KanjiBullet } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
 import tatamiEngawa from "@/assets/jp/tatami-engawa.jpg";
-import kanjiMark from "@/assets/jp/kanji-mark.png";
 
 type CatId = "government" | "academic" | "companies" | "banks" | "health" | "municipalities";
 
@@ -59,16 +58,10 @@ const About = () => {
         className="photo-backdrop relative border-b border-border overflow-hidden"
         style={{ backgroundImage: `url(${tatamiEngawa})` }}
       >
-        <div
-          className={`absolute top-12 ${isRtl ? "left-12" : "right-12"} hidden md:block opacity-60 text-primary pointer-events-none`}
-          aria-hidden="true"
-        >
-          <Enso size={220} />
-        </div>
         <div className="container mx-auto px-6 py-32 lg:py-40">
           <div className={align}>
             <div className="eyebrow">
-              <span>About</span>
+              <span>{t("eyebrows.about")}</span>
               <span className="jp">会社案内</span>
             </div>
             <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
@@ -83,7 +76,7 @@ const About = () => {
         <div className="max-w-3xl mx-auto space-y-24">
           {/* Intro */}
           <section className={align}>
-            <p className="text-base md:text-lg leading-[2] text-foreground/85">
+            <p className="text-base md:text-lg leading-[2] text-foreground/90">
               {t("about.intro")}
             </p>
           </section>
@@ -91,7 +84,7 @@ const About = () => {
           {/* Vision */}
           <section className={align}>
             <div className="eyebrow mb-6">
-              <span>Vision</span>
+              <span>{t("eyebrows.vision")}</span>
               <span className="jp">理念</span>
             </div>
             <h2 className="display-jp text-3xl md:text-5xl mb-12">{t("about.visionTitle")}</h2>
@@ -108,7 +101,7 @@ const About = () => {
               ))}
             </div>
 
-            <div className="space-y-10 text-base leading-[2] text-foreground/85">
+            <div className="space-y-10 text-base leading-[2] text-foreground/90">
               <div className="border-s-2 border-primary ps-6">
                 <p>
                   <strong className="text-primary font-medium">
@@ -174,14 +167,14 @@ const About = () => {
           {/* Differentiation */}
           <section className={align}>
             <div className="eyebrow mb-6">
-              <span>Difference</span>
+              <span>{t("eyebrows.difference")}</span>
               <span className="jp">違い</span>
             </div>
             <h2 className="display-jp text-3xl md:text-5xl mb-12">
               {t("about.differentiationTitle")}
             </h2>
 
-            <div className="space-y-10 text-base leading-[2] text-foreground/85">
+            <div className="space-y-10 text-base leading-[2] text-foreground/90">
               <div className="border-s-2 border-primary ps-6">
                 <p>
                   <span className="text-primary font-medium">
@@ -224,7 +217,7 @@ const About = () => {
         {/* Clients */}
         <section className={`mt-32 ${align} max-w-6xl mx-auto`}>
           <div className="eyebrow mb-6">
-            <span>Clients</span>
+            <span>{t("eyebrows.clients")}</span>
             <span className="jp">取引先</span>
           </div>
           <h2 className="display-jp text-3xl md:text-5xl mb-12">{t("about.clientsTitle")}</h2>

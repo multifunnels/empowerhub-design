@@ -7,9 +7,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { JIcon } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
-import kyotoAlley from "@/assets/jp/kyoto-alley.jpg";
 import zenGarden from "@/assets/jp/zen-garden.jpg";
-import kanjiMark from "@/assets/jp/kanji-mark.png";
 
 const ICONS = [Lightbulb, Brain, MessageSquare, Briefcase, UserRound, Headphones];
 
@@ -37,18 +35,11 @@ const Index = () => {
       <SiteNav />
       <Hero />
 
-      {/* Photographic transition strip (Kyoto alley) */}
-      <div
-        className="photo-strip"
-        style={{ backgroundImage: `url(${kyotoAlley})` }}
-        aria-hidden="true"
-      />
-
       {/* Courses */}
       <section className="py-24 lg:py-32 container px-6">
         <div className={`mb-20 ${align}`}>
           <div className="eyebrow">
-            <span>Programs</span>
+            <span>{t("eyebrows.programs")}</span>
             <span className="jp">講座</span>
           </div>
           <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
@@ -67,49 +58,37 @@ const Index = () => {
 
       <FeatureSection />
 
-      {/* Sumi (dark) panel — the rest-point */}
-      <section className="sumi-panel py-32 lg:py-40 relative">
-        <div
-          className="kanji-mark-bg"
-          style={{
-            backgroundImage: `url(${kanjiMark})`,
-            top: "10%",
-            [isRtl ? "left" : "right"]: "-4%",
-            width: "560px",
-            height: "560px",
-          }}
-          aria-hidden="true"
-        />
+      {/* Philosophy — quiet light section (no longer a sumi-panel; footer is the rest-point) */}
+      <section className="py-28 lg:py-36 border-y border-border relative">
         <div className={`container px-6 relative ${align}`}>
           <div className="eyebrow">
-            <span>Philosophy</span>
+            <span>{t("eyebrows.philosophy")}</span>
             <span className="jp">哲学</span>
           </div>
           <div className={`hairline-short mt-6 mb-12 ${isRtl ? "ms-auto" : ""}`} />
           <blockquote
             className="display-jp text-2xl md:text-4xl lg:text-5xl leading-[1.4] max-w-4xl text-balance"
-            style={{ fontFamily: '"Noto Serif JP", serif', fontWeight: 200 }}
           >
             <span className="text-primary">「</span>
             {t("about.confuciusQuote").replace(/^"|"$/g, "").replace(/^"|"$/g, "")}
             <span className="text-primary">」</span>
           </blockquote>
-          <p className="mt-10 text-[11px] uppercase tracking-[0.32em] text-primary/80">
+          <p className="mt-10 text-[11px] uppercase tracking-[0.32em] text-primary/90" style={{ fontFamily: '"Noto Serif JP", serif' }}>
             想 ・ 成 ・ 啓 — Think · Success · Inspire
           </p>
         </div>
       </section>
 
-      {/* Voices — zen-garden photo strip above */}
+      {/* Voices — single subtle photo strip above */}
       <div
         className="photo-strip"
-        style={{ backgroundImage: `url(${zenGarden})`, height: "160px" }}
+        style={{ backgroundImage: `url(${zenGarden})`, height: "120px" }}
         aria-hidden="true"
       />
       <section className="py-24 lg:py-32 container px-6">
         <div className={`mb-20 ${align}`}>
           <div className="eyebrow">
-            <span>Voices</span>
+            <span>{t("eyebrows.voices")}</span>
             <span className="jp">お客様の声</span>
           </div>
           <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />

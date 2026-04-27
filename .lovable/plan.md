@@ -1,86 +1,89 @@
-# Add depth & atmospheric imagery — staying Japanese
 
-## Problem
-The current redesign reads too pale: a flat washi paper from edge to edge with only a tiny ensō and a faint mountain wash. There is no real **rhythm of dark/light**, no photographic anchor, no sense of place. Japanese minimalism is not "empty" — it is **calibrated contrast** between Ma (silence) and dense textured moments (a ceramic, a stone garden, a temple roof, a sumi brush).
+# תיקוני UI/UX — סבב מקצועי
 
-## Direction
-Keep the washi palette, hairline borders, thin Noto Serif JP type and TSI cyan as accent. Add four new layers:
-1. **Generated photographic backgrounds** (Nano banana), used as wide cinematic strips behind sections — desaturated, sepia-warm, never decorative on every section.
-2. **A dark "sumi" panel** — at least one near-black section per page so the eye can rest and the cyan can sing.
-3. **Painted SVG ornaments** — kanji watermarks, ensō evolutions, sumi brushstrokes with real ink-bleed texture.
-4. **A subtle washi paper texture image** behind the whole site (replacing the current dot-noise) so every surface feels like real paper.
+תיקון 10 הליקויים הקריטיים והגבוהים מהביקורת. עמוד שרון אייזן לא משתנה.
 
-Sharon Aizen page stays untouched.
+## 1. קריאות וטיפוגרפיה (קריטי)
 
-## What we will generate
+### 1.1 ניגודיות טקסט גוף
+ב־`src/index.css`:
+- `--muted-foreground` מ־`0 0% 42%` ל־`0 0% 30%` (עובר 4.5:1 על washi).
+- במקומות שבהם נעשה שימוש ב־`text-foreground/85` ו־`/75` בפסקאות גוף (Hero subtitle, About, Vision) — להעלות ל־`/90`.
 
-Using the Lovable AI Gateway image model. All assets saved to `src/assets/jp/` and imported as ES modules so Vite hashes them.
+### 1.2 טיפוגרפיה עברית
+Noto Serif JP לא תומך עברית — כותרות display בעברית נופלות ל־Inter במשקל 200 ונראות שבורות.
+- ב־`index.html`: להוסיף `Frank Ruhl Libre` (display עברי קלאסי, מתאים לאסתטיקה היפנית הדקה) ו־`Heebo` (sans body).
+- ב־`tailwind.config.ts` + `src/index.css`: stack פונטים מותנה. `[lang="he"] h1,h2,h3,h4 { font-family: "Frank Ruhl Libre", "Noto Serif JP", serif; font-weight: 400; }` ול־body `[lang="he"] body { font-family: "Heebo", "Inter", sans-serif; }`.
+- `i18n/index.ts` כבר מגדיר `dir`; לוודא ש־`document.documentElement.lang` מתעדכן (אם לא — להוסיף).
 
-| File | Subject | Treatment |
-|---|---|---|
-| `washi-paper.jpg` | Real handmade washi paper close-up | Warm-grey, fibers visible, neutral, tile-able. Used at 30% opacity as full-site background. |
-| `hero-mountains.jpg` | Distant Japanese mountain ridges fading into mist (sumi-e mood) | Desaturated 80%, warm-grey, soft top-to-bottom fade to washi. Backs the Hero section. |
-| `kyoto-alley.jpg` | A quiet narrow Kyoto street at dusk, lanterns, tall verticals | Sepia, low contrast, used as wide strip behind the Programs section. |
-| `tatami-engawa.jpg` | Empty engawa veranda with shoji light falling on tatami | Very desaturated, used behind the About / Vision section. |
-| `zen-garden.jpg` | Karesansui raked-stone garden top-down | Mono, used behind Voices / testimonials. |
-| `ink-stroke-large.png` | A single horizontal sumi brushstroke with real ink bleed and dry-brush edge | Transparent PNG; placed behind major headlines. |
-| `kanji-watermark.png` | Single hand-painted kanji 想 (thought) or 成 (achieve) — calligraphy style | Transparent PNG; floats huge behind footers / About hero at ~6% opacity. |
+### 1.3 letter-spacing ו־uppercase על עברית
+- ב־`src/index.css`: `[dir="rtl"] .eyebrow { letter-spacing: 0.08em; text-transform: none; }` ועל כל הכפתורים והניווט: `[dir="rtl"] .uppercase, [dir="rtl"] [class*="tracking-["] { text-transform: none; letter-spacing: 0.04em; }` באופן ממוקד דרך utility class חדש `.label-track` שיחליף את `tracking-[0.28em] uppercase` בכל המקומות הרלוונטיים.
 
-All photographic images are generated at 1600×900 (or 1600×600 for strips) and overlaid with:
-- A washi-color veil (`background-color: hsl(48 22% 97% / 0.55)` on top) so they sit in the palette.
-- A bottom-to-top fade into the page background so they never have a hard edge.
+## 2. אינטראקציות שבורות (קריטי)
 
-## Composition changes
+### 2.1 CourseCard לא קליקבילי
+`src/components/CourseCard.tsx` — לעטוף ב־`<Link to="/courses">` (או prop `href`). הכפתור הפנימי הופך ל־span. ה־card כולו cursor-pointer.
 
-### `src/components/Hero.tsx`
-- Replace the empty stage with a **full-bleed mountain photograph** (desaturated, warm-tinted) covering the full hero, faded heavily into washi at top and bottom.
-- Headline gains a giant translucent kanji `創` (create) painted behind it, vertical-rl, near the side.
-- Eyebrow + hairline + headline stay; CTAs gain a small white-on-glass treatment so they read on the photo.
-- Bottom hairline kept.
+### 2.2 Newsletter form ללא handler
+`src/components/SiteFooter.tsx` — להוסיף `useState` + `onSubmit` עם validation בסיסי + הודעת toast (`sonner`) "תודה, נשלח". בלי backend אמיתי בשלב זה — רק UX feedback אמין.
 
-### `src/pages/Index.tsx`
-- Programs section gets a thin Kyoto-alley strip across the top (60–80px tall) as a transition, then reverts to washi for the tile grid below.
-- Insert a **new dark sumi panel** between FeatureSection and Voices: full-width, near-black `bg-foreground`, washi-paper texture at low opacity, a single short pull-quote from the founder in cyan + serif italic, big kanji watermark, lots of breathing room. Acts as the rest-point of the page.
-- Voices section gets a faint zen-garden image at the very top fading out before the testimonial tiles.
+## 3. היררכיה ויזואלית
 
-### `src/pages/About.tsx`
-- About hero gains the tatami-engawa photograph as background, washi veil on top.
-- A vertical kanji `會社案内` runs down the right (or left in RTL) margin of the Vision section as a watermark.
-- The dark sumi panel pattern is reused to set off the "Mission" / Confucius quote — making it feel like a tea-room interior.
+### 3.1 Hero חלש מהפוטר — להעצים Hero, להרגיע פוטר
+- `Hero.tsx`: להוסיף שורת tagline קצרה מעל הכותרת (key חדש `hero.tagline` ב־i18n: בעברית "סדנאות, קורסים והרצאות לארגונים מובילים") במשקל בולט.
+- `SiteFooter.tsx`: להקטין `kanji-mark-bg` מ־640px ל־420px, להסיר את ה־ensō השני (כפילות עם Hero/About). הפוטר נשאר sumi אבל שקט יותר.
 
-### `src/pages/Recommendations.tsx`
-- Hero strip gets the zen-garden photograph.
-- Trusted-by section gets the dark sumi panel treatment so the client logos read like kamon (family crest) marks on a black banner.
+### 3.2 ensō חוזר 3×
+להשאיר ensō רק ב־Hero. להסיר מ־`About.tsx` ומ־`SiteFooter.tsx`. במקומם — hairline-short פשוט.
 
-### `src/pages/Lectures.tsx` and `src/pages/Courses.tsx`
-- Each page hero gets a different photographic strip (Kyoto alley for Courses, calligraphy desk for Lectures) and a kanji watermark.
-- Tile grids stay washi.
+### 3.3 יותר מדי rest-points
+ב־`src/pages/Index.tsx`: להפוך את ה־`sumi-panel` של Philosophy ל־light section עם הציטוט על washi (hairline בורדר עליון/תחתון בלבד). הפוטר הוא ה־sumi היחיד בעמוד.
 
-### `src/pages/Contact.tsx`
-- Add a tatami-engawa strip behind the title.
-- The form and info column stay washi for legibility.
+### 3.4 Photo strips ריקים
+ב־`Index.tsx`: להעיף את ה־`photo-strip` של Kyoto-alley לפני Programs (אין הצדקה תוכנית). להשאיר רק את zen-garden לפני Voices, ולהוריד ל־`height: 120px` עם opacity-veil חזק יותר כך שזה רגיש כברק חולף, לא דקור.
 
-### `src/components/SiteFooter.tsx`
-- Convert the footer to the **dark sumi panel** as the page's final closure: near-black background, hairline cyan top rule, kanji watermark already there enlarged, columns become pale text on dark. This single strong dark zone gives the whole site weight.
+## 4. מערכת עיצוב — עקביות
 
-### `src/index.css`
-- Replace the dot-noise body texture with the generated `washi-paper.jpg` at low opacity, fixed background-attachment so it stays under all sections.
-- Add `.sumi-panel` utility (near-black bg, washi texture overlay, cyan accent).
-- Add `.photo-strip` utility for thin photographic dividers.
-- Add `.kanji-watermark` helper for huge translucent kanji glyphs (CSS, no image needed).
+### 4.1 Hover states מבודלים
+ב־`src/index.css` — להגדיר 3 רמות:
+- `.hover-cta` (primary CTA): hover → `bg-foreground` (כבר קיים).
+- `.hover-link`: רק underline ב־primary.
+- `.hover-tile`: border-color → primary/55 + עליית translate-y-[-2px] עדינה.
+ולהחיל בקומפוננטות בהתאם.
 
-## Technical details
-- Image generation goes through the AI gateway model `google/gemini-2.5-flash-image` (Nano banana). Each image is generated, saved to `src/assets/jp/{name}.jpg` (or `.png` for transparent ornaments), then imported into the component that uses it. Generated on the dev server, not at runtime.
-- Backgrounds use `bg-cover bg-center` with a dark overlay (`hsl(0 0% 10% / 0.55)`) for sumi panels or a washi overlay (`hsl(48 22% 97% / 0.55)`) for light panels — so text always reads.
-- Sharon Aizen page is excluded from every change.
-- `prefers-reduced-motion` still respected (no parallax, no zoom).
+### 4.2 Padding כרטיסיות אחיד
+`CourseCard` ו־`Testimonial` שניהם `p-10` (במובייל `p-8`). אותו ריתמוס: eyebrow → תוכן → footer-meta.
 
-## What stays the same
-- Color tokens, typography system, hairline tiles, kanji eyebrows, JIcon wrapper.
-- All routes, navigation, i18n, RTL/LTR.
-- The Sharon Aizen poster.
+## 5. ביצועים
 
-## Out of scope
-- Carousels, parallax scroll, lottie/video.
-- Replacing the logo or icon set.
-- New pages or copy.
+### 5.1 Lazy-load לתמונות
+- כל ה־`backgroundImage` של תמונות מתחת לקפל (kyoto-alley, zen-garden, kanji-mark, tatami-engawa) → להעביר ל־`<img loading="lazy" decoding="async">` ב־absolute layer במקום `style.backgroundImage`. רק `hero-mountains` נטען מיד.
+- ב־`src/index.css`: `body { background-attachment: scroll; } @media (min-width: 1024px) { body { background-attachment: fixed; } }` — מתקן jank ב־iOS.
+
+## 6. תוכן ו־i18n
+
+### 6.1 Eyebrows בלטינית בעמוד עברי
+ה־eyebrow כרגע hardcoded ("Workshops", "Programs", "Why Us"...). להעביר ל־i18n keys: `eyebrows.workshops`, `eyebrows.programs` וכו'. בעברית: "סדנאות 研修", "תוכניות 講座" וכו'. הקנג'י נשאר עקבי.
+
+### 6.2 צמצום קנג'י
+לבחור 3 קנג'י קבועים לאתר (想 · 成 · 啓 שכבר במנייפסטו). ה־watermarks הגדולים (Hero, Footer, Philosophy) — כולם משתמשים באותו קנג'י (`想`). ה־eyebrows יכולים להישאר עם קנג'י מגוונים כי הם מיקרו, אבל ה־watermark הגדול אחיד.
+
+## קבצים שיתעדכנו
+
+- `index.html` — הוספת Frank Ruhl Libre + Heebo.
+- `tailwind.config.ts` — fontFamily חדשים.
+- `src/index.css` — ניגודיות, letter-spacing RTL, font-stacks per lang, hover utilities, body bg-attachment.
+- `src/i18n/index.ts` — לוודא `document.documentElement.lang` מתעדכן.
+- `src/i18n/locales/{he,en,ja}.json` — `hero.tagline`, `eyebrows.*`.
+- `src/components/Hero.tsx` — tagline, ensō יחיד.
+- `src/components/SiteNav.tsx` — `.label-track` במקום `uppercase tracking-[0.28em]`.
+- `src/components/SiteFooter.tsx` — newsletter handler + toast, watermark מוקטן, ensō הוסר, eyebrow מ־i18n.
+- `src/components/CourseCard.tsx` — עטוף ב־Link, padding אחיד.
+- `src/components/Testimonial.tsx` — padding אחיד.
+- `src/components/FeatureSection.tsx` — eyebrow מ־i18n.
+- `src/pages/Index.tsx` — הסרת sumi-panel philosophy, צמצום photo-strips, eyebrows מ־i18n.
+- `src/pages/About.tsx` — ensō הוסר, eyebrows מ־i18n, contrast fixes.
+- `src/pages/{Courses,Lectures,Recommendations,Contact}.tsx` — eyebrows מ־i18n + contrast fixes.
+
+## מחוץ ל־scope (לסבב הבא)
+- Breadcrumbs, 404 page מותאם, skeleton states, focus-ring משודרג ל־2px, תמיכת ניווט במובייל ל־lg בעברית, המרת PNG ל־WebP. נטפל אחרי שהקריטי יושלם.

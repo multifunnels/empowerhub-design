@@ -25,7 +25,7 @@ const Courses = () => {
       <div className="container mx-auto px-6 py-24 lg:py-32">
         <div className={`mb-20 ${align}`}>
           <div className="eyebrow">
-            <span>Programs</span>
+            <span>{t("eyebrows.programs")}</span>
             <span className="jp">講座</span>
           </div>
           <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />

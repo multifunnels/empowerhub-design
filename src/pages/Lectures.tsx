@@ -35,7 +35,7 @@ const Lectures = () => {
       <div className="container mx-auto px-6 py-24 lg:py-32">
         <header className={`mb-20 ${align}`}>
           <div className="eyebrow">
-            <span>Lectures</span>
+            <span>{t("nav.lectures")}</span>
             <span className="jp">講演</span>
           </div>
           <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />

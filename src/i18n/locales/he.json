@@ -9,10 +9,27 @@
     "contact": "צור קשר"
   },
   "hero": {
+    "tagline": "סדנאות, קורסים והרצאות לארגונים מובילים",
     "title": "יוצרים תוצאות בארגון",
     "subtitle": "גלו את מיטב הסדנאות, קורסים, הרצאות וימי עיון המותאמים אישית לצרכי הארגון שלכם בעולם החדש",
     "browseCourses": "עיין בקורסים",
     "requestConsultation": "בקש ייעוץ"
+  },
+  "eyebrows": {
+    "workshops": "סדנאות",
+    "programs": "תוכניות",
+    "philosophy": "פילוסופיה",
+    "voices": "המלצות",
+    "whyUs": "למה אנחנו",
+    "about": "אודות",
+    "vision": "חזון",
+    "difference": "ההבדל",
+    "clients": "לקוחות",
+    "menu": "תפריט",
+    "company": "חברה",
+    "quickLinks": "קישורים",
+    "connect": "צרו קשר",
+    "newsletter": "ניוזלטר"
   },
   "home": {
     "coursesTitle": "סדנאות- קורסים - הרצאות מותאמות אישית לארגון מובילים:",
@@ -158,6 +175,8 @@
     "newsletterText": "הישאר מעודכן עם הקורסים והטיפים האחרונים שלנו",
     "emailPlaceholder": "הכנס אימייל",
     "subscribe": "הרשמה",
+    "newsletterSuccess": "תודה! נצור קשר בקרוב.",
+    "newsletterInvalid": "נא להזין כתובת אימייל תקינה.",
     "rights": "© 2024 tsionline. כל הזכויות שמורות.",
     "linkedin": "לינקדאין",
     "twitter": "טוויטר",

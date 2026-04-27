@@ -35,7 +35,7 @@ const Recommendations = () => {
         <div className="container mx-auto px-6 py-24 lg:py-32">
           <div className={align}>
             <div className="eyebrow">
-              <span>Voices</span>
+              <span>{t("eyebrows.voices")}</span>
               <span className="jp">お客様の声</span>
             </div>
             <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
@@ -65,7 +65,7 @@ const Recommendations = () => {
         <div className="container mx-auto px-6">
           <div className={`mb-20 ${align}`}>
             <div className="eyebrow">
-              <span>Clients</span>
+              <span>{t("eyebrows.clients")}</span>
               <span className="jp">取引先</span>
             </div>
             <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
