@@ -84,7 +84,7 @@ const About = () => {
           {/* Vision */}
           <section className={align}>
             <div className="eyebrow mb-6">
-              <span>Vision</span>
+              <span>{t("eyebrows.vision")}</span>
               <span className="jp">理念</span>
             </div>
             <h2 className="display-jp text-3xl md:text-5xl mb-12">{t("about.visionTitle")}</h2>
@@ -167,7 +167,7 @@ const About = () => {
           {/* Differentiation */}
           <section className={align}>
             <div className="eyebrow mb-6">
-              <span>Difference</span>
+              <span>{t("eyebrows.difference")}</span>
               <span className="jp">違い</span>
             </div>
             <h2 className="display-jp text-3xl md:text-5xl mb-12">
@@ -217,7 +217,7 @@ const About = () => {
         {/* Clients */}
         <section className={`mt-32 ${align} max-w-6xl mx-auto`}>
           <div className="eyebrow mb-6">
-            <span>Clients</span>
+            <span>{t("eyebrows.clients")}</span>
             <span className="jp">取引先</span>
           </div>
           <h2 className="display-jp text-3xl md:text-5xl mb-12">{t("about.clientsTitle")}</h2>

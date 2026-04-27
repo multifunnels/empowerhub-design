@@ -135,7 +135,7 @@ export const SiteNav = () => {
               >
                 <div className="flex flex-col gap-1 mt-12 px-8">
                   <div className="eyebrow mb-10">
-                    <span>Menu</span>
+                    <span>{t("eyebrows.menu")}</span>
                     <span className="jp">目次</span>
                   </div>
                   {LINKS.map((link) => (
