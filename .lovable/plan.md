@@ -1,58 +1,40 @@
+## הבעיה
 
-# סבב פוליש — Breadcrumbs, 404, Lazy מלא, WebP
+בעמוד `/sharon-aizen` במובייל (390px), כרטיס "פורסמה והתארחה ב" ממוקם ב-`absolute top-6 left-6` עם רוחב של עד 280px (`min(280px, 85vw)`), והוא מכסה כמעט לגמרי את פניה של שרון בתמונה (ראה צילום מסך שצורף).
 
-ארבעה תיקונים קצרים שמסיימים את שכבת ה-UX-quality. עמוד שרון אייזן לא משתנה.
+הסיבה: ב-`Sharon.tsx` בלוק התמונה (שורה 182) ובלוק הכרטיס (שורות 207–252) שניהם `absolute` בתוך אותו container — זה עובד יפה ב-`lg` (התמונה גבוהה, יש מקום בראש), אבל במובייל הכרטיס יושב בדיוק על אזור הפנים.
 
-## 1. WebP לכל התמונות
+## התיקון
 
-הנכסים ב-`src/assets/jp/` מסתכמים ב-~2.2MB. המרה ל-WebP חוסכת ~70%.
+הופך את הכרטיס לזורם (לא absolute) במובייל, וחוזר ל-absolute רק מ-`lg` ומעלה — כך שב-Desktop הפריסה הנעולה של עמוד שרון נשארת **בדיוק כפי שהיא**, ובמובייל הכרטיס יושב מתחת לתמונה במקום מעליה.
 
-- ממירים בעזרת `nix run nixpkgs#libwebp -- cwebp` (JPG ב-q=82, PNG בעלי שקיפות עם cwebp שומר alpha).
-- יוצרים גרסאות חדשות באותה תיקייה: `hero-mountains.webp`, `kyoto-alley.webp`, `tatami-engawa.webp`, `zen-garden.webp`, `washi-paper.webp`, `ink-stroke.webp`, `kanji-mark.webp`.
-- מעדכנים את ה-imports בכל הקבצים שמשתמשים בהם (`Hero.tsx`, `Index.tsx`, `About.tsx`, `SiteFooter.tsx`, `main.tsx`, ו-`Recommendations.tsx`/`Courses.tsx`/`Lectures.tsx`/`Contact.tsx` אם משתמשים).
-- מוחקים את ה-JPG/PNG הישנים אחרי אימות שה-build עובר.
+שינויים מדויקים ב-`src/pages/Sharon.tsx`:
 
-## 2. Lazy-load מלא לתמונות מתחת לקפל
+1. **בלוק עטיפת תמונה+כרטיס** (שורה 182):  
+   במקום `min-h-[420px] lg:min-h-[600px]` — מסירים את ה-min-height במובייל ונותנים לתמונה גובה מפורש כך שתופסת ~70vh במובייל ו-`min-h-[600px]` ב-lg. הכרטיס יוצא מה-stack ה-absolute במובייל ויהפוך לאלמנט רגיל מתחת לתמונה.
 
-כרגע תמונות המוצגות כ-`backgroundImage` ב-`<div>` נטענות מיד (CSS לא מבצע lazy). אעביר את התמונות שמתחת לקפל ל-`<img loading="lazy" decoding="async">` בשכבת absolute, עם `object-cover` ו-veil על גביהן.
+2. **בלוק התמונה עצמה** (שורות 184–197):  
+   במקום `absolute inset-0` — נשאר absolute רק ב-lg; במובייל יהפוך ל-`relative` עם גובה קבוע (לדוגמה `h-[60vh]`) כדי שיציג את הפנים בשלמותן בלי חיתוך עליון.
 
-מקרים:
-- `Index.tsx` — `photo-strip` של zen-garden (mid-page).
-- `Recommendations.tsx`, `Courses.tsx`, `Lectures.tsx`, `Contact.tsx` — אם יש שם backgrounds מתחת לקפל.
+3. **כרטיס "As seen on"** (שורות 208–252):  
+   - במובייל: `relative` תחת התמונה, רוחב מלא של הקונטיינר, `mt-4`, `mx-auto`, ומסירים את `top-6 left-6`.  
+   - מ-`lg` ומעלה: חוזר ל-`absolute lg:top-6 lg:left-6 lg:right-auto` (RTL) עם הרוחב הקבוע של 280px — זהה למצב הנוכחי.  
+   - שימוש ב-Tailwind: `lg:absolute lg:top-6 ${isRtl ? "lg:left-6" : "lg:right-6"} lg:w-[280px]` במקום ה-`absolute` הנוכחי, ובמקביל classes למובייל: `relative mt-6 mx-6 w-auto`.
 
-החריגים שנשארים eager: `Hero.tsx` (above the fold), `About.tsx` hero (above the fold כשמגיעים לעמוד).
+4. **Gradient ה-NAVY התחתון** (שורות 199–205):  
+   נשאר אותו דבר — מתפקד יפה גם במובייל אחרי שהתמונה תהיה בגובה מבוקר.
 
-## 3. עמוד 404 מותאם
+## תוצאה צפויה
 
-יוצר `src/pages/NotFound.tsx` עם זהות יפנית עקבית:
-- Header: `SiteNav`.
-- Center hero: kanji ענק `迷` (מבולבל/אבוד) ב-watermark, ensō, hairline-short.
-- Headline: i18n key `notFound.title` ("העמוד לא נמצא" / "Page not found" / "ページが見つかりません").
-- Subtitle + 2 CTAs: "חזרה לעמוד הבית" / "צור קשר".
-- `SiteFooter`.
-- ב-`App.tsx` — מוסיף `<Route path="*" element={<NotFound />} />`.
-- ב-`i18n/locales/*` — חבילה חדשה `notFound: { title, subtitle, backHome, contact }`.
-
-## 4. Breadcrumbs
-
-קומפוננט חדש `src/components/Breadcrumbs.tsx` שמופק אוטומטית מ-`useLocation().pathname`:
-- מבנה: `Home › Courses` (בעברית: "עמוד הבית ‹ קורסים").
-- סטייל: hairline tile עליונה תחת ה-nav, eyebrow-style typography (`text-[11px]`, tracking התאם לשפה), `text-muted-foreground` עם הפריט האחרון `text-foreground`.
-- מפריד: `›` ב-LTR, `‹` ב-RTL (עם `dir`-aware logic).
-- Mapping: לוקח את ה-segment ומתרגם דרך i18n (`nav.courses`, `nav.about` וכו'). אם אין mapping — נופל לטקסט raw.
-- Schema.org: `aria-label="Breadcrumb"`, `<ol>` סמנטי, ו-`itemtype="BreadcrumbList"` ל-SEO.
-- מוסיפים את הקומפוננטה ב-`Index.tsx` לא (כי זה ה-home), ובכל שאר העמודים: `About`, `Courses`, `Lectures`, `Recommendations`, `Contact` בין `<SiteNav />` ל-hero של העמוד.
+- **מובייל (390px):** תמונה של שרון מלאה ולא חתוכה בראש; הכרטיס יושב מתחתיה, ניתן לקריאה ולא חוסם פנים.
+- **Desktop (lg+):** ללא שינוי ויזואלי — הכרטיס עדיין בפינה השמאלית-עליונה מעל התמונה כמו במקור.
+- שאר עמוד שרון (framework, headlines, intro) — לא נוגעים.
 
 ## קבצים שיתעדכנו
 
-- `src/assets/jp/*.webp` — 7 קבצים חדשים (תוצרי המרה).
-- `src/components/Hero.tsx`, `SiteFooter.tsx`, `main.tsx` — imports.
-- `src/pages/Index.tsx`, `About.tsx`, `Courses.tsx`, `Lectures.tsx`, `Recommendations.tsx`, `Contact.tsx` — imports + breadcrumbs + lazy `<img>` עבור backgrounds מתחת לקפל.
-- `src/components/Breadcrumbs.tsx` — קומפוננטה חדשה.
-- `src/pages/NotFound.tsx` — עמוד חדש.
-- `src/App.tsx` — route catch-all.
-- `src/i18n/locales/{he,en,ja}.json` — `notFound.*`, `breadcrumbs.home`.
+- `src/pages/Sharon.tsx` — שורות ~182–253 בלבד.
 
 ## מחוץ ל-scope
 
-- Skeleton states, code-splitting (chunk size warning), קומפוננטה מובחנת לתמונה רספונסיבית עם srcSet.
+- שינוי תוכן הכרטיס, צבעי ה-Sharon page, או טיפוגרפיה.
+- שינוי שאר העמוד או עמודים אחרים.
