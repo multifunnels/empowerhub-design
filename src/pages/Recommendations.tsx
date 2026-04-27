@@ -1,10 +1,17 @@
-import { Star, Award } from "lucide-react";
 import { Testimonial } from "@/components/Testimonial";
 import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
+import { JIcon, Enso } from "@/components/JIcon";
+import { Building, Briefcase, Landmark, GraduationCap, Hospital } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
+const LOGO_ICONS = [Building, Briefcase, Landmark, GraduationCap, Hospital];
+
 const Recommendations = () => {
-  const { t } = useTranslation();
+  const { t, i18n } = useTranslation();
+  const isRtl = i18n.dir() === "rtl";
+  const align = isRtl ? "text-right" : "text-left";
+
   const items = t("testimonials", { returnObjects: true }) as Array<{
     quote: string;
     author: string;
@@ -14,45 +21,79 @@ const Recommendations = () => {
   return (
     <div className="min-h-screen">
       <SiteNav />
-      <div className="bg-accent py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center justify-center text-center">
-            <Star className="h-12 w-12 text-primary mb-4" />
-            <h1 className="text-4xl font-bold mb-4">{t("recommendations.title")}</h1>
-            <p className="max-w-2xl text-lg mb-8">{t("recommendations.subtitle")}</p>
+
+      {/* Hero strip */}
+      <section className="relative border-b border-border overflow-hidden">
+        <div
+          className={`absolute top-12 ${isRtl ? "left-12" : "right-12"} hidden md:block opacity-40 text-primary pointer-events-none`}
+          aria-hidden="true"
+        >
+          <Enso size={200} />
+        </div>
+        <div className="container mx-auto px-6 py-24 lg:py-32">
+          <div className={align}>
+            <div className="eyebrow">
+              <span>Voices</span>
+              <span className="jp">お客様の声</span>
+            </div>
+            <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
+            <h1 className="display-jp text-4xl md:text-6xl max-w-3xl mb-8">
+              {t("recommendations.title")}
+            </h1>
+            <p className="max-w-2xl text-base md:text-lg leading-[1.9] text-muted-foreground">
+              {t("recommendations.subtitle")}
+            </p>
           </div>
         </div>
-      </div>
+      </section>
 
-      <div className="py-16 container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {/* Testimonial grid */}
+      <section className="py-24 lg:py-32 container mx-auto px-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
           {items.map((tst, index) => (
-            <Testimonial key={index} quote={tst.quote} author={tst.author} role={tst.role} />
+            <div key={index} className="bg-background">
+              <Testimonial quote={tst.quote} author={tst.author} role={tst.role} />
+            </div>
           ))}
         </div>
-      </div>
+      </section>
 
-      <div className="bg-secondary py-16">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center justify-center text-center">
-            <Award className="h-12 w-12 text-primary mb-4" />
-            <h2 className="text-3xl font-bold mb-4">{t("recommendations.trustedBy")}</h2>
-            <p className="max-w-2xl text-lg mb-12">{t("recommendations.trustedBySubtitle")}</p>
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-                <div
-                  key={num}
-                  className="bg-white p-4 rounded-lg shadow flex items-center justify-center h-24"
-                >
-                  <div className="text-gray-400 text-sm">
-                    {t("recommendations.companyLogo")} {num}
-                  </div>
-                </div>
-              ))}
+      {/* Trusted by */}
+      <section className="border-t border-border bg-muted/40 py-24 lg:py-32">
+        <div className="container mx-auto px-6">
+          <div className={`mb-20 ${align}`}>
+            <div className="eyebrow">
+              <span>Clients</span>
+              <span className="jp">取引先</span>
             </div>
+            <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
+            <h2 className="display-jp text-3xl md:text-5xl max-w-3xl mb-6">
+              {t("recommendations.trustedBy")}
+            </h2>
+            <p className="max-w-2xl text-base leading-[1.9] text-muted-foreground">
+              {t("recommendations.trustedBySubtitle")}
+            </p>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-px bg-border border border-border">
+            {Array.from({ length: 8 }).map((_, i) => {
+              const Icon = LOGO_ICONS[i % LOGO_ICONS.length];
+              return (
+                <div
+                  key={i}
+                  className="bg-background h-28 flex flex-col items-center justify-center gap-2 text-foreground/40 hover:text-primary transition-colors duration-500"
+                >
+                  <JIcon icon={Icon} size={26} className="text-current" />
+                  <span className="text-[10px] uppercase tracking-[0.22em]">
+                    {t("recommendations.companyLogo")} {i + 1}
+                  </span>
+                </div>
+              );
+            })}
           </div>
         </div>
-      </div>
+      </section>
+
+      <SiteFooter />
     </div>
   );
 };
