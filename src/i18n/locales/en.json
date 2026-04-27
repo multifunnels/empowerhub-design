@@ -5,6 +5,7 @@
     "about": "About",
     "recommendations": "Testimonials",
     "lectures": "Lectures",
+    "sharon": "Sharon Aizen",
     "contact": "Contact"
   },
   "hero": {
@@ -163,5 +164,55 @@
     "facebook": "Facebook",
     "instagram": "Instagram",
     "resources": "Resources"
+  },
+  "sharon": {
+    "name": "SHARON AIZEN",
+    "tagline": "Global Innovation Strategist | Author | Keynote Speaker",
+    "badges": [
+      { "title": "Acclaimed Author", "subtitle": "of \"Creating Results\"" },
+      { "title": "Radio Host", "subtitle": "\"Creating Results\" on 106FM" },
+      { "title": "Featured Expert", "subtitle": "Israeli TV & National Press" }
+    ],
+    "keynoteLabel": "Keynote Topic",
+    "keynoteTitle": "Bridging the Gap Between Vision and Reality",
+    "sectionTitle": "Result-Oriented Thinking in the Innovation Ecosystem",
+    "intro1": "In today's hyper-accelerated tech landscape, generating groundbreaking ideas is no longer the primary challenge. From sustainable urban tech to advanced AI, the modern innovation ecosystem is rich with visionary concepts. However, the true bottleneck lies in execution. How do we transform a disruptive idea into a viable, market-ready, and sustainable reality?",
+    "intro2": "Sharon Aizen, acclaimed author of \"Creating Results\" and a leading expert in strategic execution, tackles this critical gap. As a highly sought-after public figure, she hosts the popular \"Creating Results\" radio show on 106FM and is frequently featured as a professional expert on Israeli television and in the national press. Drawing from her proprietary methodology, Sharon provides tech leaders, founders, and investors with the blueprint to navigate the chaotic journey from ideation to tangible impact.",
+    "quote": "Innovation without execution is merely a hallucination. Let's build the bridge to reality.",
+    "quoteAuthor": "— Sharon Aizen",
+    "problemTitle": "The Core Problem: The \"Execution Gap\"",
+    "problemIntro": "Many tech startups and corporate R&D teams fall into the \"Execution Gap.\" They possess brilliant technological capabilities but struggle with:",
+    "problems": [
+      { "title": "Loss of Focus", "text": "Getting distracted by \"shiny object syndrome\" instead of aligning with the core market need." },
+      { "title": "Resource Drain", "text": "Wasting critical funding and time on unstructured development cycles." },
+      { "title": "Cultural Burnout", "text": "Failing to maintain team resilience and drive when facing inevitable technological roadblocks." }
+    ],
+    "solutionTitle": "The Solution: Result-Oriented Innovation",
+    "solutionText": "Sharon Aizen introduces \"Result-Oriented Thinking\" — a transformative paradigm that shifts the focus from merely \"doing things\" to \"achieving specific outcomes.\" It is a systemic approach that aligns human psychology, organizational culture, and strategic action.",
+    "frameworkTitle": "The 4-Step \"Creating Results\" Framework for Tech Leaders",
+    "framework": [
+      { "label": "Visionary Clarity", "sub": "Thought / מחשבה", "text": "Innovation begins with a focused mindset. It's about defining the ultimate sustainable outcome before writing a single line of code. Sharon teaches leaders how to crystallize their vision so clearly that it dictates every subsequent strategic decision." },
+      { "label": "Driven Culture", "sub": "Emotion / רגש", "text": "Technology is built by people. Disruptive innovation requires resilience, passion, and psychological safety. Sharon demonstrates how to cultivate organizational emotional intelligence that keeps founders and teams motivated through pivot-and-iterate cycles." },
+      { "label": "Precision Execution", "sub": "Action / פעולה", "text": "Moving from theoretical concepts to agile, precise actions. This step focuses on minimizing waste, optimizing resources, and creating structured workflows that directly serve the end goal." },
+      { "label": "Sustainable Impact", "sub": "Results / תוצאות", "text": "The ultimate realization of the vision. Sharon provides metrics and mindset shifts to ensure the final product doesn't just launch, but thrives, scales, and creates lasting impact on society and the market." }
+    ],
+    "takeawayTitle": "What the Audience Will Take Away",
+    "takeaways": [
+      { "title": "A Practical Blueprint", "text": "A clear, actionable 4-step methodology to implement immediately within startups or corporations." },
+      { "title": "Enhanced Decision-Making", "text": "Tools to quickly evaluate whether a technological pivot serves the ultimate goal or distracts from it." },
+      { "title": "Leadership Resilience", "text": "Strategies to foster a robust, execution-focused culture that can withstand the pressures of the global tech market." },
+      { "title": "Investor Confidence", "text": "A framework that helps founders present not just a great idea, but a credible, structured path to ROI and market penetration." }
+    ],
+    "audienceTitle": "Target Audience",
+    "audience": [
+      { "title": "Startup Founders & Entrepreneurs", "text": "Looking to scale their ideas into viable products." },
+      { "title": "Corporate Innovation & R&D Leads", "text": "Seeking to streamline intrapreneurship and bring new tech to market faster." },
+      { "title": "Venture Capitalists & Investors", "text": "Interested in frameworks that guarantee better execution from their portfolio companies." },
+      { "title": "Tech Ecosystem Builders", "text": "Policymakers and hub directors aiming to foster practical success within their communities." }
+    ],
+    "contactTitle": "Contact & Booking",
+    "email": "Email",
+    "website": "Website",
+    "linkedin": "LinkedIn"
   }
 }

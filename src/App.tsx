@@ -10,7 +10,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Courses from "./pages/Courses";
 import Lectures from "./pages/Lectures";
-import Recommendations from "./pages/Recommendations";  // Add this import
+import Recommendations from "./pages/Recommendations";
+import Sharon from "./pages/Sharon";
 
 const queryClient = new QueryClient();
 
@@ -27,7 +28,8 @@ const App = () => (
           <Route path="/contact" element={<Contact />} />
           <Route path="/courses" element={<Courses />} />
           <Route path="/lectures" element={<Lectures />} />
-          <Route path="/recommendations" element={<Recommendations />} />  {/* Add this route */}
+          <Route path="/recommendations" element={<Recommendations />} />
+          <Route path="/sharon-aizen" element={<Sharon />} />
         </Routes>
       </BrowserRouter>
     </TooltipProvider>
