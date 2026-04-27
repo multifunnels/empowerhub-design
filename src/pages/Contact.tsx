@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { useState } from "react";
 import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
 import {
   Phone,
   Mail,
@@ -15,6 +13,7 @@ import {
   Send,
   MessageSquare,
 } from "lucide-react";
+import { JIcon } from "@/components/JIcon";
 import emailjs from "emailjs-com";
 import { useTranslation } from "react-i18next";
 
@@ -22,6 +21,7 @@ const Contact = () => {
   const { t, i18n } = useTranslation();
   const { toast } = useToast();
   const isRtl = i18n.dir() === "rtl";
+  const align = isRtl ? "text-right" : "text-left";
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
@@ -74,175 +74,167 @@ const Contact = () => {
   };
 
   const fieldDir = isRtl ? "rtl" : "ltr";
-  const fieldAlign = isRtl ? "text-right" : "text-left";
-  const rowDir = isRtl ? "flex-row-reverse" : "flex-row";
+
+  const socials = [
+    { href: "https://www.instagram.com/aizensharon/", icon: Instagram, label: "Instagram" },
+    { href: "https://www.youtube.com/channel/UCkfE8yY9UY5-xXjZdlpRZpw", icon: Youtube, label: "YouTube" },
+    { href: "https://twitter.com/sharonaizen", icon: Twitter, label: "Twitter" },
+    { href: "https://www.facebook.com/TSI.Think.Success.Inspire", icon: Facebook, label: "Facebook" },
+  ];
+
+  const tabBase =
+    "flex-1 py-3 text-[11px] uppercase tracking-[0.28em] transition-colors duration-500 border-b-2";
+  const tabActive = "border-primary text-primary";
+  const tabIdle = "border-transparent text-muted-foreground hover:text-foreground";
 
   return (
     <div className="min-h-screen">
       <SiteNav />
 
-      <div className="container mx-auto px-4 py-16">
-        <div className="max-w-5xl mx-auto">
-          <h1 className="text-4xl font-bold text-center mb-8">{t("contact.title")}</h1>
+      <div className="container mx-auto px-6 py-24 lg:py-32">
+        <div className={`mb-20 ${align}`}>
+          <div className="eyebrow">
+            <span>Contact</span>
+            <span className="jp">お問い合わせ</span>
+          </div>
+          <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
+          <h1 className="display-jp text-4xl md:text-6xl">{t("contact.title")}</h1>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-            <div className="bg-white p-8 rounded-lg shadow-md">
-              <h2 className={`text-2xl font-semibold mb-6 ${fieldAlign}`}>
-                {t("contact.infoTitle")}
-              </h2>
-
-              <div className={`space-y-6 ${fieldAlign}`}>
-                <div className={`flex ${rowDir} items-center gap-3`}>
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Phone className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="text-gray-500">{t("contact.phoneHours")}</p>
-                    <p className="font-medium">054-6688430</p>
-                  </div>
-                </div>
-
-                <div className={`flex ${rowDir} items-center gap-3`}>
-                  <div className="bg-primary/10 p-3 rounded-full">
-                    <Mail className="h-5 w-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-medium">sharoni@tsinspire.com</p>
-                  </div>
-                </div>
-
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-px bg-border border border-border max-w-5xl mx-auto">
+          {/* Info column */}
+          <div className={`bg-background p-10 lg:p-14 ${align}`}>
+            <h2 className="display-jp text-xl md:text-2xl mb-10">
+              {t("contact.infoTitle")}
+            </h2>
+            <div className="space-y-10">
+              <div className="flex items-start gap-5">
+                <JIcon icon={Phone} size={18} className="mt-1" />
                 <div>
-                  <p className={`mb-3 text-gray-600 ${fieldAlign}`}>{t("contact.readyToStart")}</p>
-                  <div className={`flex ${isRtl ? "justify-end" : "justify-start"} gap-3`}>
+                  <p className="text-[11px] uppercase tracking-[0.22em] text-muted-foreground">
+                    {t("contact.phoneHours")}
+                  </p>
+                  <p className="mt-2 text-sm tracking-wide" dir="ltr">054-6688430</p>
+                </div>
+              </div>
+              <div className="flex items-start gap-5">
+                <JIcon icon={Mail} size={18} className="mt-1" />
+                <div>
+                  <p className="text-sm tracking-wide" dir="ltr">sharoni@tsinspire.com</p>
+                </div>
+              </div>
+
+              <div className="pt-8 border-t border-border">
+                <p className="text-sm leading-[1.9] text-muted-foreground mb-6">
+                  {t("contact.readyToStart")}
+                </p>
+                <div className="flex gap-6">
+                  {socials.map(({ href, icon, label }) => (
                     <a
-                      href="https://www.instagram.com/aizensharon/"
+                      key={label}
+                      href={href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors"
+                      aria-label={label}
+                      className="text-foreground/60 hover:text-primary transition-colors duration-500"
                     >
-                      <Instagram className="h-5 w-5 text-gray-700" />
+                      <JIcon icon={icon} size={18} className="text-current" />
                     </a>
-                    <a
-                      href="https://www.youtube.com/channel/UCkfE8yY9UY5-xXjZdlpRZpw"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors"
-                    >
-                      <Youtube className="h-5 w-5 text-gray-700" />
-                    </a>
-                    <a
-                      href="https://twitter.com/sharonaizen"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors"
-                    >
-                      <Twitter className="h-5 w-5 text-gray-700" />
-                    </a>
-                    <a
-                      href="https://www.facebook.com/TSI.Think.Success.Inspire"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="bg-gray-100 p-2 rounded-full hover:bg-primary/10 transition-colors"
-                    >
-                      <Facebook className="h-5 w-5 text-gray-700" />
-                    </a>
-                  </div>
+                  ))}
                 </div>
               </div>
             </div>
+          </div>
 
-            <div>
-              <form
-                onSubmit={handleSubmit}
-                className="space-y-6 bg-white p-8 rounded-lg shadow-md"
+          {/* Form column */}
+          <div className="bg-background p-10 lg:p-14">
+            <div className="flex mb-10 border-b border-border">
+              <button
+                type="button"
+                onClick={() => setContactMethod("whatsapp")}
+                className={`${tabBase} ${contactMethod === "whatsapp" ? tabActive : tabIdle}`}
               >
-                <div className="flex justify-center space-x-4 mb-2">
-                  <div
-                    className={`p-3 rounded-full cursor-pointer transition-colors flex items-center gap-2 ${
-                      contactMethod === "whatsapp"
-                        ? "bg-green-100 text-green-700"
-                        : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-                    }`}
-                    onClick={() => setContactMethod("whatsapp")}
-                  >
-                    <MessageSquare className="h-5 w-5" />
-                    <span>{t("contact.form.whatsapp")}</span>
-                  </div>
-                  <div
-                    className={`p-3 rounded-full cursor-pointer transition-colors flex items-center gap-2 ${
-                      contactMethod === "email"
-                        ? "bg-primary/10 text-primary"
-                        : "bg-gray-100 text-gray-500 hover:bg-gray-200"
-                    }`}
-                    onClick={() => setContactMethod("email")}
-                  >
-                    <Mail className="h-5 w-5" />
-                    <span>{t("contact.form.email")}</span>
-                  </div>
-                </div>
-
-                <div>
-                  <Label htmlFor="name">{t("contact.form.name")}</Label>
-                  <Input
-                    id="name"
-                    value={name}
-                    onChange={(e) => setName(e.target.value)}
-                    required
-                    className={fieldAlign}
-                    dir={fieldDir}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="email">{t("contact.form.emailLabel")}</Label>
-                  <Input
-                    id="email"
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    required
-                    className={fieldAlign}
-                    dir={fieldDir}
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="message">{t("contact.form.message")}</Label>
-                  <Textarea
-                    id="message"
-                    value={message}
-                    onChange={(e) => setMessage(e.target.value)}
-                    required
-                    className={`min-h-[150px] ${fieldAlign}`}
-                    dir={fieldDir}
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className={`w-full ${
-                    contactMethod === "whatsapp" ? "bg-green-600 hover:bg-green-700" : ""
-                  }`}
-                  disabled={isSubmitting}
-                >
-                  {isSubmitting
-                    ? t("contact.form.sending")
-                    : contactMethod === "whatsapp"
-                    ? t("contact.form.openWhatsapp")
-                    : t("contact.form.send")}
-                  {contactMethod === "whatsapp" ? (
-                    <MessageSquare className={`${isRtl ? "mr-2" : "ml-2"} h-4 w-4`} />
-                  ) : (
-                    <Send className={`${isRtl ? "mr-2" : "ml-2"} h-4 w-4`} />
-                  )}
-                </Button>
-                <p className="text-xs text-gray-500 text-center">
-                  {contactMethod === "whatsapp"
-                    ? t("contact.form.whatsappHint")
-                    : t("contact.form.emailHint")}
-                </p>
-              </form>
+                {t("contact.form.whatsapp")}
+              </button>
+              <button
+                type="button"
+                onClick={() => setContactMethod("email")}
+                className={`${tabBase} ${contactMethod === "email" ? tabActive : tabIdle}`}
+              >
+                {t("contact.form.email")}
+              </button>
             </div>
+
+            <form onSubmit={handleSubmit} className="space-y-8">
+              <div>
+                <label htmlFor="name" className="eyebrow block mb-2">
+                  <span>{t("contact.form.name")}</span>
+                </label>
+                <input
+                  id="name"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                  required
+                  dir={fieldDir}
+                  className={`hairline-input ${align}`}
+                />
+              </div>
+              <div>
+                <label htmlFor="email" className="eyebrow block mb-2">
+                  <span>{t("contact.form.emailLabel")}</span>
+                </label>
+                <input
+                  id="email"
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                  dir={fieldDir}
+                  className={`hairline-input ${align}`}
+                />
+              </div>
+              <div>
+                <label htmlFor="message" className="eyebrow block mb-2">
+                  <span>{t("contact.form.message")}</span>
+                </label>
+                <textarea
+                  id="message"
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  required
+                  dir={fieldDir}
+                  rows={5}
+                  className={`hairline-input resize-none ${align}`}
+                />
+              </div>
+
+              <Button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full rounded-none bg-primary hover:bg-foreground text-primary-foreground text-[11px] uppercase tracking-[0.28em] py-6 transition-colors duration-500 shadow-none"
+              >
+                {isSubmitting
+                  ? t("contact.form.sending")
+                  : contactMethod === "whatsapp"
+                  ? t("contact.form.openWhatsapp")
+                  : t("contact.form.send")}
+                {contactMethod === "whatsapp" ? (
+                  <MessageSquare className={`${isRtl ? "mr-3" : "ml-3"} h-3 w-3`} strokeWidth={1.25} />
+                ) : (
+                  <Send className={`${isRtl ? "mr-3" : "ml-3"} h-3 w-3`} strokeWidth={1.25} />
+                )}
+              </Button>
+              <p className="text-[11px] tracking-[0.18em] text-muted-foreground text-center">
+                {contactMethod === "whatsapp"
+                  ? t("contact.form.whatsappHint")
+                  : t("contact.form.emailHint")}
+              </p>
+            </form>
           </div>
         </div>
       </div>
+
+      <SiteFooter />
     </div>
   );
 };

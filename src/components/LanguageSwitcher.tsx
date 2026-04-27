@@ -1,6 +1,4 @@
-import { Globe } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -34,18 +32,25 @@ export const LanguageSwitcher = () => {
 
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger asChild>
-        <Button variant="ghost" size="sm" className="gap-1">
-          <Globe className="h-4 w-4" />
-          <span className="text-sm">{SHORT[current]}</span>
-        </Button>
+      <DropdownMenuTrigger
+        className="inline-flex items-center gap-2 px-2 py-1 text-[11px] uppercase tracking-[0.28em] text-foreground/75 hover:text-primary transition-colors duration-500"
+        aria-label="Change language"
+      >
+        <span style={{ fontFamily: '"Noto Serif JP", serif' }} className="text-[13px] tracking-normal">文</span>
+        <span className="text-foreground/30">/</span>
+        <span>{SHORT[current]}</span>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="end">
+      <DropdownMenuContent
+        align="end"
+        className="bg-background border border-border rounded-none shadow-none min-w-[160px] p-0"
+      >
         {(["he", "en", "ja"] as SupportedLang[]).map((lang) => (
           <DropdownMenuItem
             key={lang}
             onClick={() => change(lang)}
-            className={current === lang ? "font-semibold" : ""}
+            className={`rounded-none px-4 py-3 text-[12px] uppercase tracking-[0.22em] focus:bg-muted/60 cursor-pointer ${
+              current === lang ? "text-primary" : "text-foreground/80"
+            }`}
           >
             {LABELS[lang]}
           </DropdownMenuItem>

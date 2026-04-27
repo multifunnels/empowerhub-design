@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Button } from "@/components/ui/button";
 import {
   Building,
   Building2,
@@ -8,20 +7,20 @@ import {
   Hospital,
   Landmark,
 } from "lucide-react";
-import { Separator } from "@/components/ui/separator";
-import { Card, CardContent } from "@/components/ui/card";
 import { SiteNav } from "@/components/SiteNav";
+import { SiteFooter } from "@/components/SiteFooter";
+import { JIcon, Enso, KanjiBullet } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
 
 type CatId = "government" | "academic" | "companies" | "banks" | "health" | "municipalities";
 
-const CATEGORY_ICONS: Record<CatId, JSX.Element> = {
-  government: <Building className="h-5 w-5" />,
-  academic: <GraduationCap className="h-5 w-5" />,
-  companies: <Briefcase className="h-5 w-5" />,
-  banks: <Landmark className="h-5 w-5" />,
-  health: <Hospital className="h-5 w-5" />,
-  municipalities: <Building2 className="h-5 w-5" />,
+const CATEGORY_ICONS: Record<CatId, typeof Building> = {
+  government: Building,
+  academic: GraduationCap,
+  companies: Briefcase,
+  banks: Landmark,
+  health: Hospital,
+  municipalities: Building2,
 };
 
 const CATEGORY_IDS: CatId[] = [
@@ -53,223 +52,264 @@ const About = () => {
     <div className="min-h-screen">
       <SiteNav />
 
-      <div className="container mx-auto px-4 py-16">
-        <h1 className="text-4xl font-bold text-center mb-8">{t("about.title")}</h1>
-        <div className="max-w-3xl mx-auto space-y-8">
-          <section className="bg-white rounded-lg shadow-md p-8">
-            <p className={`text-gray-700 leading-relaxed ${align}`}>{t("about.intro")}</p>
+      {/* Hero */}
+      <section className="relative border-b border-border overflow-hidden">
+        <div
+          className={`absolute top-12 ${isRtl ? "left-12" : "right-12"} hidden md:block opacity-40 text-primary pointer-events-none`}
+          aria-hidden="true"
+        >
+          <Enso size={220} />
+        </div>
+        <div className="container mx-auto px-6 py-24 lg:py-32">
+          <div className={align}>
+            <div className="eyebrow">
+              <span>About</span>
+              <span className="jp">会社案内</span>
+            </div>
+            <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
+            <h1 className="display-jp text-4xl md:text-6xl max-w-4xl text-balance">
+              {t("about.title")}
+            </h1>
+          </div>
+        </div>
+      </section>
+
+      <div className="container mx-auto px-6 py-24 lg:py-32">
+        <div className="max-w-3xl mx-auto space-y-24">
+          {/* Intro */}
+          <section className={align}>
+            <p className="text-base md:text-lg leading-[2] text-foreground/85">
+              {t("about.intro")}
+            </p>
           </section>
 
-          <section className="bg-white rounded-lg shadow-md p-8">
-            <h2 className={`text-2xl font-semibold mb-6 ${align}`}>{t("about.visionTitle")}</h2>
-            <div className="flex flex-col items-center gap-8">
-              <div className="flex flex-col items-center gap-4 w-full">
-                <div className="flex justify-center gap-8 text-primary text-2xl font-bold">
-                  {visionWords.map((w, i) => (
-                    <span key={i}>{w}</span>
-                  ))}
-                </div>
-                <Separator className="w-1/2 bg-[#9b87f5] h-0.5" />
-              </div>
+          {/* Vision */}
+          <section className={align}>
+            <div className="eyebrow mb-6">
+              <span>Vision</span>
+              <span className="jp">理念</span>
+            </div>
+            <h2 className="display-jp text-3xl md:text-5xl mb-12">{t("about.visionTitle")}</h2>
 
-              <div className={`text-gray-700 leading-relaxed ${align} max-w-2xl space-y-6`}>
-                <p
-                  className={`bg-gradient-to-r from-purple-50 to-white p-4 rounded-lg ${
-                    isRtl ? "border-r-4" : "border-l-4"
-                  } border-primary`}
-                >
-                  <strong className="text-primary">{t("about.visionLeadHighlight")}</strong>{" "}
+            <div className="flex justify-center gap-12 mb-12 text-primary text-2xl md:text-3xl tracking-[0.2em]"
+                 style={{ fontFamily: '"Noto Serif JP", serif', fontWeight: 300 }}>
+              {visionWords.map((w, i) => (
+                <React.Fragment key={i}>
+                  <span>{w}</span>
+                  {i < visionWords.length - 1 && (
+                    <span className="text-foreground/30 self-center">·</span>
+                  )}
+                </React.Fragment>
+              ))}
+            </div>
+
+            <div className="space-y-10 text-base leading-[2] text-foreground/85">
+              <div className="border-s-2 border-primary ps-6">
+                <p>
+                  <strong className="text-primary font-medium">
+                    {t("about.visionLeadHighlight")}
+                  </strong>{" "}
                   {t("about.visionLead").replace(t("about.visionLeadHighlight"), "")}
                 </p>
+              </div>
 
-                <p className="bg-purple-50 p-4 rounded-lg">{t("about.visionParagraph")}</p>
+              <p className="text-muted-foreground">{t("about.visionParagraph")}</p>
 
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-[#E5DEFF] p-4 rounded-lg">
-                    <h3 className={`font-semibold text-primary mb-2 ${align}`}>
-                      {t("about.ourGoalTitle")}
-                    </h3>
-                    <p>{t("about.ourGoalText")}</p>
+              <div className="grid md:grid-cols-2 gap-px bg-border border border-border">
+                <div className="bg-background p-8">
+                  <div className="eyebrow mb-4">
+                    <span>{t("about.ourGoalTitle")}</span>
+                    <span className="jp">目標</span>
                   </div>
-
-                  <div className="bg-[#D3E4FD] p-4 rounded-lg">
-                    <h3 className={`font-semibold text-primary mb-2 ${align}`}>
-                      {t("about.successMeasuredTitle")}
-                    </h3>
-                    <p>{t("about.successMeasuredText")}</p>
+                  <p className="text-sm leading-[1.9] text-muted-foreground">
+                    {t("about.ourGoalText")}
+                  </p>
+                </div>
+                <div className="bg-background p-8">
+                  <div className="eyebrow mb-4">
+                    <span>{t("about.successMeasuredTitle")}</span>
+                    <span className="jp">成功</span>
                   </div>
+                  <p className="text-sm leading-[1.9] text-muted-foreground">
+                    {t("about.successMeasuredText")}
+                  </p>
                 </div>
+              </div>
 
-                <p className="bg-[#FDE1D3] p-4 rounded-lg">{t("about.connectionText")}</p>
+              <p className="text-muted-foreground">{t("about.connectionText")}</p>
 
-                <div
-                  className={`bg-gradient-to-r from-white to-purple-50 p-4 rounded-lg ${
-                    isRtl ? "border-r-4" : "border-l-4"
-                  } border-secondary`}
-                >
-                  <h3 className={`font-semibold text-primary mb-2 ${align}`}>
-                    {t("about.missionTitle")}
-                  </h3>
-                  <p>{t("about.missionText")}</p>
-                  <p className="mt-2 italic text-purple-700">{t("about.confuciusQuote")}</p>
+              <div className="border-s-2 border-foreground/20 ps-6">
+                <div className="eyebrow mb-3">
+                  <span>{t("about.missionTitle")}</span>
+                  <span className="jp">使命</span>
                 </div>
+                <p>{t("about.missionText")}</p>
+                <p className="mt-4 italic text-muted-foreground"
+                   style={{ fontFamily: '"Noto Serif JP", serif' }}>
+                  {t("about.confuciusQuote")}
+                </p>
+              </div>
 
-                <div className="bg-[#F1F0FB] p-4 rounded-lg mt-6">
-                  <h3 className="font-semibold text-center text-primary mb-4">
-                    {t("about.winThreeTimesTitle")}
-                  </h3>
-                  <ul className="space-y-2">
-                    {winThree.map((line, idx) => (
-                      <li key={idx} className="flex items-center gap-2">
-                        <span className="bg-primary text-white rounded-full w-6 h-6 flex items-center justify-center shrink-0">
-                          {idx + 1}
-                        </span>
-                        <span>{line}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+              <div className="pt-8 border-t border-border">
+                <h3 className="display-jp text-xl mb-8">{t("about.winThreeTimesTitle")}</h3>
+                <ul className="space-y-6">
+                  {winThree.map((line, idx) => (
+                    <li key={idx} className="flex items-start gap-5">
+                      <span className="idx text-2xl shrink-0 leading-none mt-1">
+                        {String(idx + 1).padStart(2, "0")}
+                      </span>
+                      <span className="text-sm leading-[1.9]">{line}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
             </div>
           </section>
 
-          <section className="bg-white rounded-lg shadow-md p-8">
-            <h2 className={`text-2xl font-semibold mb-6 ${align}`}>
+          {/* Differentiation */}
+          <section className={align}>
+            <div className="eyebrow mb-6">
+              <span>Difference</span>
+              <span className="jp">違い</span>
+            </div>
+            <h2 className="display-jp text-3xl md:text-5xl mb-12">
               {t("about.differentiationTitle")}
             </h2>
-            <div className={`space-y-6 text-gray-700 ${align}`}>
-              <div
-                className={`bg-gradient-to-r from-purple-50 to-white p-5 rounded-lg ${
-                  isRtl ? "border-r-4" : "border-l-4"
-                } border-primary`}
-              >
-                <p className="leading-relaxed">
-                  <span className="font-semibold text-primary">
+
+            <div className="space-y-10 text-base leading-[2] text-foreground/85">
+              <div className="border-s-2 border-primary ps-6">
+                <p>
+                  <span className="text-primary font-medium">
                     {t("about.differentiationLeadHighlight")}
                   </span>{" "}
                   {t("about.differentiationLead")}
                 </p>
               </div>
 
-              <Card className="border-primary/20">
-                <CardContent className="p-5">
-                  <div className="flex items-center gap-4 mb-4">
-                    <div className="w-2 h-10 bg-primary rounded-full" />
-                    <h3 className="text-xl font-medium text-primary">
-                      {t("about.serviceCardTitle")}
-                    </h3>
-                  </div>
-                  <p className="leading-relaxed">{t("about.serviceCardText")}</p>
-                </CardContent>
-              </Card>
-
-              <div className="flex gap-6 flex-col md:flex-row">
-                <div className="bg-[#E5DEFF] p-5 rounded-lg flex-1">
-                  <p className="leading-relaxed">{t("about.experienceText")}</p>
+              <div className="tile p-8">
+                <div className="flex items-center gap-4 mb-6">
+                  <span className="block w-px h-10 bg-primary" />
+                  <h3 className="display-jp text-xl text-primary">
+                    {t("about.serviceCardTitle")}
+                  </h3>
                 </div>
-                <div className="bg-[#D3E4FD] p-5 rounded-lg flex-1">
-                  <p className="leading-relaxed">{t("about.missionText2")}</p>
+                <p className="text-sm leading-[1.9] text-muted-foreground">
+                  {t("about.serviceCardText")}
+                </p>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-px bg-border border border-border">
+                <div className="bg-background p-8">
+                  <p className="text-sm leading-[1.9] text-muted-foreground">
+                    {t("about.experienceText")}
+                  </p>
+                </div>
+                <div className="bg-background p-8">
+                  <p className="text-sm leading-[1.9] text-muted-foreground">
+                    {t("about.missionText2")}
+                  </p>
                 </div>
               </div>
 
-              <div className="bg-[#FDE1D3] p-5 rounded-lg">
-                <p className="leading-relaxed">{t("about.advisingText")}</p>
-              </div>
-            </div>
-          </section>
-
-          <section className="bg-white rounded-lg shadow-md p-8">
-            <h2 className={`text-2xl font-semibold mb-6 ${align}`}>{t("about.clientsTitle")}</h2>
-
-            <div className="mb-8">
-              <div className="flex flex-wrap justify-start gap-3 mb-6">
-                <Button
-                  variant={activeCategory === "all" ? "default" : "outline"}
-                  onClick={() => setActiveCategory("all")}
-                  className="rounded-full"
-                >
-                  {t("about.all")}
-                </Button>
-                {CATEGORY_IDS.map((id) => (
-                  <Button
-                    key={id}
-                    variant={activeCategory === id ? "default" : "outline"}
-                    onClick={() => setActiveCategory(id)}
-                    className="rounded-full flex gap-2 items-center"
-                  >
-                    {CATEGORY_ICONS[id]}
-                    {categoryNames[id]}
-                  </Button>
-                ))}
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {renderedCategories.map((id) => (
-                <Card
-                  key={id}
-                  className="overflow-hidden border-primary/10 hover:shadow-md transition-shadow"
-                >
-                  <div className="bg-gradient-to-r from-primary/10 to-secondary/10 p-4 flex items-center gap-3">
-                    <div className="bg-white p-2 rounded-full">{CATEGORY_ICONS[id]}</div>
-                    <h3 className={`text-lg font-semibold text-primary ${align}`}>
-                      {categoryNames[id]}
-                    </h3>
-                  </div>
-                  <CardContent className="pt-4">
-                    <ul className={`space-y-2 text-gray-700 ${align}`}>
-                      {(clientLists[id] ?? []).map((client, index) => (
-                        <li key={index} className="flex items-center gap-2">
-                          <div
-                            className={`bg-primary/5 p-1 rounded-full ${isRtl ? "ml-2" : "mr-2"}`}
-                          >
-                            <div className="w-2 h-2 bg-primary rounded-full" />
-                          </div>
-                          <span>{client}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-
-            <div className="mt-12 bg-gray-50 rounded-lg p-6 shadow-inner">
-              <h3 className="text-lg font-semibold text-center mb-6 text-primary">
-                {t("about.clientsSampleTitle")}
-              </h3>
-              <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
-                {[...Array(10)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="bg-white rounded-lg shadow-sm p-4 aspect-square flex items-center justify-center"
-                  >
-                    <div className="text-primary/60 flex flex-col items-center justify-center p-4 opacity-70 hover:opacity-100 transition-opacity">
-                      {i % 5 === 0 ? (
-                        <Building className="w-12 h-12" />
-                      ) : i % 5 === 1 ? (
-                        <Briefcase className="w-12 h-12" />
-                      ) : i % 5 === 2 ? (
-                        <Landmark className="w-12 h-12" />
-                      ) : i % 5 === 3 ? (
-                        <GraduationCap className="w-12 h-12" />
-                      ) : (
-                        <Hospital className="w-12 h-12" />
-                      )}
-                      <span className="text-xs mt-2 text-gray-500">
-                        {t("about.clientsLogoLabel")}
-                      </span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <p className="text-center text-sm text-gray-500 mt-4">
-                {t("about.clientsLogoNote")}
-              </p>
+              <p className="text-muted-foreground">{t("about.advisingText")}</p>
             </div>
           </section>
         </div>
+
+        {/* Clients */}
+        <section className={`mt-32 ${align} max-w-6xl mx-auto`}>
+          <div className="eyebrow mb-6">
+            <span>Clients</span>
+            <span className="jp">取引先</span>
+          </div>
+          <h2 className="display-jp text-3xl md:text-5xl mb-12">{t("about.clientsTitle")}</h2>
+
+          {/* Filter — hairline tabs */}
+          <div className="flex flex-wrap gap-x-8 gap-y-3 mb-16 border-b border-border pb-4">
+            <button
+              type="button"
+              onClick={() => setActiveCategory("all")}
+              className={`text-[11px] uppercase tracking-[0.28em] pb-3 -mb-[17px] border-b-2 transition-colors duration-500 ${
+                activeCategory === "all"
+                  ? "border-primary text-primary"
+                  : "border-transparent text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {t("about.all")}
+            </button>
+            {CATEGORY_IDS.map((id) => (
+              <button
+                key={id}
+                type="button"
+                onClick={() => setActiveCategory(id)}
+                className={`inline-flex items-center gap-2 text-[11px] uppercase tracking-[0.28em] pb-3 -mb-[17px] border-b-2 transition-colors duration-500 ${
+                  activeCategory === id
+                    ? "border-primary text-primary"
+                    : "border-transparent text-muted-foreground hover:text-foreground"
+                }`}
+              >
+                <JIcon icon={CATEGORY_ICONS[id]} size={14} className="text-current" />
+                {categoryNames[id]}
+              </button>
+            ))}
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
+            {renderedCategories.map((id) => (
+              <div key={id} className="bg-background p-8 lg:p-10">
+                <div className="flex items-center gap-3 pb-6 mb-6 border-b border-border">
+                  <JIcon icon={CATEGORY_ICONS[id]} size={18} className="text-primary" />
+                  <h3 className="display-jp text-base">{categoryNames[id]}</h3>
+                </div>
+                <ul className="space-y-3 text-sm text-foreground/80">
+                  {(clientLists[id] ?? []).map((client, index) => (
+                    <li key={index} className="flex items-center gap-3">
+                      <KanjiBullet size={6} className="text-primary" />
+                      <span>{client}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-20">
+            <h3 className="display-jp text-lg mb-10 text-center">
+              {t("about.clientsSampleTitle")}
+            </h3>
+            <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-border border border-border">
+              {Array.from({ length: 10 }).map((_, i) => {
+                const Icon =
+                  i % 5 === 0
+                    ? Building
+                    : i % 5 === 1
+                    ? Briefcase
+                    : i % 5 === 2
+                    ? Landmark
+                    : i % 5 === 3
+                    ? GraduationCap
+                    : Hospital;
+                return (
+                  <div
+                    key={i}
+                    className="bg-background aspect-square flex flex-col items-center justify-center gap-2 text-foreground/40 hover:text-primary transition-colors duration-500"
+                  >
+                    <JIcon icon={Icon} size={26} className="text-current" />
+                    <span className="text-[10px] uppercase tracking-[0.22em]">
+                      {t("about.clientsLogoLabel")}
+                    </span>
+                  </div>
+                );
+              })}
+            </div>
+            <p className="text-[11px] tracking-[0.18em] text-muted-foreground mt-6 text-center">
+              {t("about.clientsLogoNote")}
+            </p>
+          </div>
+        </section>
       </div>
+
+      <SiteFooter />
     </div>
   );
 };
