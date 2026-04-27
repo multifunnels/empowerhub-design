@@ -9,10 +9,9 @@ import {
 } from "lucide-react";
 import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
-import { JIcon, Enso, KanjiBullet } from "@/components/JIcon";
+import { JIcon, KanjiBullet } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
 import tatamiEngawa from "@/assets/jp/tatami-engawa.jpg";
-import kanjiMark from "@/assets/jp/kanji-mark.png";
 
 type CatId = "government" | "academic" | "companies" | "banks" | "health" | "municipalities";
 
@@ -59,16 +58,10 @@ const About = () => {
         className="photo-backdrop relative border-b border-border overflow-hidden"
         style={{ backgroundImage: `url(${tatamiEngawa})` }}
       >
-        <div
-          className={`absolute top-12 ${isRtl ? "left-12" : "right-12"} hidden md:block opacity-60 text-primary pointer-events-none`}
-          aria-hidden="true"
-        >
-          <Enso size={220} />
-        </div>
         <div className="container mx-auto px-6 py-32 lg:py-40">
           <div className={align}>
             <div className="eyebrow">
-              <span>About</span>
+              <span>{t("eyebrows.about")}</span>
               <span className="jp">会社案内</span>
             </div>
             <div className={`hairline-short mt-6 mb-8 ${isRtl ? "ms-auto" : ""}`} />
