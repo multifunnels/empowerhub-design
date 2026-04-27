@@ -77,11 +77,12 @@ const Sharon = () => {
           dir={isRtl ? "rtl" : "ltr"}
         >
           {/* Hero — full-width cinematic banner */}
-          <div className="relative w-full h-[380px] lg:h-[460px] overflow-hidden">
+          <div className="relative w-full h-[460px] md:h-[560px] lg:h-[640px] overflow-hidden">
             <img
               src={sharonImg}
               alt={t("sharon.name")}
-              className="absolute inset-0 w-full h-full object-cover object-center"
+              className="absolute inset-0 w-full h-full object-cover"
+              style={{ objectPosition: "center 18%" }}
             />
             {/* Gradient overlay for legibility — anchored to the side where the name sits */}
             <div
