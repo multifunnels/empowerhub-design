@@ -16,6 +16,7 @@ import {
 import { JIcon } from "@/components/JIcon";
 import emailjs from "emailjs-com";
 import { useTranslation } from "react-i18next";
+import tatamiEngawa from "@/assets/jp/tatami-engawa.jpg";
 
 const Contact = () => {
   const { t, i18n } = useTranslation();

@@ -3,6 +3,7 @@ import { SiteNav } from "@/components/SiteNav";
 import { SiteFooter } from "@/components/SiteFooter";
 import { JIcon } from "@/components/JIcon";
 import { useTranslation } from "react-i18next";
+import kyotoAlley from "@/assets/jp/kyoto-alley.jpg";
 
 const ICONS = [Lightbulb, Brain, MessageSquare, Briefcase, UserRound, Headphones];
 
