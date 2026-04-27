@@ -10,6 +10,7 @@ const LINKS: Array<{ to: string; key: string; home?: boolean }> = [
   { to: "/", key: "nav.home", home: true },
   { to: "/courses", key: "nav.courses" },
   { to: "/about", key: "nav.about" },
+  { to: "/sharon-aizen", key: "nav.sharon" },
   { to: "/recommendations", key: "nav.recommendations" },
   { to: "/lectures", key: "nav.lectures" },
   { to: "/contact", key: "nav.contact" },
