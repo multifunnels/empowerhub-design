@@ -9,10 +9,27 @@
     "contact": "Contact"
   },
   "hero": {
+    "tagline": "Workshops, courses & lectures for leading organizations",
     "title": "Creating Results in Your Organization",
     "subtitle": "Discover the best workshops, courses, lectures and seminars — fully tailored to your organization's needs in the new world.",
     "browseCourses": "Browse Courses",
     "requestConsultation": "Request a Consultation"
+  },
+  "eyebrows": {
+    "workshops": "Workshops",
+    "programs": "Programs",
+    "philosophy": "Philosophy",
+    "voices": "Voices",
+    "whyUs": "Why Us",
+    "about": "About",
+    "vision": "Vision",
+    "difference": "Difference",
+    "clients": "Clients",
+    "menu": "Menu",
+    "company": "Company",
+    "quickLinks": "Quick Links",
+    "connect": "Connect",
+    "newsletter": "Newsletter"
   },
   "home": {
     "coursesTitle": "Workshops, Courses & Lectures Tailored for Leading Organizations:",
