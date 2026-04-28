@@ -1,40 +1,65 @@
-## הבעיה
+## מה משתנה
 
-בעמוד `/sharon-aizen` במובייל (390px), כרטיס "פורסמה והתארחה ב" ממוקם ב-`absolute top-6 left-6` עם רוחב של עד 280px (`min(280px, 85vw)`), והוא מכסה כמעט לגמרי את פניה של שרון בתמונה (ראה צילום מסך שצורף).
+עדכון תוכן בלבד לעמוד `/sharon-aizen` — המבנה הוויזואלי, הפריסה, הצבעים, האייקונים והרכיבים נשארים **בדיוק כפי שהם**. רק מחרוזות התרגום ב-3 קבצי i18n מתעדכנות לטקסט החדש (Bridging the Gap Between Vision and Reality / Human-AI Synchronization / The Missing Layer).
 
-הסיבה: ב-`Sharon.tsx` בלוק התמונה (שורה 182) ובלוק הכרטיס (שורות 207–252) שניהם `absolute` בתוך אותו container — זה עובד יפה ב-`lg` (התמונה גבוהה, יש מקום בראש), אבל במובייל הכרטיס יושב בדיוק על אזור הפנים.
+## מיפוי תוכן חדש → מפתחות i18n קיימים
 
-## התיקון
+המבנה הקיים (4 שלבי framework, 4 takeaways, 4 audience, headlines, intro, quote, "as seen on", book) מתאים אחד-לאחד לתוכן החדש — אין צורך בהוספת/מחיקת מפתחות. רק החלפת ערכים:
 
-הופך את הכרטיס לזורם (לא absolute) במובייל, וחוזר ל-absolute רק מ-`lg` ומעלה — כך שב-Desktop הפריסה הנעולה של עמוד שרון נשארת **בדיוק כפי שהיא**, ובמובייל הכרטיס יושב מתחת לתמונה במקום מעליה.
+| מפתח | תוכן חדש (תקציר אנגלית) |
+|---|---|
+| `tagline` | Global Innovation Strategist \| Author \| Keynote Speaker |
+| `keynoteLabel` | Keynote Topic |
+| `keynoteTitle` | Bridging the Gap Between Vision and Reality |
+| `headline1` / `headline2` | "Bridging the Gap" / "Between Vision and Reality" |
+| `sectionTitle` | Turning AI Infrastructure into Real Results through Human-AI Synchronization |
+| `intro1` | פסקה על שלושת העמודים (infrastructure / ecosystem / application) ועל "ה-missing layer" — סנכרון בין אנשים למערכות |
+| `intro2` | על "Creating Results", 106FM, טלוויזיה, ועל יישור קו בין אנשים, החלטות והתנהגויות לתרבות הארגון |
+| `problemTitle` | The Core Problem: The "Execution Gap" |
+| `problems[0]` | The Missing Layer — פריסת AI ללא אסטרטגיה לשיתוף פעולה אדם-AI |
+| `problems[1]` | Loss of Focus — "shiny object syndrome" |
+| `problems[2]` | Resource Drain — בזבוז מימון וזמן (במקום "שחיקת תרבות") |
+| `solutionTitle` | The Solution: Result-Oriented Innovation |
+| `solutionText` | פרדיגמת "Result-Oriented Thinking" — מ-doing things ל-achieving outcomes |
+| `frameworkTitle` | The 4-Step "Creating Results" Framework for Tech Leaders |
+| `framework[0]` | Visionary Clarity (Thought / מחשבה) — defining sustainable outcome before deploying applications |
+| `framework[1]` | Driven Culture (Emotion / רגש) — psychological safety, alignment with culture during ecosystem adoption |
+| `framework[2]` | Precision Execution (Action / פעולה) — **חדש: סנכרון מעשי בין הון אנושי לסוכני AI**, workflows משותפים |
+| `framework[3]` | Sustainable Impact (Results / תוצאות) — תשתית AI שלא רק מושקת אלא מתממשת ומיתרגמת לתוצאות מדידות |
+| `takeawayTitle` | What the Audience Will Take Away |
+| `takeaways[0]` | Practical Blueprint — מתודולוגיה לגישור בין השקעות בתשתית לאימוץ אנושי |
+| `takeaways[1]` | Enhanced Decision-Making — יישור AI עם תרבות והתנהגות ארגונית |
+| `takeaways[2]` | Leadership Resilience — תרבות מבוססת ביצוע שמסתגלת לשינויים טכנולוגיים |
+| `takeaways[3]` | Investor Confidence — מסלול ROI דרך human-AI synchronization |
+| `audienceTitle` | Target Audience |
+| `audience[0]` | Corporate Innovation & R&D Leads (התווסף — קהל ראשי חדש) |
+| `audience[1]` | Startup Founders & Entrepreneurs |
+| `audience[2]` | Venture Capitalists & Investors |
+| `audience[3]` | Tech Ecosystem Builders — Policymakers & hub directors |
+| `seenOnTitle` / `seenOnRadio` / `seenOnTv` / `seenOnPress` | ללא שינוי |
+| `bookTitle` / `bookName` / `bookSubtitle` | ללא שינוי (Creating Results) |
+| `quote` | "Innovation without execution is merely a hallucination. Let's build the bridge to reality." |
+| `quoteAuthor` | — Sharon Aizen |
+| `contactTitle` / email / website / linkedin | ללא שינוי |
 
-שינויים מדויקים ב-`src/pages/Sharon.tsx`:
+## מה לא משתנה
 
-1. **בלוק עטיפת תמונה+כרטיס** (שורה 182):  
-   במקום `min-h-[420px] lg:min-h-[600px]` — מסירים את ה-min-height במובייל ונותנים לתמונה גובה מפורש כך שתופסת ~70vh במובייל ו-`min-h-[600px]` ב-lg. הכרטיס יוצא מה-stack ה-absolute במובייל ויהפוך לאלמנט רגיל מתחת לתמונה.
+- `Sharon.tsx` — שום שינוי בקוד, JSX, סטיילים, אייקונים, רשת, או פריסה.
+- מפתחות הניווט/footer של שרון בקבצי i18n — לא נוגעים.
+- כל שאר הקבצים בפרויקט.
 
-2. **בלוק התמונה עצמה** (שורות 184–197):  
-   במקום `absolute inset-0` — נשאר absolute רק ב-lg; במובייל יהפוך ל-`relative` עם גובה קבוע (לדוגמה `h-[60vh]`) כדי שיציג את הפנים בשלמותן בלי חיתוך עליון.
+## ביצוע בפועל
 
-3. **כרטיס "As seen on"** (שורות 208–252):  
-   - במובייל: `relative` תחת התמונה, רוחב מלא של הקונטיינר, `mt-4`, `mx-auto`, ומסירים את `top-6 left-6`.  
-   - מ-`lg` ומעלה: חוזר ל-`absolute lg:top-6 lg:left-6 lg:right-auto` (RTL) עם הרוחב הקבוע של 280px — זהה למצב הנוכחי.  
-   - שימוש ב-Tailwind: `lg:absolute lg:top-6 ${isRtl ? "lg:left-6" : "lg:right-6"} lg:w-[280px]` במקום ה-`absolute` הנוכחי, ובמקביל classes למובייל: `relative mt-6 mx-6 w-auto`.
+עדכון 3 קבצים בלבד, כל אחד מקבל את אותה סדרת הערכים (HE = עברית, EN = אנגלית, JA = יפנית), כל הלוקאלים נשארים מסונכרנים מבחינת מבנה:
 
-4. **Gradient ה-NAVY התחתון** (שורות 199–205):  
-   נשאר אותו דבר — מתפקד יפה גם במובייל אחרי שהתמונה תהיה בגובה מבוקר.
+- `src/i18n/locales/he.json` — עדכון בלוק `sharon` (שורות ~193 והלאה).
+- `src/i18n/locales/en.json` — עדכון בלוק `sharon` המקביל.
+- `src/i18n/locales/ja.json` — עדכון בלוק `sharon` המקביל (תרגום נאמן ליפנית של אותו תוכן).
 
-## תוצאה צפויה
-
-- **מובייל (390px):** תמונה של שרון מלאה ולא חתוכה בראש; הכרטיס יושב מתחתיה, ניתן לקריאה ולא חוסם פנים.
-- **Desktop (lg+):** ללא שינוי ויזואלי — הכרטיס עדיין בפינה השמאלית-עליונה מעל התמונה כמו במקור.
-- שאר עמוד שרון (framework, headlines, intro) — לא נוגעים.
-
-## קבצים שיתעדכנו
-
-- `src/pages/Sharon.tsx` — שורות ~182–253 בלבד.
+לאחר העדכון: בדיקת build כדי לוודא שאין שבירת JSON.
 
 ## מחוץ ל-scope
 
-- שינוי תוכן הכרטיס, צבעי ה-Sharon page, או טיפוגרפיה.
-- שינוי שאר העמוד או עמודים אחרים.
+- שינויי עיצוב/פריסה/צבעים בעמוד.
+- הוספה/הסרה של רכיבים ויזואליים (ספר, "as seen on", connector arrows וכו').
+- שינוי תמונת שרון או ה-meta של העמוד.
