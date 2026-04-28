@@ -1,6 +1,7 @@
 import { useTranslation } from "react-i18next";
 import { SiteNav } from "@/components/SiteNav";
 import sharonImg from "@/assets/sharon-aizen.png";
+import bookCover from "@/assets/creating-results-book.png";
 import {
   Mic,
   Tv as TvIcon,
@@ -411,72 +412,24 @@ const Sharon = () => {
             {/* Book + Quote */}
             <div className="flex flex-col gap-6">
               <div className="flex items-center gap-5">
-                {/* CSS book mockup */}
+                {/* Book cover */}
                 <div
                   className="relative shrink-0"
-                  style={{
-                    width: 110,
-                    height: 160,
-                    perspective: "800px",
-                  }}
+                  style={{ width: 110, perspective: "800px" }}
                 >
-                  <div
-                    className="absolute inset-0 rounded-sm overflow-hidden"
+                  <img
+                    src={bookCover}
+                    alt={t("sharon.bookName")}
+                    loading="lazy"
+                    decoding="async"
+                    className="block w-full h-auto rounded-sm"
                     style={{
-                      background:
-                        "linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%)",
                       boxShadow:
-                        "0 20px 40px -10px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1), inset -3px 0 0 rgba(0,0,0,0.15)",
+                        "0 20px 40px -10px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08), inset -3px 0 0 rgba(0,0,0,0.15)",
                       transform: "rotateY(-12deg)",
                       transformOrigin: "left center",
                     }}
-                  >
-                    {/* Top title */}
-                    <div
-                      className="absolute top-3 left-0 right-0 text-center font-display font-bold text-[11px] tracking-tight leading-tight"
-                      style={{ color: "#1a1a1a" }}
-                    >
-                      CREATING
-                      <br />
-                      RESULTS
-                    </div>
-                    {/* Swirl */}
-                    <div
-                      className="absolute"
-                      style={{
-                        left: "50%",
-                        top: "55%",
-                        transform: "translate(-50%, -50%)",
-                        width: 70,
-                        height: 70,
-                        borderRadius: "50%",
-                        background:
-                          "conic-gradient(from 200deg, #f59e0b, #ef4444, #a855f7, #3b82f6, #14b8a6, #f59e0b)",
-                        filter: "blur(0.5px)",
-                        maskImage:
-                          "radial-gradient(circle, #000 30%, transparent 75%)",
-                      }}
-                    />
-                    <div
-                      className="absolute"
-                      style={{
-                        left: "50%",
-                        top: "55%",
-                        transform: "translate(-50%, -50%)",
-                        width: 26,
-                        height: 26,
-                        borderRadius: "50%",
-                        background: "#fff",
-                      }}
-                    />
-                    {/* Author */}
-                    <div
-                      className="absolute bottom-3 left-0 right-0 text-center font-display font-semibold text-[9px] tracking-wider"
-                      style={{ color: "#1a1a1a" }}
-                    >
-                      SHARON AIZEN
-                    </div>
-                  </div>
+                  />
                 </div>
 
                 <div className={align}>
