@@ -38,12 +38,30 @@
   "courses": {
     "learnMore": "Learn more",
     "items": [
-      { "title": "Creating Results", "description": "How to create real results in 4 simple steps!" },
-      { "title": "Results-Driven Thinking", "description": "The thinking strategy that changes the rules of the game." },
-      { "title": "Messaging & Buy-In", "description": "Leading methods to upgrade any message for any audience and drive action." },
-      { "title": "Project Management", "description": "Methods and strategies for managing projects in the new world." },
-      { "title": "The Four Change Agents", "description": "How to lead change in an organization and engage teams in practice." },
-      { "title": "Storytelling", "description": "How to make people listen — the secret button to driving action." }
+      {
+        "title": "Creating Results",
+        "description": "How to create real results in 4 simple steps!"
+      },
+      {
+        "title": "Results-Driven Thinking",
+        "description": "The thinking strategy that changes the rules of the game."
+      },
+      {
+        "title": "Messaging & Buy-In",
+        "description": "Leading methods to upgrade any message for any audience and drive action."
+      },
+      {
+        "title": "Project Management",
+        "description": "Methods and strategies for managing projects in the new world."
+      },
+      {
+        "title": "The Four Change Agents",
+        "description": "How to lead change in an organization and engage teams in practice."
+      },
+      {
+        "title": "Storytelling",
+        "description": "How to make people listen — the secret button to driving action."
+      }
     ]
   },
   "coursesPage": {
@@ -52,19 +70,55 @@
   "features": {
     "title": "Why Choose Us",
     "items": [
-      { "title": "Expert Workshop Facilitators", "description": "Learn from certified professionals with rich real-world experience." },
-      { "title": "Flexible Schedule", "description": "Access content anytime, anywhere, at your own pace. We tailor the best program to fit your schedule and needs — in person or online, your choice. Hybrid tracks are also available." },
-      { "title": "Professional Development Recognition", "description": "Recognized professional-development courses, certified courses and enrichment programs — a range of options matched to your needs, with official certificates." },
-      { "title": "Custom-Tailored Content", "description": "Workshops, courses, lectures, seminars and conferences customized to your organization's needs, with a focused learning process and embedment strategy." }
+      {
+        "title": "Expert Workshop Facilitators",
+        "description": "Learn from certified professionals with rich real-world experience."
+      },
+      {
+        "title": "Flexible Schedule",
+        "description": "Access content anytime, anywhere, at your own pace. We tailor the best program to fit your schedule and needs — in person or online, your choice. Hybrid tracks are also available."
+      },
+      {
+        "title": "Professional Development Recognition",
+        "description": "Recognized professional-development courses, certified courses and enrichment programs — a range of options matched to your needs, with official certificates."
+      },
+      {
+        "title": "Custom-Tailored Content",
+        "description": "Workshops, courses, lectures, seminars and conferences customized to your organization's needs, with a focused learning process and embedment strategy."
+      }
     ]
   },
   "testimonials": [
-    { "quote": "The leadership course transformed the way I manage my team. Highly recommended!", "author": "Sarah Cohen", "role": "Head of HR" },
-    { "quote": "Practical, engaging, and immediately applicable in our organization.", "author": "Michael Levi", "role": "Team Lead" },
-    { "quote": "The best investment we've made in developing our team.", "author": "Emma Rodriguez", "role": "Director of Operations" },
-    { "quote": "What we learned in the Creating Results course was amazing and useful.", "author": "David Israeli", "role": "VP of Technology" },
-    { "quote": "The Results-Driven Thinking course changed the way our entire team approaches problems and solutions.", "author": "Rachel Goldman", "role": "Head of Business Development" },
-    { "quote": "The instructor was professional, captivating, and delivered the material in an excellent and practical way.", "author": "Yossi Avraham", "role": "Project Manager" }
+    {
+      "quote": "The leadership course transformed the way I manage my team. Highly recommended!",
+      "author": "Sarah Cohen",
+      "role": "Head of HR"
+    },
+    {
+      "quote": "Practical, engaging, and immediately applicable in our organization.",
+      "author": "Michael Levi",
+      "role": "Team Lead"
+    },
+    {
+      "quote": "The best investment we've made in developing our team.",
+      "author": "Emma Rodriguez",
+      "role": "Director of Operations"
+    },
+    {
+      "quote": "What we learned in the Creating Results course was amazing and useful.",
+      "author": "David Israeli",
+      "role": "VP of Technology"
+    },
+    {
+      "quote": "The Results-Driven Thinking course changed the way our entire team approaches problems and solutions.",
+      "author": "Rachel Goldman",
+      "role": "Head of Business Development"
+    },
+    {
+      "quote": "The instructor was professional, captivating, and delivered the material in an excellent and practical way.",
+      "author": "Yossi Avraham",
+      "role": "Project Manager"
+    }
   ],
   "recommendations": {
     "title": "Testimonials",
@@ -78,19 +132,59 @@
     "subtitle": "Rotating lectures on leadership, communication and team development.",
     "readMore": "Read more",
     "items": [
-      { "title": "Developing Leadership Skills in Distributed Teams", "excerpt": "How to lead remote teams and build a culture of accountability and trust.", "author": "Dr. Aviv Israeli", "date": "03/15/2025", "category": "Leadership" },
-      { "title": "Effective Communication Under Pressure", "excerpt": "Strategies for maintaining clear and empathetic communication in dynamic work environments.", "author": "Michal Cohen", "date": "04/22/2025", "category": "Communication" },
-      { "title": "Building Multicultural Teams", "excerpt": "How to leverage the advantages of diverse teams and bridge cultural gaps.", "author": "Yaakov Levi", "date": "05/10/2025", "category": "Diversity & Inclusion" },
-      { "title": "Innovation and Design Thinking in Organizations", "excerpt": "Practical tools for embedding innovation processes and creative problem solving.", "author": "Noa Shapira", "date": "06/03/2025", "category": "Innovation" },
-      { "title": "Conflict Management in Work Teams", "excerpt": "Effective techniques for identifying and managing conflicts in the workplace.", "author": "Roi Cohen", "date": "07/17/2025", "category": "Team Management" },
-      { "title": "Emotional Intelligence in the Workplace", "excerpt": "Developing self-awareness and emotional skills for professional success.", "author": "Sara Aharoni", "date": "08/29/2025", "category": "Personal Development" }
+      {
+        "title": "Developing Leadership Skills in Distributed Teams",
+        "excerpt": "How to lead remote teams and build a culture of accountability and trust.",
+        "author": "Dr. Aviv Israeli",
+        "date": "03/15/2025",
+        "category": "Leadership"
+      },
+      {
+        "title": "Effective Communication Under Pressure",
+        "excerpt": "Strategies for maintaining clear and empathetic communication in dynamic work environments.",
+        "author": "Michal Cohen",
+        "date": "04/22/2025",
+        "category": "Communication"
+      },
+      {
+        "title": "Building Multicultural Teams",
+        "excerpt": "How to leverage the advantages of diverse teams and bridge cultural gaps.",
+        "author": "Yaakov Levi",
+        "date": "05/10/2025",
+        "category": "Diversity & Inclusion"
+      },
+      {
+        "title": "Innovation and Design Thinking in Organizations",
+        "excerpt": "Practical tools for embedding innovation processes and creative problem solving.",
+        "author": "Noa Shapira",
+        "date": "06/03/2025",
+        "category": "Innovation"
+      },
+      {
+        "title": "Conflict Management in Work Teams",
+        "excerpt": "Effective techniques for identifying and managing conflicts in the workplace.",
+        "author": "Roi Cohen",
+        "date": "07/17/2025",
+        "category": "Team Management"
+      },
+      {
+        "title": "Emotional Intelligence in the Workplace",
+        "excerpt": "Developing self-awareness and emotional skills for professional success.",
+        "author": "Sara Aharoni",
+        "date": "08/29/2025",
+        "category": "Personal Development"
+      }
     ]
   },
   "about": {
     "title": "TSI — Think · Success · Inspire",
     "intro": "A leading training team led by Sharon Aizen, with decades of experience as a primary field of practice — dedicated to human capital and its success at the highest professional levels. We listen carefully to needs and challenges in the field and tailor a perfect-fit response. Maximizing human potential is our mission, creating real, practical results aligned with the organizational culture, vision, values and goals. TSI brings together dozens of leading facilitators with rich field experience and excellent feedback, under Sharon Aizen's leadership. We are committed to uncompromising quality across the country (with a tailored response to client needs). At TSI you will find a rich variety of workshops, courses, lectures and seminars, at the highest levels — providing tools, value and personal adaptation in any field you choose.",
     "visionTitle": "Vision",
-    "visionWords": ["Think", "Success", "Inspire"],
+    "visionWords": [
+      "Think",
+      "Success",
+      "Inspire"
+    ],
     "visionLead": "To lead human capital toward excellence through advanced thinking and implementation strategies that upgrade the managerial and command toolkit, drive success and inspire — both inside and outside the workplace.",
     "visionLeadHighlight": "To lead human capital toward excellence",
     "visionParagraph": "At TSI we operate with results-driven thinking adapted to the new world, saving time, resources and money in day-to-day operations — both in human-capital work and in field implementation, from senior management down to the shop floor. We do this by embedding advanced tools combined with AI, tailored to the new world and aligned with the organization's actual needs.",
@@ -130,12 +224,69 @@
       "municipalities": "Municipalities"
     },
     "clientLists": {
-      "government": ["Prime Minister's Office", "Government Press Office", "Ministry of Defense", "Civil Service Commission", "The Knesset", "Ministry of Welfare", "Ministry of Finance", "Ministry of the Interior", "Ministry of Labor", "Ministry of Economy", "Ministry of Education", "Ministry of Public Security", "Fire & Rescue Services"],
-      "academic": ["Tel Aviv University", "Bar-Ilan University", "Ariel University", "Hebrew University", "Etgar College", "Atid College", "Achva College", "Hesegim College", "Kaspim College", "Magid Institute"],
-      "companies": ["Israel Aerospace Industries", "Elta", "Semicom", "Ackerstein House", "Cinema City", "Shaked Group", "THI", "UNET", "Microsoft", "HP", "The Phoenix"],
-      "banks": ["Bank Leumi", "Bank Yahav", "Mizrahi Bank", "Bank Pagi"],
-      "health": ["Leumit HMO", "Clalit HMO", "Maccabi HMO", "Heart Institute – Hadassah Ein Kerem", "Loewenstein Hospital", "Shamir Medical Center", "Shaare Zedek"],
-      "municipalities": ["Tel Aviv Municipality", "Rishon LeZion Municipality", "Jerusalem Municipality", "Givatayim Municipality", "Ramat Gan Municipality", "Modi'in Municipality"]
+      "government": [
+        "Prime Minister's Office",
+        "Government Press Office",
+        "Ministry of Defense",
+        "Civil Service Commission",
+        "The Knesset",
+        "Ministry of Welfare",
+        "Ministry of Finance",
+        "Ministry of the Interior",
+        "Ministry of Labor",
+        "Ministry of Economy",
+        "Ministry of Education",
+        "Ministry of Public Security",
+        "Fire & Rescue Services"
+      ],
+      "academic": [
+        "Tel Aviv University",
+        "Bar-Ilan University",
+        "Ariel University",
+        "Hebrew University",
+        "Etgar College",
+        "Atid College",
+        "Achva College",
+        "Hesegim College",
+        "Kaspim College",
+        "Magid Institute"
+      ],
+      "companies": [
+        "Israel Aerospace Industries",
+        "Elta",
+        "Semicom",
+        "Ackerstein House",
+        "Cinema City",
+        "Shaked Group",
+        "THI",
+        "UNET",
+        "Microsoft",
+        "HP",
+        "The Phoenix"
+      ],
+      "banks": [
+        "Bank Leumi",
+        "Bank Yahav",
+        "Mizrahi Bank",
+        "Bank Pagi"
+      ],
+      "health": [
+        "Leumit HMO",
+        "Clalit HMO",
+        "Maccabi HMO",
+        "Heart Institute – Hadassah Ein Kerem",
+        "Loewenstein Hospital",
+        "Shamir Medical Center",
+        "Shaare Zedek"
+      ],
+      "municipalities": [
+        "Tel Aviv Municipality",
+        "Rishon LeZion Municipality",
+        "Jerusalem Municipality",
+        "Givatayim Municipality",
+        "Ramat Gan Municipality",
+        "Modi'in Municipality"
+      ]
     }
   },
   "contact": {
@@ -194,46 +345,104 @@
     "name": "SHARON AIZEN",
     "tagline": "Global Innovation Strategist | Author | Keynote Speaker",
     "badges": [
-      { "title": "Acclaimed Author", "subtitle": "of \"Creating Results\"" },
-      { "title": "Radio Host", "subtitle": "\"Creating Results\" on 106FM" },
-      { "title": "Featured Expert", "subtitle": "Israeli TV & National Press" }
+      {
+        "title": "Acclaimed Author",
+        "subtitle": "of \"Creating Results\""
+      },
+      {
+        "title": "Radio Host",
+        "subtitle": "\"Creating Results\" on 106FM"
+      },
+      {
+        "title": "Featured Expert",
+        "subtitle": "Israeli TV & National Press"
+      }
     ],
     "keynoteLabel": "Keynote Topic",
     "keynoteTitle": "Bridging the Gap Between Vision and Reality",
-    "sectionTitle": "Result-Oriented Thinking in the Innovation Ecosystem",
-    "intro1": "In today's hyper-accelerated tech landscape, generating groundbreaking ideas is no longer the primary challenge. From sustainable urban tech to advanced AI, the modern innovation ecosystem is rich with visionary concepts. However, the true bottleneck lies in execution. How do we transform a disruptive idea into a viable, market-ready, and sustainable reality?",
-    "intro2": "Sharon Aizen, acclaimed author of \"Creating Results\" and a leading expert in strategic execution, tackles this critical gap. As a highly sought-after public figure, she hosts the popular \"Creating Results\" radio show on 106FM and is frequently featured as a professional expert on Israeli television and in the national press. Drawing from her proprietary methodology, Sharon provides tech leaders, founders, and investors with the blueprint to navigate the chaotic journey from ideation to tangible impact.",
+    "sectionTitle": "Turning AI Infrastructure into Real Results through Human-AI Synchronization",
+    "intro1": "In today's hyper-accelerated tech landscape, the foundation of success relies on three critical pillars: infrastructure, ecosystem, and application. Many organizations invest heavily in these areas, yet struggle to turn those investments into real, measurable results inside the organization. The true bottleneck is no longer the technology itself, but the \"missing layer\" — the synchronization between people and the new systems they use.",
+    "intro2": "acclaimed author of \"Creating Results\" and a leading expert in strategic execution, tackles this critical gap. As a highly sought-after public figure, she hosts the popular \"Creating Results\" radio show on 106FM and is frequently featured as a professional expert on Israeli television and in the national press. Sharon works with leaders on that crucial missing layer, defining exactly how human capital and AI agents actually operate together — aligning people, decisions, and behaviors in a way that is tailored to the organization's culture and goals, so true adoption happens and maximum results follow.",
     "quote": "Innovation without execution is merely a hallucination. Let's build the bridge to reality.",
     "quoteAuthor": "— Sharon Aizen",
     "problemTitle": "The Core Problem: The \"Execution Gap\"",
     "problemIntro": "Many tech startups and corporate R&D teams fall into the \"Execution Gap.\" They possess brilliant technological capabilities but struggle with:",
     "problems": [
-      { "title": "Loss of Focus", "text": "Getting distracted by \"shiny object syndrome\" instead of aligning with the core market need." },
-      { "title": "Resource Drain", "text": "Wasting critical funding and time on unstructured development cycles." },
-      { "title": "Cultural Burnout", "text": "Failing to maintain team resilience and drive when facing inevitable technological roadblocks." }
+      {
+        "title": "The Missing Layer",
+        "text": "Deploying advanced AI infrastructure and applications without a clear strategy for how human capital and AI will collaborate — leading to organizational friction and low adoption."
+      },
+      {
+        "title": "Loss of Focus",
+        "text": "Getting distracted by \"shiny object syndrome\" instead of aligning the tech ecosystem with core business goals."
+      },
+      {
+        "title": "Resource Drain",
+        "text": "Wasting critical funding and time on unstructured development cycles that fail to translate into practical reality."
+      }
     ],
     "solutionTitle": "The Solution: Result-Oriented Innovation",
-    "solutionText": "Sharon Aizen introduces \"Result-Oriented Thinking\" — a transformative paradigm that shifts the focus from merely \"doing things\" to \"achieving specific outcomes.\" It is a systemic approach that aligns human psychology, organizational culture, and strategic action.",
+    "solutionText": "Sharon Aizen introduces \"Result-Oriented Thinking\" — a transformative paradigm that shifts the focus from merely \"doing things\" to \"achieving specific outcomes.\" It is a systemic approach that aligns human psychology, organizational culture, and strategic action to integrate new technologies seamlessly.",
     "frameworkTitle": "The 4-Step \"Creating Results\" Framework for Tech Leaders",
     "framework": [
-      { "label": "Visionary Clarity", "sub": "Thought / מחשבה", "text": "Innovation begins with a focused mindset. It's about defining the ultimate sustainable outcome before writing a single line of code. Sharon teaches leaders how to crystallize their vision so clearly that it dictates every subsequent strategic decision." },
-      { "label": "Driven Culture", "sub": "Emotion / רגש", "text": "Technology is built by people. Disruptive innovation requires resilience, passion, and psychological safety. Sharon demonstrates how to cultivate organizational emotional intelligence that keeps founders and teams motivated through pivot-and-iterate cycles." },
-      { "label": "Precision Execution", "sub": "Action / פעולה", "text": "Moving from theoretical concepts to agile, precise actions. This step focuses on minimizing waste, optimizing resources, and creating structured workflows that directly serve the end goal." },
-      { "label": "Sustainable Impact", "sub": "Results / תוצאות", "text": "The ultimate realization of the vision. Sharon provides metrics and mindset shifts to ensure the final product doesn't just launch, but thrives, scales, and creates lasting impact on society and the market." }
+      {
+        "label": "Visionary Clarity",
+        "sub": "Thought / מחשבה",
+        "text": "Innovation begins with a focused mindset. It's about defining the ultimate sustainable outcome before deploying new applications. Sharon teaches leaders how to crystallize their vision so clearly that it dictates every subsequent strategic decision regarding tech adoption."
+      },
+      {
+        "label": "Driven Culture",
+        "sub": "Emotion / רגש",
+        "text": "Technology is built and used by people. Disruptive innovation requires resilience and psychological safety. Sharon shows how to align people, decisions, and behaviors with the organization's unique culture, keeping teams motivated through the adoption of new ecosystems."
+      },
+      {
+        "label": "Precision Execution",
+        "sub": "Action / פעולה",
+        "text": "Moving from theoretical concepts to agile, precise actions. This step focuses on the practical synchronization and joint operation between human capital and AI agents — defining workflows where humans and AI operate seamlessly together to maximize output and efficiency."
+      },
+      {
+        "label": "Sustainable Impact",
+        "sub": "Results / תוצאות",
+        "text": "The ultimate realization of the vision. Sharon provides metrics and mindset shifts to ensure that AI infrastructure doesn't just launch, but truly integrates, scales, and turns into real, measurable results inside the organization."
+      }
     ],
     "takeawayTitle": "What the Audience Will Take Away",
     "takeaways": [
-      { "title": "A Practical Blueprint", "text": "A clear, actionable 4-step methodology to implement immediately within startups or corporations." },
-      { "title": "Enhanced Decision-Making", "text": "Tools to quickly evaluate whether a technological pivot serves the ultimate goal or distracts from it." },
-      { "title": "Leadership Resilience", "text": "Strategies to foster a robust, execution-focused culture that can withstand the pressures of the global tech market." },
-      { "title": "Investor Confidence", "text": "A framework that helps founders present not just a great idea, but a credible, structured path to ROI and market penetration." }
+      {
+        "title": "A Practical Blueprint",
+        "text": "A clear, actionable 4-step methodology to bridge the gap between infrastructure investments and human adoption."
+      },
+      {
+        "title": "Enhanced Decision-Making",
+        "text": "Tools to quickly align AI applications with organizational behavior and culture."
+      },
+      {
+        "title": "Leadership Resilience",
+        "text": "Strategies to foster a robust, execution-focused culture that can adapt to rapid technological shifts."
+      },
+      {
+        "title": "Investor Confidence",
+        "text": "A framework that helps founders and leaders present a credible, structured path to ROI through human-AI synchronization."
+      }
     ],
     "audienceTitle": "Target Audience",
     "audience": [
-      { "title": "Startup Founders & Entrepreneurs", "text": "Looking to scale their ideas into viable products." },
-      { "title": "Corporate Innovation & R&D Leads", "text": "Seeking to streamline intrapreneurship and bring new tech to market faster." },
-      { "title": "Venture Capitalists & Investors", "text": "Interested in frameworks that guarantee better execution from their portfolio companies." },
-      { "title": "Tech Ecosystem Builders", "text": "Policymakers and hub directors aiming to foster practical success within their communities." }
+      {
+        "title": "Corporate Innovation & R&D Leads",
+        "text": "Seeking to turn AI infrastructure into real results inside their organizations."
+      },
+      {
+        "title": "Startup Founders & Entrepreneurs",
+        "text": "Looking to scale their ideas into viable products with high user adoption."
+      },
+      {
+        "title": "Venture Capitalists & Investors",
+        "text": "Interested in frameworks that guarantee better execution and technology adoption from their portfolio companies."
+      },
+      {
+        "title": "Tech Ecosystem Builders",
+        "text": "Policymakers and hub directors aiming to foster practical success within their communities."
+      }
     ],
     "contactTitle": "Contact & Booking",
     "email": "Email",
