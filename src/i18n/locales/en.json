@@ -381,29 +381,29 @@
         "text": "Wasting critical funding and time on unstructured development cycles that fail to translate into practical reality."
       }
     ],
-    "solutionTitle": "The Solution: Result-Oriented Innovation",
-    "solutionText": "Sharon Aizen introduces \"Result-Oriented Thinking\" — a transformative paradigm that shifts the focus from merely \"doing things\" to \"achieving specific outcomes.\" It is a systemic approach that aligns human psychology, organizational culture, and strategic action to integrate new technologies seamlessly.",
-    "frameworkTitle": "The 4-Step \"Creating Results\" Framework for Tech Leaders",
+    "solutionTitle": "The Solution: The T.E.D.C Methodology",
+    "solutionText": "Sharon Aizen introduces her proprietary T.E.D.C methodology — a transformative paradigm tailored for integrating deep-tech and AI ecosystems into the human workforce. Designed to reflect the logical progression from mind to action, vital for global implementations, the framework ensures a seamless path to results.",
+    "frameworkTitle": "The T.E.D.C Methodology",
     "framework": [
       {
-        "label": "Visionary Clarity",
-        "sub": "Thought / מחשבה",
-        "text": "Innovation begins with a focused mindset. It's about defining the ultimate sustainable outcome before deploying new applications. Sharon teaches leaders how to crystallize their vision so clearly that it dictates every subsequent strategic decision regarding tech adoption."
+        "label": "T — Thinking",
+        "sub": "Mindset / מחשבה",
+        "text": "Innovation begins with a focused mindset. It's about analyzing the organizational infrastructure and defining the ultimate sustainable outcome before deploying new technologies."
       },
       {
-        "label": "Driven Culture",
-        "sub": "Emotion / רגש",
-        "text": "Technology is built and used by people. Disruptive innovation requires resilience and psychological safety. Sharon shows how to align people, decisions, and behaviors with the organization's unique culture, keeping teams motivated through the adoption of new ecosystems."
+        "label": "E — Emotion",
+        "sub": "People / רגש",
+        "text": "Technology is built and used by people. Disruptive innovation within any ecosystem requires psychological safety and emotional intelligence to motivate teams to embrace new tools."
       },
       {
-        "label": "Precision Execution",
+        "label": "D — Doing",
         "sub": "Action / פעולה",
-        "text": "Moving from theoretical concepts to agile, precise actions. This step focuses on the practical synchronization and joint operation between human capital and AI agents — defining workflows where humans and AI operate seamlessly together to maximize output and efficiency."
+        "text": "Moving from concepts to precise actions. This step focuses on the application phase — meticulously defining the daily workflows where humans and AI operate seamlessly together."
       },
       {
-        "label": "Sustainable Impact",
-        "sub": "Results / תוצאות",
-        "text": "The ultimate realization of the vision. Sharon provides metrics and mindset shifts to ensure that AI infrastructure doesn't just launch, but truly integrates, scales, and turns into real, measurable results inside the organization."
+        "label": "C — Communication",
+        "sub": "Scale / תקשורת",
+        "text": "The ultimate mechanism that binds the process together. Transparent communication ensures that the integrated AI infrastructure truly scales and delivers measurable results."
       }
     ],
     "takeawayTitle": "What the Audience Will Take Away",
