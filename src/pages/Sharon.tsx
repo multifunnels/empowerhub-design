@@ -1,543 +1,311 @@
 import { useTranslation } from "react-i18next";
 import { SiteNav } from "@/components/SiteNav";
 import sharonImg from "@/assets/sharon-aizen.png";
-import bookCover from "@/assets/creating-results-book.png";
+import tsiLogo from "/tsi-logo.png";
 import {
-  Mic,
-  Tv as TvIcon,
-  Newspaper,
-  Lightbulb,
+  Clock,
   Users,
-  Target,
-  TrendingUp,
-  CheckCircle2,
-  Rocket,
-  Building2,
-  DollarSign,
-  Network,
+  BarChart3,
+  Mic,
+  Presentation,
+  GraduationCap,
   Mail,
-  Globe,
-  Linkedin,
-  ArrowRight,
-  ArrowLeft,
+  Phone,
+  CheckCircle2,
+  ChevronsRight,
+  ChevronsLeft,
 } from "lucide-react";
 
-// Color palette inspired by the reference poster
-const NAVY_DEEP = "#040a1f";
-const NAVY = "#0a1535";
-const NAVY_MID = "#102050";
-const GOLD = "#d4a84a";
-const GOLD_LIGHT = "#e7c87a";
+// Poster palette (locked — do not theme through tokens)
+const NAVY_DEEP = "#04081f";
+const NAVY = "#0a1438";
+const NAVY_MID = "#101f55";
+const CYAN = "#3ec6ff";
+const CYAN_SOFT = "#7fd8ff";
 
-const STEP_COLORS = [
-  { ring: "#3b82f6", glow: "rgba(59,130,246,0.18)" }, // blue
-  { ring: "#14b8a6", glow: "rgba(20,184,166,0.18)" }, // teal
-  { ring: "#a855f7", glow: "rgba(168,85,247,0.18)" }, // purple
-  { ring: "#f59e0b", glow: "rgba(245,158,11,0.18)" }, // amber
-];
+const DottedGlobe = () => (
+  // Decorative right-side dotted globe + flowing curves
+  <svg
+    aria-hidden="true"
+    viewBox="0 0 700 700"
+    className="pointer-events-none absolute -right-24 top-10 hidden h-[120%] w-[700px] opacity-70 md:block"
+  >
+    <defs>
+      <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+        <stop offset="0%" stopColor={CYAN} stopOpacity="0.25" />
+        <stop offset="60%" stopColor={CYAN} stopOpacity="0.05" />
+        <stop offset="100%" stopColor={CYAN} stopOpacity="0" />
+      </radialGradient>
+    </defs>
+    <circle cx="350" cy="350" r="320" fill="url(#glow)" />
+    {Array.from({ length: 28 }).map((_, ringIdx) => {
+      const r = 60 + ringIdx * 10;
+      const dots = Math.round(r / 4);
+      return Array.from({ length: dots }).map((_, i) => {
+        const angle = (i / dots) * Math.PI * 2;
+        const cx = 350 + Math.cos(angle) * r;
+        const cy = 350 + Math.sin(angle) * r * 0.92;
+        const opacity = 0.15 + Math.random() * 0.45;
+        return (
+          <circle
+            key={`${ringIdx}-${i}`}
+            cx={cx}
+            cy={cy}
+            r={1.1}
+            fill={CYAN}
+            opacity={opacity}
+          />
+        );
+      });
+    })}
+    {/* flowing lines */}
+    {[0, 1, 2, 3, 4].map((i) => (
+      <path
+        key={i}
+        d={`M -50 ${420 + i * 28} C 180 ${380 + i * 18}, 420 ${520 + i * 22}, 760 ${360 + i * 26}`}
+        fill="none"
+        stroke={CYAN}
+        strokeOpacity={0.25 - i * 0.03}
+        strokeWidth={1}
+      />
+    ))}
+  </svg>
+);
 
-const STEP_ICONS = [
-  <Lightbulb className="h-9 w-9" strokeWidth={1.5} />,
-  <Users className="h-9 w-9" strokeWidth={1.5} />,
-  <Target className="h-9 w-9" strokeWidth={1.5} />,
-  <TrendingUp className="h-9 w-9" strokeWidth={1.5} />,
-];
+const ColumnDivider = () => (
+  <div
+    aria-hidden="true"
+    className="hidden md:block w-px self-stretch"
+    style={{ background: `linear-gradient(to bottom, transparent, ${CYAN}40, transparent)` }}
+  />
+);
 
-const AUDIENCE_ICONS = [
-  <Rocket className="h-5 w-5" />,
-  <Building2 className="h-5 w-5" />,
-  <DollarSign className="h-5 w-5" />,
-  <Network className="h-5 w-5" />,
-];
+type BringItem = { bold: string; text: string };
+type OfferItem = { label: string; tagline: string };
 
 const Sharon = () => {
   const { t, i18n } = useTranslation();
   const isRtl = i18n.dir() === "rtl";
-  const align = isRtl ? "text-right" : "text-left";
-  const Arrow = isRtl ? ArrowLeft : ArrowRight;
+  const Chevrons = isRtl ? ChevronsLeft : ChevronsRight;
 
-  const framework = t("sharon.framework", { returnObjects: true }) as Array<{
-    label: string;
-    sub: string;
-    text: string;
-  }>;
-  const takeaways = t("sharon.takeaways", { returnObjects: true }) as Array<{
-    title: string;
-    text: string;
-  }>;
-  const audience = t("sharon.audience", { returnObjects: true }) as Array<{
-    title: string;
-    text: string;
-  }>;
+  const whyNowItems = t("sharon.whyNowItems", { returnObjects: true }) as string[];
+  const bringsItems = t("sharon.bringsItems", { returnObjects: true }) as BringItem[];
+  const gainsItems = t("sharon.gainsItems", { returnObjects: true }) as string[];
+  const offers = t("sharon.offers", { returnObjects: true }) as OfferItem[];
+
+  const OFFER_ICONS = [
+    <Mic className="h-7 w-7" strokeWidth={1.4} />,
+    <Presentation className="h-7 w-7" strokeWidth={1.4} />,
+    <GraduationCap className="h-7 w-7" strokeWidth={1.4} />,
+  ];
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen" style={{ background: NAVY_DEEP }}>
       <SiteNav />
 
-      <div className="container mx-auto px-4 py-10">
+      <div className="container mx-auto px-3 py-8 sm:px-6 sm:py-12">
         <article
           dir={isRtl ? "rtl" : "ltr"}
-          className="relative overflow-hidden rounded-2xl shadow-2xl"
+          className="relative overflow-hidden rounded-3xl"
           style={{
-            color: "#fff",
-            background: `
-              radial-gradient(1200px 600px at 50% 95%, ${NAVY_MID} 0%, transparent 60%),
-              radial-gradient(900px 500px at 85% 30%, rgba(59,130,246,0.18) 0%, transparent 55%),
-              linear-gradient(160deg, ${NAVY_DEEP} 0%, ${NAVY} 55%, ${NAVY_DEEP} 100%)
-            `,
-            fontFamily: "'Inter', system-ui, sans-serif",
+            background: `linear-gradient(160deg, ${NAVY_DEEP} 0%, ${NAVY} 55%, ${NAVY_MID} 100%)`,
+            boxShadow: "0 30px 80px -20px rgba(0,0,0,0.6)",
           }}
         >
-          {/* City-lights horizontal glow band */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-1/3 h-px opacity-60"
-            style={{
-              background:
-                "linear-gradient(90deg, transparent 0%, rgba(212,168,74,0.25) 30%, rgba(59,130,246,0.5) 50%, rgba(212,168,74,0.25) 70%, transparent 100%)",
-              boxShadow:
-                "0 0 80px 30px rgba(59,130,246,0.18), 0 0 200px 60px rgba(168,85,247,0.08)",
-            }}
-          />
-          {/* Faux city skyline silhouette using stripes */}
-          <div
-            aria-hidden
-            className="pointer-events-none absolute inset-x-0 bottom-0 h-40 opacity-30"
-            style={{
-              background: `
-                repeating-linear-gradient(90deg,
-                  transparent 0 12px,
-                  rgba(255,255,255,0.04) 12px 14px,
-                  transparent 14px 30px),
-                linear-gradient(180deg, transparent 0%, ${NAVY_DEEP} 90%)
-              `,
-              maskImage:
-                "linear-gradient(180deg, transparent 0%, #000 60%, #000 100%)",
-            }}
-          />
+          <DottedGlobe />
 
-          {/* TOP SECTION: headline + photo */}
-          <div className="relative grid grid-cols-1 lg:grid-cols-[1.45fr_1fr] gap-0">
-            {/* Left: headline + bio */}
-            <div className="px-8 lg:px-12 pt-10 lg:pt-14 pb-2 relative z-10">
-              <h1
-                className="font-display font-light tracking-[0.05em] leading-none text-white"
-                style={{ fontSize: "clamp(2.25rem, 5.4vw, 4.75rem)" }}
-              >
-                {t("sharon.name")}
-              </h1>
-              <p
-                className="mt-3 font-display uppercase tracking-[0.2em] text-sm lg:text-base"
-                style={{ color: GOLD_LIGHT }}
-              >
-                {t("sharon.tagline")}
-              </p>
-
-              <div className="mt-8">
-                <h2
-                  className="font-display font-bold leading-[0.95] tracking-tight"
-                  style={{
-                    fontSize: "clamp(2rem, 4.6vw, 4rem)",
-                    background:
-                      "linear-gradient(180deg, #ffffff 0%, #ffffff 55%, #6aa6ff 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  {t("sharon.headline1")}
-                </h2>
-                <h2
-                  className="font-display font-bold leading-[0.95] tracking-tight mt-1"
-                  style={{
-                    fontSize: "clamp(2rem, 4.6vw, 4rem)",
-                    background:
-                      "linear-gradient(180deg, #ffffff 0%, #6aa6ff 60%, #2563eb 100%)",
-                    WebkitBackgroundClip: "text",
-                    WebkitTextFillColor: "transparent",
-                    backgroundClip: "text",
-                  }}
-                >
-                  {t("sharon.headline2")}
-                </h2>
-                <p
-                  className="mt-4 text-lg lg:text-xl"
-                  style={{ color: GOLD_LIGHT }}
-                >
-                  {t("sharon.sectionTitle")}
-                </p>
-              </div>
-
-              <div className="mt-6 max-w-2xl space-y-4 text-[15px] leading-relaxed text-white/85">
-                <p className={align}>{t("sharon.intro1")}</p>
-                <p className={align}>
-                  <span className="font-semibold text-white">
-                    {t("sharon.name")},
-                  </span>{" "}
-                  {t("sharon.intro2")}
-                </p>
-              </div>
-            </div>
-
-            {/* Right: photo + "as seen on" card */}
-            <div className="relative lg:min-h-[600px]">
-              {/* photo wrapper — owns its own height on mobile so the card can flow below */}
-              <div className="relative h-[60vh] min-h-[360px] lg:absolute lg:inset-0 lg:h-auto lg:min-h-0">
-                {/* feathered photo */}
+          <div className="relative z-10 px-5 py-8 sm:px-10 sm:py-12 lg:px-16 lg:py-14">
+            {/* Top bar */}
+            <header className="flex items-start justify-between gap-4">
+              <div className="flex items-center gap-4">
                 <img
-                  src={sharonImg}
-                  alt={t("sharon.name")}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  style={{
-                    objectPosition: isRtl ? "left center" : "right center",
-                    WebkitMaskImage: isRtl
-                      ? "linear-gradient(90deg, transparent 0%, #000 30%, #000 100%)"
-                      : "linear-gradient(270deg, transparent 0%, #000 30%, #000 100%)",
-                    maskImage: isRtl
-                      ? "linear-gradient(90deg, transparent 0%, #000 30%, #000 100%)"
-                      : "linear-gradient(270deg, transparent 0%, #000 30%, #000 100%)",
-                  }}
+                  src={tsiLogo}
+                  alt="TSI — Think Success Inspire"
+                  className="h-14 w-auto sm:h-16"
                 />
-                {/* navy bottom blend so photo melts into the card */}
                 <div
-                  aria-hidden
-                  className="pointer-events-none absolute inset-0"
-                  style={{
-                    background: `linear-gradient(180deg, transparent 60%, ${NAVY} 100%)`,
-                  }}
+                  aria-hidden="true"
+                  className="hidden h-14 w-px sm:block"
+                  style={{ background: `${CYAN}55` }}
                 />
               </div>
 
-              {/* As seen & heard on — flows below photo on mobile, absolute on lg+ */}
-              <div
-                className={`relative mt-6 mx-6 lg:mt-0 lg:mx-0 lg:absolute lg:top-6 ${isRtl ? "lg:left-6" : "lg:right-6"} z-10 rounded-lg backdrop-blur-sm`}
-                style={{
-                  border: `1px solid ${GOLD}55`,
-                  background: "rgba(4,10,31,0.55)",
-                  boxShadow: `0 0 0 1px ${GOLD}22 inset`,
-                  padding: "14px 18px",
-                  width: "auto",
-                  maxWidth: "min(280px, 100%)",
-                  marginInline: "auto",
-                }}
-              >
+              <div className="flex flex-1 items-center justify-end gap-5">
+                <div className="text-right">
+                  <h1
+                    className="text-xl font-light tracking-[0.28em] sm:text-2xl lg:text-3xl"
+                    style={{ color: CYAN }}
+                  >
+                    {t("sharon.name")}
+                  </h1>
+                  <p className="mt-1 text-[11px] tracking-wide text-white/75 sm:text-sm">
+                    {t("sharon.subline")}
+                  </p>
+                </div>
                 <div
-                  className="text-[10px] font-display uppercase tracking-[0.25em] text-center pb-2 mb-2"
+                  className="relative shrink-0 overflow-hidden rounded-full ring-2 sm:ring-[3px]"
                   style={{
-                    color: GOLD_LIGHT,
-                    borderBottom: `1px solid ${GOLD}33`,
-                  }}
-                >
-                  {t("sharon.seenOnTitle")}
-                </div>
-                <div className="grid grid-cols-2 gap-3 items-start">
-                  <div className="flex flex-col gap-1">
-                    <div
-                      className="font-display font-bold text-2xl leading-none"
-                      style={{ color: "#e23b3b" }}
-                    >
-                      106<span className="text-base">FM</span>
-                    </div>
-                    <div className="text-[10px] text-white/80 leading-tight">
-                      {t("sharon.seenOnRadio")}
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <TvIcon className="h-7 w-7 text-white/85" strokeWidth={1.4} />
-                    <div className="text-[10px] font-semibold uppercase tracking-wide text-white/90 leading-tight">
-                      {t("sharon.seenOnTv")}
-                    </div>
-                  </div>
-                  <div className="flex items-center gap-2 col-span-2 pt-2 mt-1" style={{ borderTop: `1px solid ${GOLD}22` }}>
-                    <Newspaper className="h-7 w-7 text-white/85" strokeWidth={1.4} />
-                    <div className="text-[10px] font-semibold uppercase tracking-wide text-white/90 leading-tight">
-                      {t("sharon.seenOnPress")}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* FRAMEWORK SECTION */}
-          <div className="relative px-8 lg:px-12 pt-4 pb-10">
-            <div className="flex items-center gap-4 mb-8">
-              <h3
-                className="font-display uppercase tracking-[0.15em] text-lg lg:text-xl whitespace-nowrap"
-                style={{ color: GOLD }}
-              >
-                {t("sharon.frameworkTitle")}
-              </h3>
-              <div
-                className="flex-1 h-px"
-                style={{ background: `linear-gradient(90deg, ${GOLD}88, transparent)` }}
-              />
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-3">
-              {framework.map((f, i) => {
-                const c = STEP_COLORS[i];
-                const isLast = i === framework.length - 1;
-                return (
-                  <div key={i} className="relative">
-                    <div
-                      className="rounded-xl p-5 h-full transition-transform hover:scale-[1.02]"
-                      style={{
-                        background:
-                          "linear-gradient(180deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%)",
-                        border: `1px solid ${c.ring}55`,
-                        boxShadow: `0 0 40px ${c.glow}, inset 0 0 0 1px rgba(255,255,255,0.02)`,
-                      }}
-                    >
-                      <div className="flex items-center gap-3 mb-2">
-                        <div
-                          className="h-9 w-9 rounded-full flex items-center justify-center font-display font-bold text-sm"
-                          style={{
-                            background: c.ring,
-                            color: NAVY_DEEP,
-                            boxShadow: `0 0 20px ${c.glow}`,
-                          }}
-                        >
-                          {i + 1}
-                        </div>
-                        <div className="flex-1">
-                          <div
-                            className="font-display font-bold uppercase tracking-wide text-sm leading-tight"
-                            style={{ color: c.ring }}
-                          >
-                            {f.label}
-                          </div>
-                          <div className="text-[11px] text-white/55 leading-tight mt-0.5">
-                            {f.sub}
-                          </div>
-                        </div>
-                      </div>
-
-                      <div
-                        className="my-4 flex justify-center"
-                        style={{ color: c.ring }}
-                      >
-                        {STEP_ICONS[i]}
-                      </div>
-
-                      <p className={`text-[13px] leading-relaxed text-white/80 ${align}`}>
-                        {f.text}
-                      </p>
-                    </div>
-
-                    {/* Dashed connector arrow */}
-                    {!isLast && (
-                      <div
-                        className={`hidden lg:flex absolute top-1/2 -translate-y-1/2 ${
-                          isRtl ? "-left-3" : "-right-3"
-                        } items-center z-10`}
-                        aria-hidden
-                      >
-                        <Arrow
-                          className="h-5 w-5"
-                          style={{ color: `${GOLD}cc` }}
-                          strokeWidth={1.5}
-                        />
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* BOTTOM ROW: takeaways + audience + book/quote */}
-          <div className="relative px-8 lg:px-12 pb-12 grid grid-cols-1 lg:grid-cols-[1.1fr_1fr_1fr] gap-8">
-            {/* Takeaways */}
-            <div>
-              <h3
-                className="font-display uppercase tracking-[0.15em] text-base lg:text-lg mb-5"
-                style={{ color: GOLD }}
-              >
-                {t("sharon.takeawayTitle")}
-              </h3>
-              <ul className="space-y-3">
-                {takeaways.map((it, i) => (
-                  <li key={i} className="flex gap-3">
-                    <CheckCircle2
-                      className="h-5 w-5 mt-0.5 shrink-0"
-                      style={{ color: "#3b82f6" }}
-                      strokeWidth={1.8}
-                    />
-                    <p className={`text-[13.5px] leading-relaxed ${align}`}>
-                      <span className="font-semibold text-white">
-                        {it.title}:
-                      </span>{" "}
-                      <span className="text-white/75 italic">{it.text}</span>
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Target Audience */}
-            <div>
-              <h3
-                className="font-display uppercase tracking-[0.15em] text-base lg:text-lg mb-5"
-                style={{ color: GOLD }}
-              >
-                {t("sharon.audienceTitle")}
-              </h3>
-              <ul className="space-y-3.5">
-                {audience.map((a, i) => (
-                  <li key={i} className="flex gap-3">
-                    <div
-                      className="h-9 w-9 rounded-full flex items-center justify-center shrink-0"
-                      style={{
-                        background: "rgba(59,130,246,0.12)",
-                        border: `1px solid ${STEP_COLORS[i % 4].ring}66`,
-                        color: STEP_COLORS[i % 4].ring,
-                      }}
-                    >
-                      {AUDIENCE_ICONS[i]}
-                    </div>
-                    <div className={align}>
-                      <div className="font-semibold text-white text-[14px] leading-tight">
-                        {a.title}
-                      </div>
-                      <div className="text-[12.5px] text-white/65 italic leading-snug">
-                        {a.text}
-                      </div>
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Book + Quote */}
-            <div className="flex flex-col gap-6">
-              <div className="flex items-center gap-5">
-                {/* Book cover */}
-                <div
-                  className="relative shrink-0"
-                  style={{ width: 110, perspective: "800px" }}
+                    width: 92,
+                    height: 92,
+                    boxShadow: `0 0 0 6px ${NAVY}, 0 0 30px ${CYAN}55`,
+                    borderColor: CYAN,
+                    ringColor: CYAN,
+                  } as React.CSSProperties}
                 >
                   <img
-                    src={bookCover}
-                    alt={t("sharon.bookName")}
+                    src={sharonImg}
+                    alt="Sharon Aizen"
+                    className="h-full w-full object-cover"
+                    style={{ objectPosition: "center 18%" }}
                     loading="lazy"
                     decoding="async"
-                    className="block w-full h-auto rounded-sm"
-                    style={{
-                      boxShadow:
-                        "0 20px 40px -10px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.08), inset -3px 0 0 rgba(0,0,0,0.15)",
-                      transform: "rotateY(-12deg)",
-                      transformOrigin: "left center",
-                    }}
                   />
                 </div>
-
-                <div className={align}>
-                  <div
-                    className="font-display uppercase text-[11px] tracking-[0.2em] mb-1"
-                    style={{ color: GOLD_LIGHT }}
-                  >
-                    {t("sharon.bookTitle")}
-                  </div>
-                  <div className="font-display font-bold text-white text-lg leading-tight">
-                    "{t("sharon.bookName")}"
-                  </div>
-                  <div className="text-[12.5px] text-white/65 italic mt-1.5 leading-snug">
-                    {t("sharon.bookSubtitle")}
-                  </div>
-                </div>
               </div>
+            </header>
+
+            {/* Hero headline */}
+            <div className="mt-10 max-w-[640px]">
+              <h2 className="font-bold leading-[0.95] text-white" style={{ fontSize: "clamp(2.4rem, 6vw, 4.6rem)" }}>
+                {t("sharon.headlineA")}
+                <br />
+                {t("sharon.headlineB")}
+                <span style={{ color: CYAN }}>{t("sharon.headlineAccent")}</span>
+              </h2>
 
               <div
-                className="relative pl-5 pr-5 py-3"
-                style={{
-                  borderLeft: !isRtl ? `2px solid ${GOLD}66` : undefined,
-                  borderRight: isRtl ? `2px solid ${GOLD}66` : undefined,
-                }}
+                className={`mt-6 ${isRtl ? "border-r-2 pr-4" : "border-l-2 pl-4"} text-white/85`}
+                style={{ borderColor: CYAN }}
               >
-                <p
-                  className={`italic text-[14px] leading-relaxed text-white/90 ${align}`}
-                >
-                  <span className="text-2xl leading-none" style={{ color: GOLD }}>
-                    "
-                  </span>
-                  {t("sharon.quote")}
-                  <span className="text-2xl leading-none" style={{ color: GOLD }}>
-                    "
+                <p className="text-base sm:text-lg">
+                  {t("sharon.lede")}
+                  <span className="font-semibold" style={{ color: CYAN_SOFT }}>
+                    {t("sharon.ledeBold")}
                   </span>
                 </p>
-                <div
-                  className={`mt-1 text-[12px] ${align}`}
-                  style={{ color: GOLD_LIGHT }}
-                >
-                  {t("sharon.quoteAuthor")}
+              </div>
+            </div>
+
+            {/* Pull-quote tile */}
+            <div
+              className="relative mt-8 max-w-[640px] rounded-xl px-5 py-5 sm:px-7 sm:py-6"
+              style={{ border: `1px solid ${CYAN}55`, background: `${CYAN}08` }}
+            >
+              <div className="flex items-start gap-4">
+                <Chevrons className="h-9 w-9 shrink-0" style={{ color: CYAN }} strokeWidth={2} />
+                <div className="text-white/95">
+                  <p className="text-base sm:text-lg leading-snug">{t("sharon.pullQuote1")}</p>
+                  <p className="text-base sm:text-lg leading-snug">{t("sharon.pullQuote2")}</p>
+                  <p className="mt-1 text-lg sm:text-xl font-semibold" style={{ color: CYAN_SOFT }}>
+                    {t("sharon.pullQuote3")}
+                  </p>
                 </div>
               </div>
             </div>
-          </div>
 
-          {/* CONTACT STRIP */}
-          <div
-            className="relative px-8 lg:px-12 py-6"
-            style={{
-              borderTop: `1px solid ${GOLD}33`,
-              background: "rgba(4,10,31,0.5)",
-            }}
-          >
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 items-center">
-              <a
-                href="mailto:sharoni@tsinspire.com"
-                className="flex items-center gap-3 group"
-              >
-                <div
-                  className="h-10 w-10 rounded-full flex items-center justify-center shrink-0 transition-colors"
-                  style={{
-                    border: `1px solid ${GOLD}66`,
-                    color: GOLD_LIGHT,
-                  }}
-                >
-                  <Mail className="h-5 w-5" strokeWidth={1.6} />
+            {/* Three columns */}
+            <section className="mt-12 grid grid-cols-1 gap-8 md:grid-cols-[1fr_auto_1fr_auto_1fr] md:gap-6">
+              {/* WHY NOW */}
+              <div>
+                <IconCircle><Clock className="h-6 w-6" strokeWidth={1.4} /></IconCircle>
+                <h3 className="mt-4 text-sm font-semibold tracking-[0.22em]" style={{ color: CYAN }}>
+                  {t("sharon.whyNowTitle")}
+                </h3>
+                <div className="mt-4 space-y-4 text-sm text-white/80 leading-relaxed">
+                  {whyNowItems.map((item, i) => (
+                    <div key={i}>
+                      <p>{item}</p>
+                      {i < whyNowItems.length - 1 && (
+                        <div className="mt-4 h-px w-16" style={{ background: `${CYAN}55` }} />
+                      )}
+                    </div>
+                  ))}
                 </div>
-                <span className="text-white text-sm group-hover:underline">
-                  sharoni@tsinspire.com
+              </div>
+
+              <ColumnDivider />
+
+              {/* WHAT SHARON BRINGS */}
+              <div>
+                <IconCircle><Users className="h-6 w-6" strokeWidth={1.4} /></IconCircle>
+                <h3 className="mt-4 text-sm font-semibold tracking-[0.22em]" style={{ color: CYAN }}>
+                  {t("sharon.bringsTitle")}
+                </h3>
+                <ul className="mt-4 space-y-4 text-sm text-white/85 leading-relaxed">
+                  {bringsItems.map((item, i) => (
+                    <li key={i} className="flex gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" style={{ color: CYAN }} strokeWidth={1.6} />
+                      <span>
+                        {item.bold && <strong className="font-semibold text-white">{item.bold}</strong>}
+                        {item.text}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <ColumnDivider />
+
+              {/* WHAT ORGANIZATIONS GAIN */}
+              <div>
+                <IconCircle><BarChart3 className="h-6 w-6" strokeWidth={1.4} /></IconCircle>
+                <h3 className="mt-4 text-sm font-semibold tracking-[0.22em]" style={{ color: CYAN }}>
+                  {t("sharon.gainsTitle")}
+                </h3>
+                <ul className="mt-4 space-y-4 text-sm text-white/85 leading-relaxed">
+                  {gainsItems.map((item, i) => (
+                    <li key={i} className="flex gap-3">
+                      <CheckCircle2 className="mt-0.5 h-5 w-5 shrink-0" style={{ color: CYAN }} strokeWidth={1.6} />
+                      <span>{item}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </section>
+
+            {/* Offers row */}
+            <section className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              {offers.map((o, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <span style={{ color: CYAN }}>{OFFER_ICONS[i]}</span>
+                  <div>
+                    <div className="text-sm font-semibold tracking-[0.18em] text-white">{o.label}</div>
+                    <div className="text-xs text-white/65">{o.tagline}</div>
+                  </div>
+                </div>
+              ))}
+            </section>
+
+            {/* Contact strip */}
+            <div
+              className="mt-10 flex flex-col items-center justify-center gap-4 rounded-full border px-6 py-4 sm:flex-row sm:gap-10"
+              style={{ borderColor: `${CYAN}55`, background: `${CYAN}08` }}
+            >
+              <a
+                href={`mailto:${t("sharon.email")}`}
+                className="flex items-center gap-3 text-sm text-white/90 hover:text-white sm:text-base"
+              >
+                <span
+                  className="grid h-9 w-9 place-items-center rounded-full"
+                  style={{ border: `1px solid ${CYAN}80`, color: CYAN }}
+                >
+                  <Mail className="h-4 w-4" strokeWidth={1.6} />
                 </span>
+                {t("sharon.email")}
               </a>
-
+              <div className="hidden h-6 w-px sm:block" style={{ background: `${CYAN}55` }} />
               <a
-                href="https://www.sharonaizen.com/"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 group md:justify-center"
+                href={`tel:${(t("sharon.phone") as string).replace(/[^+\d]/g, "")}`}
+                className="flex items-center gap-3 text-sm text-white/90 hover:text-white sm:text-base"
+                dir="ltr"
               >
-                <div
-                  className="h-10 w-10 rounded-full flex items-center justify-center shrink-0"
-                  style={{ border: `1px solid ${GOLD}66`, color: GOLD_LIGHT }}
+                <span
+                  className="grid h-9 w-9 place-items-center rounded-full"
+                  style={{ border: `1px solid ${CYAN}80`, color: CYAN }}
                 >
-                  <Globe className="h-5 w-5" strokeWidth={1.6} />
-                </div>
-                <span className="text-white text-sm group-hover:underline">
-                  www.sharonaizen.com
+                  <Phone className="h-4 w-4" strokeWidth={1.6} />
                 </span>
-              </a>
-
-              <a
-                href="https://www.linkedin.com/in/sharonizen/"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-3 group md:justify-end"
-              >
-                <div
-                  className="h-10 w-10 rounded-full flex items-center justify-center shrink-0"
-                  style={{
-                    background: "#0a66c2",
-                    color: "#fff",
-                  }}
-                >
-                  <Linkedin className="h-5 w-5" strokeWidth={1.8} />
-                </div>
-                <span className="text-white text-sm group-hover:underline">
-                  linkedin.com/in/sharonizen
-                </span>
+                {t("sharon.phone")}
               </a>
             </div>
           </div>
@@ -546,5 +314,14 @@ const Sharon = () => {
     </div>
   );
 };
+
+const IconCircle = ({ children }: { children: React.ReactNode }) => (
+  <span
+    className="grid h-11 w-11 place-items-center rounded-full"
+    style={{ border: `1px solid ${CYAN}80`, color: CYAN }}
+  >
+    {children}
+  </span>
+);
 
 export default Sharon;
