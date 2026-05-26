@@ -1,50 +1,49 @@
 ## Goal
 
-Update the Sharon Aizen page with the latest copy (T.E.D.C methodology, refreshed intro, sharper "Execution Gap" framing) across all 3 languages, and replace her portrait with the newly uploaded photo.
+Redesign `/sharon-aizen` to closely match the attached poster ("From Infrastructure To Results"), and swap in the new portrait. Keep the page as a locked poster (per project memory) — the Japan design system does not apply here.
 
-## 1. Replace the portrait image
+## 1. Swap portrait
 
-- Copy `user-uploads://pic-left-300dpi.png` → `src/assets/sharon-aizen.png` (overwrite the existing file). The component already imports `sharonImg` from this path, so no code change is required for the swap.
-- The existing right-side photo container already feathers the photo into the navy background and positions it `object-cover` with `objectPosition: right center` (LTR) / `left center` (RTL) — the new portrait (subject framed slightly right of center, looking toward viewer-left) will work with both directions without code changes.
+- Copy `user-uploads://pic-rithe-300dpi.png` → `src/assets/sharon-aizen.png` (overwrites). Import path stays the same.
 
-## 2. Update copy in all 3 i18n files
+## 2. Rebuild `src/pages/Sharon.tsx` as a poster
 
-Files: `src/i18n/locales/en.json`, `src/i18n/locales/he.json`, `src/i18n/locales/ja.json` — same `sharon.*` keys in each.
+Single deep-navy hero/poster card containing:
 
-### Keys kept as-is
-`name`, `tagline`, `keynoteLabel`, `keynoteTitle`, `headline1`, `headline2`, `sectionTitle`, `quote`, `quoteAuthor`, `seenOn*`, `bookTitle`, `bookName`, `bookSubtitle`, `contactTitle`, `email`, `website`, `linkedin`, `audienceTitle`, `takeawayTitle`, `audience` array (4 items unchanged), `takeaways` array (4 items unchanged), `badges`, `problemTitle`, `problemIntro`, `problems` array (3 items — already match the new copy).
+- **Top bar**: TSI logo (left) with thin vertical divider, right side shows "SHARON AIZEN" in wide-tracked cyan caps and "Keynote Speaker | Author | Executive Workshops". Circular portrait (new `sharon-aizen.png`) clipped into a cyan-ringed disc on the top-right, overlaying a faint blue dotted-globe + flowing-lines background graphic.
+- **Hero headline**: huge white "From Infrastructure" / "To " + cyan "Results" (display weight).
+- **Lede paragraph**: "Aligning people, decisions, communication, and AI-driven workflows to turn advanced capability into **real execution and measurable results.**" (bold highlight in cyan).
+- **Pull-quote tile** with double chevron »: "Technology creates capability. Human alignment turns it into results. **Execution does.**" — thin cyan border, transparent fill.
+- **3-column block** with thin vertical hairlines between columns, each column has a small circular outline icon + cyan section title + body. Columns:
+  1. **WHY NOW** — clock icon. 3 short paragraphs separated by hairlines.
+  2. **WHAT SHARON BRINGS** — people icon. 3 check-bulleted items (cyan circle-check).
+  3. **WHAT ORGANIZATIONS GAIN** — bar-chart icon. 4 check-bulleted items.
+- **Offer row** (3 columns, icon + label + tagline): Keynotes / Executive Sessions / Leadership Workshops.
+- **Contact strip** (bottom rounded bar): email `sharoni@tsinspire.com` and phone `+972 54 668 8430` with envelope/phone icons separated by a divider.
 
-### Keys updated
+## 3. Background graphic
 
-- `intro1` → reflect the explicit "Infrastructure ➔ Ecosystem ➔ Application" progression and the "missing layer" framing.
-- `intro2` → keep author/radio/TV credentials but tighten to match the new wording ("works with leaders on that crucial missing layer, defining exactly how human capital and AI agents actually operate together…").
-- `solutionTitle` → "The Solution: The T.E.D.C Methodology".
-- `solutionText` → introduces T.E.D.C as a transformative paradigm tailored for integrating deep-tech and AI ecosystems into the human workforce.
-- `frameworkTitle` → "The T.E.D.C Methodology" (replaces "The 4-Step 'Creating Results' Framework for Tech Leaders"). 
-- `framework` array (4 items) → relabel to T / E / D / C with the new descriptions:
-  1. **Thinking** (sub: "Mindset / מחשבה" — keep Hebrew/Japanese sub script per-locale) — analyzing the organizational infrastructure and defining the ultimate sustainable outcome before deploying new technologies.
-  2. **Emotion** (sub: "People / רגש") — psychological safety and emotional intelligence to motivate teams to embrace new tools.
-  3. **Doing** (sub: "Action / פעולה") — application phase, defining daily workflows where humans and AI operate seamlessly together.
-  4. **Communication** (sub: "Scale / תקשורת") — transparent communication ensures the integrated AI infrastructure scales and delivers measurable results.
+Use a pure-CSS / inline-SVG decoration on the right side: a radial dotted-globe (concentric arcs of small dots) plus a few cyan flowing curves. No external asset.
 
-The single-letter T/E/D/C will appear as the step number in the existing colored circles. To preserve the numbered-circle visual, we keep the numeric `{i + 1}` in the circle and surface T/E/D/C as part of the `label` (e.g., label "T — Thinking"). No component code change needed.
+## 4. Localization
 
-### Localization
+Update `sharon.*` keys in `en.json`, `he.json`, `ja.json` to the new copy. Replace old `framework` / `takeaways` / `audience` arrays with the new structures:
 
-- **Hebrew (`he.json`)**: full RTL Hebrew translation of the same content; T.E.D.C labels rendered as "T — חשיבה", "E — רגש", "D — עשייה", "C — תקשורת".
-- **Japanese (`ja.json`)**: equivalent translation; labels "T — 思考", "E — 感情", "D — 実行", "C — 伝達".
+- `whyNow.items` (3 strings)
+- `brings.items` (3 strings, first phrase bold-rendered via a fixed prefix)
+- `gains.items` (4 strings)
+- `offers` (3 × {label, tagline})
+- `pullQuote` and `lede` strings, plus `headline1`/`headline2` ("From Infrastructure" / "To Results"), `subline` ("Keynote Speaker | Author | Executive Workshops").
 
-## 3. No component / styling changes
+Hebrew and Japanese mirror the structure with translated copy; RTL is already handled by the page wrapper.
 
-`src/pages/Sharon.tsx` already renders every key listed above. The mobile cube fix, the book image, the photo mask, the framework grid, takeaways, audience, contact strip — all stay intact.
+## 5. Styling notes
+
+- Palette: deep navy `#040a1f` → `#0a1535` gradient bg, cyan accent `#00B6E6` (project TSI cyan), white text, muted slate for body.
+- Use existing TSI cyan token where possible; keep the page self-contained (no global token changes).
+- Fully responsive: 3-column block collapses to 1 column on mobile; portrait shrinks; background graphic hides below `md`.
+- Remove now-unused imports (book cover, old step icons, framework rendering).
 
 ## Out of scope
 
-- No changes to layout, colors, fonts, or the book cover image.
-- No changes to any other page or to the navigation.
-- No new keys/components added.
-
-## Technical notes
-
-- Hebrew/Japanese files mirror the English `sharon.*` shape exactly — same key names and array lengths — to keep `t(...returnObjects)` calls consistent.
-- After the image overwrite, Vite will pick up the new asset on next build automatically (filename unchanged).
+- No nav/footer changes, no other pages, no new routes, no design-system token edits.
