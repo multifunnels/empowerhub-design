@@ -142,20 +142,17 @@ const Sharon = () => {
                   </p>
                 </div>
                 <div
-                  className="relative shrink-0 overflow-hidden rounded-full"
+                  className="relative shrink-0 overflow-hidden rounded-full h-32 w-32 sm:h-44 sm:w-44 lg:h-56 lg:w-56"
                   style={{
-                    width: 92,
-                    height: 92,
-                    border: `2px solid ${CYAN}`,
-                    boxShadow: `0 0 0 4px ${NAVY}, 0 0 30px ${CYAN}55`,
+                    border: `3px solid ${CYAN}`,
+                    boxShadow: `0 0 0 6px ${NAVY}, 0 0 60px ${CYAN}66`,
                   }}
                 >
                   <img
                     src={sharonImg}
                     alt="Sharon Aizen"
                     className="h-full w-full object-cover"
-                    style={{ objectPosition: "center 18%" }}
-                    loading="lazy"
+                    style={{ objectPosition: "center 20%" }}
                     decoding="async"
                   />
                 </div>
