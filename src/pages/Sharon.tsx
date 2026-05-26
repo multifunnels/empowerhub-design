@@ -1,7 +1,6 @@
 import { useTranslation } from "react-i18next";
 import { SiteNav } from "@/components/SiteNav";
 import sharonImg from "@/assets/sharon-aizen.png";
-import tsiLogo from "/tsi-logo.png";
 import {
   Clock,
   Users,
@@ -119,7 +118,7 @@ const Sharon = () => {
             <header className="flex items-start justify-between gap-4">
               <div className="flex items-center gap-4">
                 <img
-                  src={tsiLogo}
+                  src="/tsi-logo.png"
                   alt="TSI — Think Success Inspire"
                   className="h-14 w-auto sm:h-16"
                 />
