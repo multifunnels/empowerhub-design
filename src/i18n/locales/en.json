@@ -343,119 +343,40 @@
   },
   "sharon": {
     "name": "SHARON AIZEN",
-    "tagline": "Global Innovation Strategist | Author | Keynote Speaker",
-    "badges": [
-      {
-        "title": "Acclaimed Author",
-        "subtitle": "of \"Creating Results\""
-      },
-      {
-        "title": "Radio Host",
-        "subtitle": "\"Creating Results\" on 106FM"
-      },
-      {
-        "title": "Featured Expert",
-        "subtitle": "Israeli TV & National Press"
-      }
+    "subline": "Keynote Speaker  |  Author  |  Executive Workshops",
+    "headlineA": "From Infrastructure",
+    "headlineB": "To ",
+    "headlineAccent": "Results",
+    "lede": "Aligning people, decisions, communication, and AI-driven workflows to turn advanced capability into ",
+    "ledeBold": "real execution and measurable results.",
+    "pullQuote1": "Technology creates capability.",
+    "pullQuote2": "Human alignment turns it into results.",
+    "pullQuote3": "Execution does.",
+    "whyNowTitle": "WHY NOW",
+    "whyNowItems": [
+      "Organizations are investing heavily in AI, technology, infrastructure, and transformation.",
+      "What they build matters.",
+      "But impact depends on execution: how leaders decide, how people align, and how communication turns capability into action."
     ],
-    "keynoteLabel": "Keynote Topic",
-    "keynoteTitle": "Bridging the Gap Between Vision and Reality",
-    "sectionTitle": "Turning AI Infrastructure into Real Results through Human-AI Synchronization",
-    "intro1": "In today's hyper-accelerated tech landscape, the foundation of success relies on three critical pillars: infrastructure, ecosystem, and application. Many organizations invest heavily in these areas, yet struggle to turn those investments into real, measurable results inside the organization. The true bottleneck is no longer the technology itself, but the \"missing layer\" — the synchronization between people and the new systems they use.",
-    "intro2": "acclaimed author of \"Creating Results\" and a leading expert in strategic execution, tackles this critical gap. As a highly sought-after public figure, she hosts the popular \"Creating Results\" radio show on 106FM and is frequently featured as a professional expert on Israeli television and in the national press. Sharon works with leaders on that crucial missing layer, defining exactly how human capital and AI agents actually operate together — aligning people, decisions, and behaviors in a way that is tailored to the organization's culture and goals, so true adoption happens and maximum results follow.",
-    "quote": "Innovation without execution is merely a hallucination. Let's build the bridge to reality.",
-    "quoteAuthor": "— Sharon Aizen",
-    "problemTitle": "The Core Problem: The \"Execution Gap\"",
-    "problemIntro": "Many tech startups and corporate R&D teams fall into the \"Execution Gap.\" They possess brilliant technological capabilities but struggle with:",
-    "problems": [
-      {
-        "title": "The Missing Layer",
-        "text": "Deploying advanced AI infrastructure and applications without a clear strategy for how human capital and AI will collaborate — leading to organizational friction and low adoption."
-      },
-      {
-        "title": "Loss of Focus",
-        "text": "Getting distracted by \"shiny object syndrome\" instead of aligning the tech ecosystem with core business goals."
-      },
-      {
-        "title": "Resource Drain",
-        "text": "Wasting critical funding and time on unstructured development cycles that fail to translate into practical reality."
-      }
+    "bringsTitle": "WHAT SHARON BRINGS",
+    "bringsItems": [
+      { "bold": "14+ years", "text": " partnering with large-scale organizations, leadership teams, and public-sector bodies." },
+      { "bold": "Trusted by", "text": " Israel Aerospace Industries, ELTA Systems, Israel Ministry of Defense, and government ministries." },
+      { "bold": "", "text": "A cross-organizational perspective that identifies where strategy gets blocked, what slows execution, and how leaders move complexity into clear action." }
     ],
-    "solutionTitle": "The Solution: The T.E.D.C Methodology",
-    "solutionText": "Sharon Aizen introduces her proprietary T.E.D.C methodology — a transformative paradigm tailored for integrating deep-tech and AI ecosystems into the human workforce. Designed to reflect the logical progression from mind to action, vital for global implementations, the framework ensures a seamless path to results.",
-    "frameworkTitle": "The T.E.D.C Methodology",
-    "framework": [
-      {
-        "label": "T — Thinking",
-        "sub": "Mindset / מחשבה",
-        "text": "Innovation begins with a focused mindset. It's about analyzing the organizational infrastructure and defining the ultimate sustainable outcome before deploying new technologies."
-      },
-      {
-        "label": "E — Emotion",
-        "sub": "People / רגש",
-        "text": "Technology is built and used by people. Disruptive innovation within any ecosystem requires psychological safety and emotional intelligence to motivate teams to embrace new tools."
-      },
-      {
-        "label": "D — Doing",
-        "sub": "Action / פעולה",
-        "text": "Moving from concepts to precise actions. This step focuses on the application phase — meticulously defining the daily workflows where humans and AI operate seamlessly together."
-      },
-      {
-        "label": "C — Communication",
-        "sub": "Scale / תקשורת",
-        "text": "The ultimate mechanism that binds the process together. Transparent communication ensures that the integrated AI infrastructure truly scales and delivers measurable results."
-      }
+    "gainsTitle": "WHAT ORGANIZATIONS GAIN",
+    "gainsItems": [
+      "Clearer leadership decisions.",
+      "Stronger alignment between people and AI-driven workflows.",
+      "Communication that moves strategy into execution.",
+      "A clearer path from advanced capability to measurable results."
     ],
-    "takeawayTitle": "What the Audience Will Take Away",
-    "takeaways": [
-      {
-        "title": "A Practical Blueprint",
-        "text": "A clear, actionable 4-step methodology to bridge the gap between infrastructure investments and human adoption."
-      },
-      {
-        "title": "Enhanced Decision-Making",
-        "text": "Tools to quickly align AI applications with organizational behavior and culture."
-      },
-      {
-        "title": "Leadership Resilience",
-        "text": "Strategies to foster a robust, execution-focused culture that can adapt to rapid technological shifts."
-      },
-      {
-        "title": "Investor Confidence",
-        "text": "A framework that helps founders and leaders present a credible, structured path to ROI through human-AI synchronization."
-      }
+    "offers": [
+      { "label": "KEYNOTES", "tagline": "Inspire. Challenge. Activate." },
+      { "label": "EXECUTIVE SESSIONS", "tagline": "Align. Decide. Execute." },
+      { "label": "LEADERSHIP WORKSHOPS", "tagline": "Build Capability. Drive Results." }
     ],
-    "audienceTitle": "Target Audience",
-    "audience": [
-      {
-        "title": "Corporate Innovation & R&D Leads",
-        "text": "Seeking to turn AI infrastructure into real results inside their organizations."
-      },
-      {
-        "title": "Startup Founders & Entrepreneurs",
-        "text": "Looking to scale their ideas into viable products with high user adoption."
-      },
-      {
-        "title": "Venture Capitalists & Investors",
-        "text": "Interested in frameworks that guarantee better execution and technology adoption from their portfolio companies."
-      },
-      {
-        "title": "Tech Ecosystem Builders",
-        "text": "Policymakers and hub directors aiming to foster practical success within their communities."
-      }
-    ],
-    "contactTitle": "Contact & Booking",
-    "email": "Email",
-    "website": "Website",
-    "linkedin": "LinkedIn",
-    "headline1": "BRIDGING THE GAP",
-    "headline2": "BETWEEN VISION AND REALITY",
-    "seenOnTitle": "AS SEEN & HEARD ON",
-    "seenOnRadio": "Creating Results Radio Show",
-    "seenOnTv": "Israeli Television",
-    "seenOnPress": "National Press",
-    "bookTitle": "Author of the Best-Selling Book",
-    "bookName": "CREATING RESULTS",
-    "bookSubtitle": "A transformative guide to achieving extraordinary results in life and business."
+    "email": "sharoni@tsinspire.com",
+    "phone": "+972 54 668 8430"
   }
 }
