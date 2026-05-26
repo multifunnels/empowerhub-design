@@ -142,14 +142,13 @@ const Sharon = () => {
                   </p>
                 </div>
                 <div
-                  className="relative shrink-0 overflow-hidden rounded-full ring-2 sm:ring-[3px]"
+                  className="relative shrink-0 overflow-hidden rounded-full"
                   style={{
                     width: 92,
                     height: 92,
-                    boxShadow: `0 0 0 6px ${NAVY}, 0 0 30px ${CYAN}55`,
-                    borderColor: CYAN,
-                    ringColor: CYAN,
-                  } as React.CSSProperties}
+                    border: `2px solid ${CYAN}`,
+                    boxShadow: `0 0 0 4px ${NAVY}, 0 0 30px ${CYAN}55`,
+                  }}
                 >
                   <img
                     src={sharonImg}
