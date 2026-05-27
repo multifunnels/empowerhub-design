@@ -343,39 +343,57 @@
   },
   "sharon": {
     "name": "SHARON AIZEN",
-    "subline": "Keynote Speaker  |  Author  |  Executive Workshops",
-    "headlineA": "From Infrastructure",
-    "headlineB": "To ",
-    "headlineAccent": "Results",
-    "lede": "Aligning people, decisions, communication, and AI-driven workflows to turn advanced capability into ",
-    "ledeBold": "real execution and measurable results.",
+    "subline": "Speaker & Inspirational Voice  |  Author  |  Workshops for Leaders & Teams",
+    "headlineA": "Developing leadership.",
+    "headlineB": "Strengthening teams.",
+    "headlineAccent": "Creating results.",
+    "lede": "Practical tools from the world of leading organizations, brought into the education system. ",
+    "ledeBold": "To strengthen leaders and teaching teams, improve communication, build resilience, and create a culture of success.",
     "pullQuote1": "Technology creates capability.",
     "pullQuote2": "Human alignment turns it into results.",
-    "pullQuote3": "Execution does.",
-    "whyNowTitle": "WHY NOW",
+    "pullQuote3": "Execution is what makes the difference.",
+    "whyNowTitle": "WHY NOW?",
     "whyNowItems": [
-      "Organizations are investing heavily in AI, technology, infrastructure, and transformation.",
-      "What they build matters.",
-      "But impact depends on execution: how leaders decide, how people align, and how communication turns capability into action."
+      "The education system faces major challenges: overload, burnout, constant change, and uncertainty.",
+      "What we build today will define our impact tomorrow.",
+      "But impact is measured by execution: how leaders decide, how people connect, and how capability becomes results."
     ],
-    "bringsTitle": "WHAT SHARON BRINGS",
+    "bringsTitle": "WHAT I BRING",
     "bringsItems": [
-      { "bold": "14+ years", "text": " partnering with large-scale organizations, leadership teams, and public-sector bodies." },
-      { "bold": "Trusted by", "text": " Israel Aerospace Industries, ELTA Systems, Israel Ministry of Defense, and government ministries." },
-      { "bold": "", "text": "A cross-organizational perspective that identifies where strategy gets blocked, what slows execution, and how leaders move complexity into clear action." }
+      { "bold": "14+ years of experience", "text": " accompanying large organizations, executive teams, and leadership groups across the public and private sectors." },
+      { "bold": "", "text": "Proven work with Israel Aerospace Industries, ELTA, the Ministry of Defense, government ministries, and leading companies." },
+      { "bold": "", "text": "A systemic, business-minded perspective that connects strategy to execution." },
+      { "bold": "", "text": "Expertise in communication, leadership, influence, resilience, change, and the practical application of tools." }
     ],
-    "gainsTitle": "WHAT ORGANIZATIONS GAIN",
+    "gainsTitle": "WHAT YOUR ORGANIZATION GAINS",
     "gainsItems": [
-      "Clearer leadership decisions.",
-      "Stronger alignment between people and AI-driven workflows.",
+      "Sharper leadership decisions.",
+      "A stronger connection between people and result-driven processes.",
       "Communication that moves strategy into execution.",
-      "A clearer path from advanced capability to measurable results."
+      "Upgraded management capabilities, updated for the AI era.",
+      "An organizational culture of action, innovation, and success."
     ],
+    "offersTitle": "HOW I CAN HELP",
     "offers": [
-      { "label": "KEYNOTES", "tagline": "Inspire. Challenge. Activate." },
-      { "label": "EXECUTIVE SESSIONS", "tagline": "Align. Decide. Execute." },
-      { "label": "LEADERSHIP WORKSHOPS", "tagline": "Build Capability. Drive Results." }
+      { "label": "Leadership & Executive Development", "description": "Tools for management, communication, decision-making, and leading teams." },
+      { "label": "Team Day Workshops for Teachers", "description": "Communication, motivation, resilience, and coping with burnout." },
+      { "label": "Whole-School Lectures", "description": "Inspiration, practice, and a shared language connecting people to results." },
+      { "label": "Lectures & Workshops for Students", "description": "Self-confidence, leadership, communication, influence, and tools for life." },
+      { "label": "Kickoff & Inspiration Days", "description": "Beginning of the year, end of the year, teacher's day, or a school event." },
+      { "label": "Annual Programs & Professional Development", "description": "Ongoing guidance, tailored programs, and long-term implementation." }
     ],
+    "trustedByTitle": "EXPERIENCE WITH LEADING ORGANIZATIONS",
+    "trustedBy": [
+      "Israel Aerospace Industries",
+      "ELTA Systems",
+      "Ministry of Defense",
+      "Government Ministries",
+      "Public & Private Organizations"
+    ],
+    "ctaTitle": "Ready to take your team to the next level?",
+    "ctaBody": "I'd be glad to talk and build a program tailored to your needs.",
+    "ctaButton": "Let's create results together",
+    "website": "www.tsinspire.com",
     "email": "sharoni@tsinspire.com",
     "phone": "+972 54 668 8430"
   }

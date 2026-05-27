@@ -10,9 +10,13 @@ import {
   GraduationCap,
   Mail,
   Phone,
+  Globe,
   CheckCircle2,
   ChevronsRight,
   ChevronsLeft,
+  UserCog,
+  CalendarDays,
+  Target,
 } from "lucide-react";
 
 // Poster palette (locked — do not theme through tokens)
@@ -80,7 +84,7 @@ const ColumnDivider = () => (
 );
 
 type BringItem = { bold: string; text: string };
-type OfferItem = { label: string; tagline: string };
+type OfferItem = { label: string; description: string };
 
 const Sharon = () => {
   const { t, i18n } = useTranslation();
@@ -91,11 +95,15 @@ const Sharon = () => {
   const bringsItems = t("sharon.bringsItems", { returnObjects: true }) as BringItem[];
   const gainsItems = t("sharon.gainsItems", { returnObjects: true }) as string[];
   const offers = t("sharon.offers", { returnObjects: true }) as OfferItem[];
+  const trustedBy = t("sharon.trustedBy", { returnObjects: true }) as string[];
 
   const OFFER_ICONS = [
-    <Mic className="h-7 w-7" strokeWidth={1.4} />,
-    <Presentation className="h-7 w-7" strokeWidth={1.4} />,
-    <GraduationCap className="h-7 w-7" strokeWidth={1.4} />,
+    <UserCog className="h-6 w-6" strokeWidth={1.4} />,
+    <Users className="h-6 w-6" strokeWidth={1.4} />,
+    <Mic className="h-6 w-6" strokeWidth={1.4} />,
+    <GraduationCap className="h-6 w-6" strokeWidth={1.4} />,
+    <CalendarDays className="h-6 w-6" strokeWidth={1.4} />,
+    <Target className="h-6 w-6" strokeWidth={1.4} />,
   ];
 
   return (
@@ -161,10 +169,11 @@ const Sharon = () => {
 
             {/* Hero headline */}
             <div className="mt-10 max-w-[640px]">
-              <h2 className="font-bold leading-[0.95] text-white" style={{ fontSize: "clamp(2.4rem, 6vw, 4.6rem)" }}>
+              <h2 className="font-bold leading-[1.05] text-white" style={{ fontSize: "clamp(2.2rem, 5.4vw, 4.2rem)" }}>
                 {t("sharon.headlineA")}
                 <br />
                 {t("sharon.headlineB")}
+                <br />
                 <span style={{ color: CYAN }}>{t("sharon.headlineAccent")}</span>
               </h2>
 
@@ -258,22 +267,67 @@ const Sharon = () => {
               </div>
             </section>
 
-            {/* Offers row */}
-            <section className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-              {offers.map((o, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <span style={{ color: CYAN }}>{OFFER_ICONS[i]}</span>
-                  <div>
-                    <div className="text-sm font-semibold tracking-[0.18em] text-white">{o.label}</div>
-                    <div className="text-xs text-white/65">{o.tagline}</div>
+            {/* How I can help — 6 offers */}
+            <section className="mt-14">
+              <div className="flex items-center gap-4">
+                <div className="h-px flex-1" style={{ background: `${CYAN}40` }} />
+                <h3 className="text-sm font-semibold tracking-[0.22em] sm:text-base" style={{ color: CYAN }}>
+                  {t("sharon.offersTitle")}
+                </h3>
+                <div className="h-px flex-1" style={{ background: `${CYAN}40` }} />
+              </div>
+
+              <div className="mt-8 grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2 lg:grid-cols-3">
+                {offers.map((o, i) => (
+                  <div key={i} className="flex flex-col items-start gap-3">
+                    <IconCircle>{OFFER_ICONS[i] ?? <Presentation className="h-6 w-6" strokeWidth={1.4} />}</IconCircle>
+                    <div className="text-sm font-semibold text-white sm:text-base">{o.label}</div>
+                    <p className="text-xs leading-relaxed text-white/70 sm:text-sm">{o.description}</p>
                   </div>
+                ))}
+              </div>
+            </section>
+
+            {/* Trusted-by strip + CTA */}
+            <section className="mt-14 grid grid-cols-1 gap-8 lg:grid-cols-[1.4fr_1fr] lg:gap-10">
+              <div>
+                <div className="flex items-center gap-4">
+                  <div className="h-px flex-1" style={{ background: `${CYAN}40` }} />
+                  <h4 className="text-xs font-semibold tracking-[0.2em] sm:text-sm" style={{ color: CYAN }}>
+                    {t("sharon.trustedByTitle")}
+                  </h4>
+                  <div className="h-px flex-1" style={{ background: `${CYAN}40` }} />
                 </div>
-              ))}
+                <ul className="mt-5 flex flex-wrap items-center justify-center gap-x-6 gap-y-3 text-sm text-white/85">
+                  {trustedBy.map((name, i) => (
+                    <li key={i} className="flex items-center gap-6">
+                      {i > 0 && <span className="h-4 w-px" style={{ background: `${CYAN}55` }} aria-hidden />}
+                      <span className={i === 0 ? "font-semibold tracking-wide text-white" : ""}>{name}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              <div
+                className="rounded-2xl p-5 sm:p-6"
+                style={{ border: `1px solid ${CYAN}55`, background: `${CYAN}10` }}
+              >
+                <p className="text-sm font-semibold text-white sm:text-base">{t("sharon.ctaTitle")}</p>
+                <p className="mt-2 text-xs text-white/80 sm:text-sm">{t("sharon.ctaBody")}</p>
+                <a
+                  href={`mailto:${t("sharon.email")}`}
+                  className="mt-4 inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition hover:opacity-90"
+                  style={{ background: CYAN, color: NAVY_DEEP }}
+                >
+                  {t("sharon.ctaButton")}
+                  <Chevrons className="h-4 w-4" strokeWidth={2} />
+                </a>
+              </div>
             </section>
 
             {/* Contact strip */}
             <div
-              className="mt-10 flex flex-col items-center justify-center gap-4 rounded-full border px-6 py-4 sm:flex-row sm:gap-10"
+              className="mt-10 flex flex-col items-center justify-center gap-4 rounded-full border px-6 py-4 sm:flex-row sm:gap-8"
               style={{ borderColor: `${CYAN}55`, background: `${CYAN}08` }}
             >
               <a
@@ -301,6 +355,22 @@ const Sharon = () => {
                   <Phone className="h-4 w-4" strokeWidth={1.6} />
                 </span>
                 {t("sharon.phone")}
+              </a>
+              <div className="hidden h-6 w-px sm:block" style={{ background: `${CYAN}55` }} />
+              <a
+                href={`https://${t("sharon.website")}`}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="flex items-center gap-3 text-sm text-white/90 hover:text-white sm:text-base"
+                dir="ltr"
+              >
+                <span
+                  className="grid h-9 w-9 place-items-center rounded-full"
+                  style={{ border: `1px solid ${CYAN}80`, color: CYAN }}
+                >
+                  <Globe className="h-4 w-4" strokeWidth={1.6} />
+                </span>
+                {t("sharon.website")}
               </a>
             </div>
           </div>
