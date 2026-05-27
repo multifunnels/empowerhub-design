@@ -169,10 +169,11 @@ const Sharon = () => {
 
             {/* Hero headline */}
             <div className="mt-10 max-w-[640px]">
-              <h2 className="font-bold leading-[0.95] text-white" style={{ fontSize: "clamp(2.4rem, 6vw, 4.6rem)" }}>
+              <h2 className="font-bold leading-[1.05] text-white" style={{ fontSize: "clamp(2.2rem, 5.4vw, 4.2rem)" }}>
                 {t("sharon.headlineA")}
                 <br />
                 {t("sharon.headlineB")}
+                <br />
                 <span style={{ color: CYAN }}>{t("sharon.headlineAccent")}</span>
               </h2>
 
