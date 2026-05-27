@@ -10,9 +10,13 @@ import {
   GraduationCap,
   Mail,
   Phone,
+  Globe,
   CheckCircle2,
   ChevronsRight,
   ChevronsLeft,
+  UserCog,
+  CalendarDays,
+  Target,
 } from "lucide-react";
 
 // Poster palette (locked — do not theme through tokens)
