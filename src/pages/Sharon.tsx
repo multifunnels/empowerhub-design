@@ -84,7 +84,7 @@ const ColumnDivider = () => (
 );
 
 type BringItem = { bold: string; text: string };
-type OfferItem = { label: string; tagline: string };
+type OfferItem = { label: string; description: string };
 
 const Sharon = () => {
   const { t, i18n } = useTranslation();
