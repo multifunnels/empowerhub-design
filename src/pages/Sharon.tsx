@@ -95,11 +95,15 @@ const Sharon = () => {
   const bringsItems = t("sharon.bringsItems", { returnObjects: true }) as BringItem[];
   const gainsItems = t("sharon.gainsItems", { returnObjects: true }) as string[];
   const offers = t("sharon.offers", { returnObjects: true }) as OfferItem[];
+  const trustedBy = t("sharon.trustedBy", { returnObjects: true }) as string[];
 
   const OFFER_ICONS = [
-    <Mic className="h-7 w-7" strokeWidth={1.4} />,
-    <Presentation className="h-7 w-7" strokeWidth={1.4} />,
-    <GraduationCap className="h-7 w-7" strokeWidth={1.4} />,
+    <UserCog className="h-6 w-6" strokeWidth={1.4} />,
+    <Users className="h-6 w-6" strokeWidth={1.4} />,
+    <Mic className="h-6 w-6" strokeWidth={1.4} />,
+    <GraduationCap className="h-6 w-6" strokeWidth={1.4} />,
+    <CalendarDays className="h-6 w-6" strokeWidth={1.4} />,
+    <Target className="h-6 w-6" strokeWidth={1.4} />,
   ];
 
   return (
